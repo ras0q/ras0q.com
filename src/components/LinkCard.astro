@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string
+  body?: string
+  href: string
+  width?: string
+  height?: string
+}
+
+const { title, body, href, width, height } = Astro.props
+---
+
+<div class="link-card">
+  <a href={href}>
+    <h2>
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p>{body}</p>
+  </a>
+</div>
+<style define:vars={{ width, height }}>
+  .link-card {
+    width: var(--width, 20rem);
+    height: var(--height, auto);
+    display: flex;
+    padding: 1.5rem;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    > a {
+      width: 100%;
+      text-decoration: none;
+      color: white;
+    }
+  }
+</style>

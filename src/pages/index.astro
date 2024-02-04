@@ -1,8 +1,32 @@
 ---
+import LinkCard from '../components/LinkCard.astro'
 
+const sampleCards = [
+  {
+    title: 'foo',
+    body: 'Hello, world!',
+    href: 'https://example.com',
+    top: Math.random() * 1000,
+    left: Math.random() * 1000,
+  },
+  {
+    title: 'bar',
+    body: 'Hello, world!',
+    href: 'https://example.com',
+    top: Math.random() * 1000,
+    left: Math.random() * 1000,
+  },
+  {
+    title: 'baz',
+    body: 'Hello, world!',
+    href: 'https://example.com',
+    top: Math.random() * 1000,
+    left: Math.random() * 1000,
+  },
+]
 ---
 
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,5 +36,22 @@
   </head>
   <body>
     <h1>Astro</h1>
+    <div class="stack-1" style={{ position: 'relative' }}>
+      {
+        sampleCards.map((c) => {
+          return (
+            <div>
+              <LinkCard title={c.title} body={c.body} href={c.href} />
+            </div>
+          )
+        })
+      }
+    </div>
   </body>
 </html>
+
+<style>
+  .stack-1 > * + * {
+    margin-top: 1rem;
+  }
+</style>
