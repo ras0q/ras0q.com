@@ -27,7 +27,7 @@ const getRandomPx = (min: number, max: number) => {
               id={`subdomain_${i}`}
               class="draggable"
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: getRandomPx(0, 80),
                 left: getRandomPx(0, 40),
               }}
@@ -47,7 +47,7 @@ const getRandomPx = (min: number, max: number) => {
               id={`subpath_${i}`}
               class="draggable"
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: getRandomPx(0, 80),
                 left: getRandomPx(60, 100),
               }}
@@ -63,15 +63,15 @@ const getRandomPx = (min: number, max: number) => {
 
 <style>
   body {
-    width: 100svw;
+    /* width: 100svw;
     height: 100svh;
-    overflow: hidden;
+    overflow: hidden; */
   }
 
   .container {
     > h1 {
       font-size: 5rem;
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -92,7 +92,7 @@ const getRandomPx = (min: number, max: number) => {
     inertia: true,
     modifiers: [
       interact.modifiers.restrictRect({
-        restriction: 'body',
+        restriction: 'viewport',
         endOnly: true,
       }),
     ],
