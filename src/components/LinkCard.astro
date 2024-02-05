@@ -21,8 +21,8 @@ const { title, body, href, width, height } = Astro.props
 </div>
 <style define:vars={{ width, height }}>
   .link-card {
-    width: var(--width, 20rem);
-    height: var(--height, auto);
+    width: var(--width);
+    height: var(--height);
     display: flex;
     padding: 1.5rem;
     background-color: #333;
