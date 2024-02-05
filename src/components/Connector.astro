@@ -66,6 +66,7 @@ const { start, end, curve = 100 } = Astro.props
       svg.style.height = `${Math.abs(ey - sy)}px`
       svg.style.position = 'absolute'
       svg.style.overflow = 'visible'
+      svg.style.zIndex = '-1'
 
       path.setAttribute(
         'd',
