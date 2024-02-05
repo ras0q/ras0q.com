@@ -31,15 +31,31 @@ const { start, end, curve = 100 } = Astro.props
       const end = document.getElementById(endId)
       if (!start || !end) return
 
+      const svg = this.querySelector('svg') as SVGSVGElement
+      const path = this.querySelector('svg > path') as SVGPathElement
+      if (!svg || !path) return
+
+      const curve = Number(curveStr)
+
+      const observer = new ResizeObserver(() => {
+        this.fit(start, end, svg, path, curve)
+      })
+      observer.observe(document.body)
+    }
+
+    fit(
+      start: HTMLElement,
+      end: HTMLElement,
+      svg: SVGSVGElement,
+      path: SVGPathElement,
+      curve: number,
+    ) {
       const startRect = start.getBoundingClientRect()
       const endRect = end.getBoundingClientRect()
       const sx = startRect.right
       const sy = startRect.top + startRect.height / 2
       const ex = endRect.left
       const ey = endRect.top + endRect.height / 2
-
-      const svg = this.querySelector('svg') as SVGSVGElement
-      if (!svg) return
       svg.setAttribute('viewBox', `${sx} ${sy} ${Math.abs(ex - sx)} ${Math.abs(ey - sy)}`)
       svg.style.left = `${sx}px`
       svg.style.top = `${sy}px`
@@ -48,9 +64,6 @@ const { start, end, curve = 100 } = Astro.props
       svg.style.position = 'absolute'
       svg.style.overflow = 'visible'
 
-      const path = this.querySelector('svg > path') as SVGPathElement
-      if (!path) return
-      const curve = Number(curveStr)
       path.setAttribute(
         'd',
         `M ${sx} ${sy} C ${sx + curve} ${sy}, ${ex - curve}, ${ey}, ${ex}, ${ey}`,
