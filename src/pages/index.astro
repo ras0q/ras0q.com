@@ -1,4 +1,5 @@
 ---
+import Connector from '../components/Connector.astro'
 import LinkCard from '../components/LinkCard.astro'
 
 const sampleCards = [
@@ -38,31 +39,40 @@ const sampleCards = [
     <div class="container">
       <div class="stack-1" style={{ position: 'relative' }}>
         {
-          sampleCards.map((c) => (
-            <div>
+          sampleCards.map((c, i) => (
+            <div id={`subdomain_${i}`}>
               <LinkCard title={c.title} body={c.body} href={c.href} />
             </div>
           ))
         }
       </div>
-      <h1>ras0q.com</h1>
+      <h1 id="domain">ras0q.com</h1>
       <div class="stack-1">
         {
-          sampleCards.map((c) => (
-            <div>
+          sampleCards.map((c, i) => (
+            <div id={`subpath_${i}`}>
               <LinkCard title={c.title} body={c.body} href={c.href} />
             </div>
           ))
         }
       </div>
     </div>
+
+    {
+      sampleCards.map((_, i) => (
+        <>
+          <Connector start={`subdomain_${i}`} end={`domain`} />
+          <Connector start={`domain`} end={`subpath_${i}`} />
+        </>
+      ))
+    }
   </body>
 </html>
 
 <style>
   .container {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    display: flex;
+    justify-content: space-between;
 
     > h1 {
       display: flex;
