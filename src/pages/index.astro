@@ -62,6 +62,7 @@ const subPaths = [
           <>
             <div
               id={`subdomain_${i}`}
+              class="draggable"
               style={{
                 position: 'absolute',
                 top: c.top,
@@ -81,6 +82,7 @@ const subPaths = [
             <Connector start="domain" end={`subpath_${i}`} />
             <div
               id={`subpath_${i}`}
+              class="draggable"
               style={{
                 position: 'absolute',
                 top: c.top,
@@ -113,3 +115,23 @@ const subPaths = [
     margin-top: 1rem;
   }
 </style>
+
+<script>
+  import interact from 'interactjs'
+
+  interact('.draggable').draggable({
+    inertia: true,
+    listeners: {
+      move(event) {
+        const target = event.target
+        const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+        const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+        target.style.transform = `translate(${x}px, ${y}px)`
+
+        target.setAttribute('data-x', x)
+        target.setAttribute('data-y', y)
+      },
+    },
+  })
+</script>
