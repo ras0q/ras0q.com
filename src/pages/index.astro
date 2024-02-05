@@ -1,48 +1,11 @@
 ---
 import Connector from '../components/Connector.astro'
 import LinkCard from '../components/LinkCard.astro'
+import { domain, subDomains, subRoutes } from '../libs/consts'
 
-const subDomains = [
-  {
-    title: 'foo',
-    body: 'Hello, world!',
-    href: 'https://example.com',
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 20}%`,
-  },
-  {
-    title: 'bar',
-    body: 'Hello, world!',
-    href: 'https://example.com',
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 20}%`,
-  },
-  {
-    title: 'baz',
-    body: 'Hello, world!',
-    href: 'https://example.com',
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 20}%`,
-  },
-]
-
-const subPaths = [
-  {
-    href: '/about',
-    top: `${Math.random() * 100}%`,
-    left: `${40 + Math.random() * 40}%`,
-  },
-  {
-    href: '/blog',
-    top: `${Math.random() * 100}%`,
-    left: `${40 + Math.random() * 40}%`,
-  },
-  {
-    href: '/contact',
-    top: `${Math.random() * 100}%`,
-    left: `${40 + Math.random() * 40}%`,
-  },
-]
+const getRandomPx = (min: number, max: number) => {
+  return `${Math.floor(Math.random() * (max - min + 1)) + min}%`
+}
 ---
 
 <html lang="ja">
@@ -58,18 +21,18 @@ const subPaths = [
       <h1 id="domain">ras0q.com</h1>
 
       {
-        subDomains.map((c, i) => (
+        subDomains.map((d, i) => (
           <>
             <div
               id={`subdomain_${i}`}
               class="draggable"
               style={{
                 position: 'absolute',
-                top: c.top,
-                left: c.left,
+                top: getRandomPx(0, 80),
+                left: getRandomPx(0, 40),
               }}
             >
-              <LinkCard title={c.title} body={c.body} href={c.href} />
+              <LinkCard title={d.name} body={d.description} href={`https://${d.name}.${domain}`} />
             </div>
             <Connector start={`subdomain_${i}`} end="domain" />
           </>
@@ -77,7 +40,7 @@ const subPaths = [
       }
 
       {
-        subPaths.map((c, i) => (
+        subRoutes.map((r, i) => (
           <>
             <Connector start="domain" end={`subpath_${i}`} />
             <div
@@ -85,11 +48,11 @@ const subPaths = [
               class="draggable"
               style={{
                 position: 'absolute',
-                top: c.top,
-                left: c.left,
+                top: getRandomPx(0, 80),
+                left: getRandomPx(60, 100),
               }}
             >
-              <LinkCard title={c.href} href={c.href} />
+              <LinkCard title={r.path} body={r.description} href={r.path} />
             </div>
           </>
         ))
