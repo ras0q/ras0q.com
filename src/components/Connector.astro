@@ -59,11 +59,13 @@ const { start, end, curve = 100 } = Astro.props
       const sy = startRect.top + startRect.height / 2
       const ex = endRect.left
       const ey = endRect.top + endRect.height / 2
-      svg.setAttribute('viewBox', `${sx} ${sy} ${Math.abs(ex - sx)} ${Math.abs(ey - sy)}`)
+      const dx = Math.abs(ex - sx)
+      const dy = Math.abs(ey - sy)
+      svg.setAttribute('viewBox', `${sx} ${sy} ${dx} ${dy}`)
       svg.style.left = `${sx}px`
       svg.style.top = `${sy}px`
-      svg.style.width = `${Math.abs(ex - sx)}px`
-      svg.style.height = `${Math.abs(ey - sy)}px`
+      svg.style.width = `${dx}px`
+      svg.style.height = `${dy}px`
       svg.style.position = 'absolute'
       svg.style.overflow = 'visible'
       svg.style.zIndex = '-1'
