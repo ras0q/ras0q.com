@@ -8,14 +8,8 @@ interface Props {
 const { start, end, curve = 100 } = Astro.props
 ---
 
-<astro-connector
-  data-start={start}
-  data-end={end}
-  data-curve={curve}
-  width="100svw"
-  height="100svh"
->
-  <svg version="1.1" width="100svw" height="100svh" viewBox="0 0 100svw 100svh">
+<astro-connector data-start={start} data-end={end} data-curve={curve}>
+  <svg version="1.1">
     <path fill="none" stroke="#000" stroke-width="5px"></path>
   </svg>
 </astro-connector>
@@ -44,6 +38,16 @@ const { start, end, curve = 100 } = Astro.props
       const ex = endRect.left
       const ey = endRect.top + endRect.height / 2
 
+      const svg = this.querySelector('svg') as SVGSVGElement
+      if (!svg) return
+      svg.setAttribute('viewBox', `${sx} ${sy} ${Math.abs(ex - sx)} ${Math.abs(ey - sy)}`)
+      svg.style.left = `${sx}px`
+      svg.style.top = `${sy}px`
+      svg.style.width = `${Math.abs(ex - sx)}px`
+      svg.style.height = `${Math.abs(ey - sy)}px`
+      svg.style.position = 'absolute'
+      svg.style.overflow = 'visible'
+
       const path = this.querySelector('svg > path') as SVGPathElement
       if (!path) return
       const curve = Number(curveStr)
@@ -51,11 +55,6 @@ const { start, end, curve = 100 } = Astro.props
         'd',
         `M ${sx} ${sy} C ${sx + curve} ${sy}, ${ex - curve}, ${ey}, ${ex}, ${ey}`,
       )
-      path.style.position = 'absolute'
-      path.style.left = `${Math.min(sx, ex)}px`
-      path.style.top = `${Math.min(sy, ey)}px`
-      path.style.width = `${Math.abs(ex - sx) + 5}px`
-      path.style.height = `${Math.abs(ey - sy) + 5}px`
     }
   }
 
