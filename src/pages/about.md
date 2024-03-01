@@ -5,7 +5,7 @@ title: About | ras0q.com
 
 # Hi👋 I'm `@ras0q` 😉😉😉
 
-Please call me **Ras (らす) or Kira** !
+Please call me **Ras or Kira** !
 
 ## Introduction
 
