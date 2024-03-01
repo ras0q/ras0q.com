@@ -2,10 +2,6 @@
 import Connector from '../components/Connector.astro'
 import LinkCard from '../components/LinkCard.astro'
 import { domain, subDomains, subRoutes } from '../libs/consts'
-
-const getRandomPx = (min: number, max: number) => {
-  return `${Math.floor(Math.random() * (max - min + 1)) + min}%`
-}
 ---
 
 <html lang="ja">
@@ -28,8 +24,8 @@ const getRandomPx = (min: number, max: number) => {
               class="draggable"
               style={{
                 position: 'fixed',
-                top: getRandomPx(0, 80),
-                left: getRandomPx(0, 40),
+                top: `${10 + (90 * i) / subDomains.length}%`,
+                left: '10%',
               }}
             >
               <LinkCard title={d.name} body={d.description} href={`https://${d.name}.${domain}`} />
@@ -48,8 +44,8 @@ const getRandomPx = (min: number, max: number) => {
               class="draggable"
               style={{
                 position: 'fixed',
-                top: getRandomPx(0, 80),
-                left: getRandomPx(60, 100),
+                top: `${10 + (90 * i) / subRoutes.length}%`,
+                right: '10%',
               }}
             >
               <LinkCard title={r.path} body={r.description} href={r.path} />
