@@ -1,0 +1,36 @@
+---
+interface Props {
+  pageTitle: string
+}
+
+const { pageTitle }: Props = Astro.props
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+  html {
+    font-family: 'Inter';
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  body {
+    margin: 0 auto;
+    width: 100%;
+    line-height: 1.5;
+  }
+</style>

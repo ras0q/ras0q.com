@@ -1,73 +1,61 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro'
 import Connector from '../components/Connector.astro'
 import LinkCard from '../components/LinkCard.astro'
 import { domain, subDomains, subRoutes } from '../libs/consts'
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1 id="domain">ras0q.com</h1>
+<BaseLayout pageTitle="ras0q.com">
+  <h1 id="domain">ras0q.com</h1>
 
-      {
-        subDomains.map((d, i) => (
-          <>
-            <div
-              id={`subdomain_${i}`}
-              class="draggable"
-              style={{
-                position: 'fixed',
-                top: `${10 + (90 * i) / subDomains.length}%`,
-                left: '10%',
-              }}
-            >
-              <LinkCard title={d.name} body={d.description} href={`https://${d.name}.${domain}`} />
-            </div>
-            <Connector start={`subdomain_${i}`} end="domain" />
-          </>
-        ))
-      }
+  {
+    subDomains.map((d, i) => (
+      <>
+        <div
+          id={`subdomain_${i}`}
+          class="draggable"
+          style={{
+            position: 'fixed',
+            top: `${10 + (90 * i) / subDomains.length}%`,
+            left: '10%',
+          }}
+        >
+          <LinkCard title={d.name} body={d.description} href={`https://${d.name}.${domain}`} />
+        </div>
+        <Connector start={`subdomain_${i}`} end="domain" />
+      </>
+    ))
+  }
 
-      {
-        subRoutes.map((r, i) => (
-          <>
-            <Connector start="domain" end={`subpath_${i}`} />
-            <div
-              id={`subpath_${i}`}
-              class="draggable"
-              style={{
-                position: 'fixed',
-                top: `${10 + (90 * i) / subRoutes.length}%`,
-                right: '10%',
-              }}
-            >
-              <LinkCard title={r.path} body={r.description} href={r.path} />
-            </div>
-          </>
-        ))
-      }
-    </div>
-  </body>
-</html>
+  {
+    subRoutes.map((r, i) => (
+      <>
+        <Connector start="domain" end={`subpath_${i}`} />
+        <div
+          id={`subpath_${i}`}
+          class="draggable"
+          style={{
+            position: 'fixed',
+            top: `${10 + (90 * i) / subRoutes.length}%`,
+            right: '10%',
+          }}
+        >
+          <LinkCard title={r.path} body={r.description} href={r.path} />
+        </div>
+      </>
+    ))
+  }
+</BaseLayout>
 
 <style>
-  .container {
-    > h1 {
-      font-size: 5rem;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-    }
+  h1 {
+    font-size: 5rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
   }
 </style>
 
