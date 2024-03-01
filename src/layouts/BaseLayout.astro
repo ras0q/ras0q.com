@@ -21,7 +21,7 @@ const { pageTitle }: Props = Astro.props
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap');
   html {
     font-family: 'Inter';
     font-optical-sizing: auto;
@@ -30,6 +30,20 @@ const { pageTitle }: Props = Astro.props
 
   body {
     margin: 0 auto;
+    padding: 5rem;
     line-height: 1.5;
+
+    a {
+      color: #0070f3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    code {
+      font-family: 'Source Code Pro';
+      background-color: #f4f4f4;
+      border-radius: 0.25rem;
+      padding: 0 0.25rem;
+    }
   }
 </style>

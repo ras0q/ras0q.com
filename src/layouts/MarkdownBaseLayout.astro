@@ -1,0 +1,15 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+interface Props {
+  frontmatter: {
+    title: string
+  }
+}
+
+const { title } = Astro.props.frontmatter
+---
+
+<BaseLayout pageTitle={title}>
+  <slot />
+</BaseLayout>
