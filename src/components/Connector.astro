@@ -50,6 +50,8 @@ const { start, end, curve = 100 } = Astro.props
         this.fit(start, end, svg, path, curve)
       })
       resizeObserver.observe(document.body)
+      resizeObserver.observe(start)
+      resizeObserver.observe(end)
     }
 
     fit(
