@@ -8,6 +8,9 @@ dependencies:
   '@astrojs/check':
     specifier: ^0.4.1
     version: 0.4.1(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.3.3)
+  '@catppuccin/palette':
+    specifier: ^1.1.0
+    version: 1.1.0
   astro:
     specifier: ^4.3.2
     version: 4.3.2(typescript@5.3.3)
@@ -394,6 +397,10 @@ packages:
       '@babel/helper-string-parser': 7.23.4
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@catppuccin/palette@1.1.0:
+    resolution: {integrity: sha512-ef3q3/MfdKc2EmUWiLrBrBKLFMGbukC1mzJh+QPINP7ovmUQycImSRjf/LMD4ti9lcu9NrYv4++zeoO2Z5lPxQ==}
     dev: false
 
   /@emmetio/abbreviation@2.3.3:
