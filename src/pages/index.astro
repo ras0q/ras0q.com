@@ -88,7 +88,9 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         if (!insideParentX(el, left) || !insideParentY(el, top)) return
 
         el.style.left = `${left}px`
+        el.style.right = 'auto'
         el.style.top = `${top}px`
+        el.style.bottom = 'auto'
         el.style.position = 'fixed'
         el.draggable = false
         el.setPointerCapture(e.pointerId)
