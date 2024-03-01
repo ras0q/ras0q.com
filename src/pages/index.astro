@@ -76,27 +76,53 @@ const getRandomPx = (min: number, max: number) => {
 </style>
 
 <script>
-  import interact from 'interactjs'
+  const insideParentX = (el: HTMLElement, left: number) => {
+    return left >= 0 && left + el.offsetWidth <= window.innerWidth
+  }
 
-  interact('.draggable').draggable({
-    inertia: true,
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'viewport',
-        endOnly: true,
-      }),
-    ],
-    listeners: {
-      move(event) {
-        const target = event.target
-        const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-        const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+  const insideParentY = (el: HTMLElement, top: number) => {
+    return top >= 0 && top + el.offsetHeight <= window.innerHeight
+  }
 
-        target.style.transform = `translate(${x}px, ${y}px)`
+  document.querySelectorAll<HTMLElement>('.draggable').forEach((el) => {
+    el.addEventListener('pointermove', (e) => {
+      if (e.buttons === 1) {
+        const left = el.offsetLeft + e.movementX
+        const top = el.offsetTop + e.movementY
+        if (!insideParentX(el, left) || !insideParentY(el, top)) return
 
-        target.setAttribute('data-x', x)
-        target.setAttribute('data-y', y)
-      },
-    },
+        el.style.left = `${left}px`
+        el.style.top = `${top}px`
+        el.style.position = 'fixed'
+        el.draggable = false
+        el.setPointerCapture(e.pointerId)
+
+        // save last movement for inertia
+        el.dataset.lastMovementX = e.movementX.toString()
+        el.dataset.lastMovementY = e.movementY.toString()
+      }
+    })
+
+    el.addEventListener('pointerup', (e) => {
+      el.releasePointerCapture(e.pointerId)
+
+      // inertia
+      let vx = parseInt(el.dataset.lastMovementX!)
+      let vy = parseInt(el.dataset.lastMovementY!)
+      const inertia = 0.9
+      const friction = 1
+      const interval = setInterval(() => {
+        if (Math.abs(vx) < friction && Math.abs(vy) < friction) {
+          clearInterval(interval)
+        } else {
+          vx *= inertia
+          vy *= inertia
+          const left = el.offsetLeft + vx
+          const top = el.offsetTop + vy
+          insideParentX(el, left) ? (el.style.left = `${left}px`) : (vx *= -1)
+          insideParentY(el, top) ? (el.style.top = `${top}px`) : (vy *= -1)
+        }
+      }, 1000 / 60)
+    })
   })
 </script>
