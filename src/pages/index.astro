@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Connector from '../components/Connector.astro'
+import ConnectProvider from '../components/ConnectProvider.astro'
 import LinkCard from '../components/LinkCard.astro'
 import { domain, subDomains, subRoutes } from '../libs/consts'
 ---
@@ -10,9 +10,8 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
 
   {
     subDomains.map((d, i) => (
-      <>
+      <ConnectProvider toSelector="#domain">
         <div
-          id={`subdomain_${i}`}
           class="draggable"
           style={{
             position: 'fixed',
@@ -22,17 +21,14 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         >
           <LinkCard title={d.name} body={d.description} href={`https://${d.name}.${domain}`} />
         </div>
-        <Connector start={`subdomain_${i}`} end="domain" />
-      </>
+      </ConnectProvider>
     ))
   }
 
   {
     subRoutes.map((r, i) => (
-      <>
-        <Connector start="domain" end={`subpath_${i}`} />
+      <ConnectProvider toSelector="#domain" direction="rightToLeft">
         <div
-          id={`subpath_${i}`}
           class="draggable"
           style={{
             position: 'fixed',
@@ -42,7 +38,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         >
           <LinkCard title={r.path} body={r.description} href={r.path} />
         </div>
-      </>
+      </ConnectProvider>
     ))
   }
 </BaseLayout>
