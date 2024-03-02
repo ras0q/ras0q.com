@@ -73,20 +73,22 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
 </style>
 
 <script>
-  const insideParentX = (el: HTMLElement, left: number) => {
-    return left >= 0 && left + el.offsetWidth <= window.innerWidth
-  }
-
-  const insideParentY = (el: HTMLElement, top: number) => {
-    return top >= 0 && top + el.offsetHeight <= window.innerHeight
+  const nowOffset = (el: HTMLElement) => {
+    return {
+      nowLeft: el.offsetLeft,
+      nowTop: el.offsetTop,
+    }
   }
 
   document.querySelectorAll<HTMLElement>('.draggable').forEach((el) => {
+    // save original position for damping oscillation
+    const { nowLeft: originalLeft, nowTop: originalTop } = nowOffset(el)
+
     el.addEventListener('pointermove', (e) => {
       if (e.buttons === 1) {
-        const left = el.offsetLeft + e.movementX
-        const top = el.offsetTop + e.movementY
-        if (!insideParentX(el, left) || !insideParentY(el, top)) return
+        const { nowLeft, nowTop } = nowOffset(el)
+        const left = nowLeft + e.movementX
+        const top = nowTop + e.movementY
 
         el.style.left = `${left}px`
         el.style.right = 'auto'
@@ -95,33 +97,31 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         el.style.position = 'fixed'
         el.draggable = false
         el.setPointerCapture(e.pointerId)
-
-        // save last movement for inertia
-        el.dataset.lastMovementX = e.movementX.toString()
-        el.dataset.lastMovementY = e.movementY.toString()
       }
     })
 
     el.addEventListener('pointerup', (e) => {
       el.releasePointerCapture(e.pointerId)
 
-      // inertia
-      let vx = parseInt(el.dataset.lastMovementX!)
-      let vy = parseInt(el.dataset.lastMovementY!)
-      const inertia = 0.9
-      const friction = 1
-      const interval = setInterval(() => {
-        if (Math.abs(vx) < friction && Math.abs(vy) < friction) {
-          clearInterval(interval)
-        } else {
-          vx *= inertia
-          vy *= inertia
-          const left = el.offsetLeft + vx
-          const top = el.offsetTop + vy
-          insideParentX(el, left) ? (el.style.left = `${left}px`) : (vx *= -1)
-          insideParentY(el, top) ? (el.style.top = `${top}px`) : (vy *= -1)
-        }
-      }, 1000 / 60)
+      // return to original position with damping oscillation
+      const omega = 0.01
+      const b = 0.01
+      const f = 0.1
+      const { nowLeft: left0, nowTop: top0 } = nowOffset(el)
+      const ts0 = performance.now()
+      const returnToOriginal = (ts: DOMHighResTimeStamp) => {
+        const { nowLeft, nowTop } = nowOffset(el)
+        if (Math.abs(nowLeft - originalLeft) < f && Math.abs(nowTop - originalTop) < f) return
+
+        const t = ts - ts0
+        const dx = (left0 - originalLeft) * Math.exp(-b * t) * Math.cos(omega * t)
+        const dy = (top0 - originalTop) * Math.exp(-b * t) * Math.cos(omega * t)
+        el.style.left = `${originalLeft + dx}px`
+        el.style.top = `${originalTop + dy}px`
+
+        requestAnimationFrame(returnToOriginal)
+      }
+      requestAnimationFrame(returnToOriginal)
     })
   })
 </script>
