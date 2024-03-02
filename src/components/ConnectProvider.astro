@@ -37,7 +37,6 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
     constructor() {
       super()
       const { toSelector, direction: directionStr, curve: curveStr } = this.dataset
-      console.log(this.dataset, toSelector, directionStr, curveStr)
       if (!toSelector || !directionStr) return
 
       const _fromElement = this.querySelector<HTMLElement>('.connector-start > *')
