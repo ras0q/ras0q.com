@@ -10,12 +10,12 @@ interface Props {
 const { title, body, href, width, height } = Astro.props
 ---
 
-<div>
+<span>
   <a href={href} draggable="false">
     <h2>{title} →</h2>
     <p>{body}</p>
   </a>
-</div>
+</span>
 
 <style define:vars={{ width, height }}>
   a {
