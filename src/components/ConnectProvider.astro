@@ -85,9 +85,10 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
       const ry = rightRect.top + rightRect.height / 2
       const w = Math.abs(rx - lx)
       const h = Math.abs(ry - ly)
-      svg.setAttribute('viewBox', `${lx}, ${ly}, ${w}, ${h}`)
+      const top = Math.min(ly, ry)
+      svg.setAttribute('viewBox', `${lx}, ${top}, ${w}, ${h}`)
       svg.style.left = `${lx}px`
-      svg.style.top = `${ly}px`
+      svg.style.top = `${top}px`
       svg.style.width = `${w}px`
       svg.style.height = `${h}px`
 
