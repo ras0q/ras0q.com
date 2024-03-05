@@ -10,16 +10,18 @@ interface Props {
 const { title, body, href, width, height } = Astro.props
 ---
 
-<a href={href} draggable="false" class="link-card">
-  <h2>{title} →</h2>
-  <p>{body}</p>
-</a>
+<div>
+  <a href={href} draggable="false">
+    <h2>{title} →</h2>
+    <p>{body}</p>
+  </a>
+</div>
 
 <style define:vars={{ width, height }}>
-  .link-card {
+  a {
     width: var(--width);
     height: var(--height);
-    display: block;
+    display: inline-block;
     padding: 1.5rem;
     background-color: var(--ctp-macchiato-base);
     color: var(--ctp-macchiato-text);
