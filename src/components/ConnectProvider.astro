@@ -85,7 +85,7 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
       const ey = endRect.top + endRect.height / 2
       const dx = Math.abs(ex - sx)
       const dy = Math.abs(ey - sy)
-      svg.setAttribute('viewBox', `${sx} ${sy} ${dx} ${dy}`)
+      svg.setAttribute('viewBox', `${sx}, ${sy}, ${dx}, ${dy}`)
       svg.style.left = `${sx}px`
       svg.style.top = `${sy}px` // FIXME: if sy > ey, <path> will be out of the <svg>
       svg.style.width = `${dx}px`
@@ -93,7 +93,7 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
 
       path.setAttribute(
         'd',
-        `M ${sx} ${sy} C ${sx + curve} ${sy}, ${ex - curve}, ${ey}, ${ex}, ${ey}`,
+        `M ${sx}, ${sy} C ${sx + curve}, ${sy}, ${ex - curve}, ${ey}, ${ex}, ${ey}`,
       )
     }
   }
