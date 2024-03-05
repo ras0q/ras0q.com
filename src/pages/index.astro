@@ -121,8 +121,8 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
 
       // return to original position with damping oscillation
       const omega = 0.01
-      const b = 0.01
-      const f = 0.1
+      const b = 0.001
+      const f = 0.01
       const { nowLeft: left0, nowTop: top0 } = nowOffset(el)
       const ts0 = performance.now()
       const returnToOriginal = (ts: DOMHighResTimeStamp) => {
