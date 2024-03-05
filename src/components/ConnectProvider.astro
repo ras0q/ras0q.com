@@ -77,23 +77,23 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
       path: SVGPathElement,
       curve: number,
     ) {
-      const startRect = leftElement.getBoundingClientRect()
-      const endRect = rightElement.getBoundingClientRect()
-      const sx = startRect.right
-      const sy = startRect.top + startRect.height / 2
-      const ex = endRect.left
-      const ey = endRect.top + endRect.height / 2
-      const dx = Math.abs(ex - sx)
-      const dy = Math.abs(ey - sy)
-      svg.setAttribute('viewBox', `${sx}, ${sy}, ${dx}, ${dy}`)
-      svg.style.left = `${sx}px`
-      svg.style.top = `${sy}px` // FIXME: if sy > ey, <path> will be out of the <svg>
-      svg.style.width = `${dx}px`
-      svg.style.height = `${dy}px`
+      const leftRect = leftElement.getBoundingClientRect()
+      const rightRect = rightElement.getBoundingClientRect()
+      const lx = leftRect.right
+      const ly = leftRect.top + leftRect.height / 2
+      const rx = rightRect.left
+      const ry = rightRect.top + rightRect.height / 2
+      const w = Math.abs(rx - lx)
+      const h = Math.abs(ry - ly)
+      svg.setAttribute('viewBox', `${lx}, ${ly}, ${w}, ${h}`)
+      svg.style.left = `${lx}px`
+      svg.style.top = `${ly}px`
+      svg.style.width = `${w}px`
+      svg.style.height = `${h}px`
 
       path.setAttribute(
         'd',
-        `M ${sx}, ${sy} C ${sx + curve}, ${sy}, ${ex - curve}, ${ey}, ${ex}, ${ey}`,
+        `M ${lx}, ${ly} C ${lx + curve}, ${ly}, ${rx - curve}, ${ry}, ${rx}, ${ry}`,
       )
     }
   }
