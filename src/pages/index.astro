@@ -14,7 +14,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         <div
           class="draggable"
           style={{
-            position: 'fixed',
+            position: 'absolute',
             top: `${10 + (90 * i) / subDomains.length}%`,
             left: '10%',
           }}
@@ -31,7 +31,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         <div
           class="draggable"
           style={{
-            position: 'fixed',
+            position: 'absolute',
             top: `${10 + (90 * i) / subRoutes.length}%`,
             right: '10%',
           }}
@@ -47,8 +47,10 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
   :global(body) {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    width: 100vw;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   #domain {
@@ -56,7 +58,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
     margin: 0;
     user-select: none;
 
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -108,7 +110,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         el.style.right = 'auto'
         el.style.top = `${top}px`
         el.style.bottom = 'auto'
-        el.style.position = 'fixed'
+        el.style.position = 'absolute'
         el.draggable = false
         el.setPointerCapture(e.pointerId)
       }

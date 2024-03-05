@@ -20,7 +20,8 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
 <style>
   astro-connect-provider {
     > svg {
-      position: fixed;
+      position: absolute;
+      overflow: visible;
       z-index: -1;
 
       > path {
@@ -86,12 +87,9 @@ const { toSelector, direction = 'leftToRight', curve = 100 } = Astro.props
       const dy = Math.abs(ey - sy)
       svg.setAttribute('viewBox', `${sx} ${sy} ${dx} ${dy}`)
       svg.style.left = `${sx}px`
-      svg.style.top = `${sy}px`
+      svg.style.top = `${sy}px` // FIXME: if sy > ey, <path> will be out of the <svg>
       svg.style.width = `${dx}px`
       svg.style.height = `${dy}px`
-      svg.style.position = 'fixed'
-      svg.style.overflow = 'visible'
-      svg.style.zIndex = '-1'
 
       path.setAttribute(
         'd',
