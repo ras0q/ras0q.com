@@ -113,6 +113,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         el.style.position = 'absolute'
         el.draggable = false
         el.setPointerCapture(e.pointerId)
+        window.scroll(left, top)
       }
     })
 
