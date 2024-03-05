@@ -4,6 +4,9 @@ interface Props {
 }
 
 const { pageTitle }: Props = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://ras0q.com")
+const socialImageURL = new URL('/ogp.png', Astro.url)
 ---
 
 <html lang="ja">
@@ -12,6 +15,12 @@ const { pageTitle }: Props = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <title>{pageTitle}</title>
   </head>
   <body>
