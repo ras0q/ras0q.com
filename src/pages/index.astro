@@ -47,6 +47,10 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
   :global(body) {
     margin: 0;
     padding: 0;
+  }
+
+  :root {
+    touch-action: none;
 
     &::-webkit-scrollbar {
       display: none;
@@ -113,7 +117,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         el.style.position = 'absolute'
         el.draggable = false
         el.setPointerCapture(e.pointerId)
-        window.scroll(left, top)
+        // window.scroll(left, top)
       }
     })
 
