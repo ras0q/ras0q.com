@@ -15,8 +15,8 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
           class="draggable"
           style={{
             position: 'absolute',
-            top: `${10 + (90 * i) / subDomains.length}%`,
-            left: '10%',
+            top: `${100 + 200 * i}px`,
+            left: '50px',
           }}
         >
           <LinkCard title={d.name} body={d.description} href={`https://${d.name}.${domain}`} />
@@ -32,8 +32,8 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
           class="draggable"
           style={{
             position: 'absolute',
-            top: `${10 + (90 * i) / subRoutes.length}%`,
-            right: '10%',
+            top: `${100 + 200 * i}px`,
+            left: '850px',
           }}
         >
           <LinkCard title={r.path} body={r.description} href={r.path} />
@@ -50,8 +50,6 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
   }
 
   :root {
-    touch-action: none;
-
     &::-webkit-scrollbar {
       display: none;
     }
@@ -63,16 +61,11 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
     user-select: none;
 
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 300px;
+    left: 300px;
 
     display: inline-block;
-    background: linear-gradient(
-      120deg,
-      var(--ctp-latte-lavender),
-      var(--ctp-latte-pink)
-    );
+    background: linear-gradient(120deg, var(--ctp-latte-lavender), var(--ctp-latte-pink));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -109,6 +102,7 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         const left = nowLeft + e.movementX
         const top = nowTop + e.movementY
 
+        document.body.style.touchAction = 'none'
         el.style.left = `${left}px`
         el.style.right = 'auto'
         el.style.top = `${top}px`
@@ -116,11 +110,11 @@ import { domain, subDomains, subRoutes } from '../libs/consts'
         el.style.position = 'absolute'
         el.draggable = false
         el.setPointerCapture(e.pointerId)
-        // window.scroll(left, top)
       }
     })
 
     el.addEventListener('pointerup', (e) => {
+      document.body.style.touchAction = 'auto'
       el.releasePointerCapture(e.pointerId)
 
       // return to original position with damping oscillation
