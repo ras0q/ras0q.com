@@ -5,12 +5,13 @@ interface Props {
   href: string
   width?: string
   height?: string
+  class?: string
 }
 
-const { title, body, href, width, height } = Astro.props
+const { title, body, href, width, height, class: className } = Astro.props
 ---
 
-<span>
+<span class={className}>
   <a href={href} draggable="false">
     <h2>{title} →</h2>
     <p>{body}</p>
