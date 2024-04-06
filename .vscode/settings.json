@@ -14,8 +14,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.documentSelectors": ["**/*.astro"],
+  "eslint.experimental.useFlatConfig": true,
   "markdownlint.config": {
     "MD025": false
-  }
+  },
+  "prettier.documentSelectors": ["**/*.astro"]
 }
