@@ -5,7 +5,7 @@ interface Props {
 
 const { pageTitle }: Props = Astro.props
 
-const site = Astro.site ?? "https://ras0q.com"
+const site = Astro.site ?? 'https://ras0q.com'
 const canonicalURL = new URL(Astro.url.pathname, site)
 const socialImageURL = new URL('/ogp.png', site)
 ---
