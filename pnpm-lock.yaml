@@ -12,8 +12,8 @@ dependencies:
     specifier: 1.1.1
     version: 1.1.1
   astro:
-    specifier: 4.5.16
-    version: 4.5.16(typescript@5.4.4)
+    specifier: 4.5.17
+    version: 4.5.17(typescript@5.4.4)
   remark-breaks:
     specifier: 4.0.0
     version: 4.0.0
@@ -1302,8 +1302,8 @@ packages:
       - typescript
     dev: true
 
-  /astro@4.5.16(typescript@5.4.4):
-    resolution: {integrity: sha512-1nOVsMq2OJiXnG6gO0Y77vTAboGN9nLQSy/8SGazq4h6x+alzbsMbQbArBgvaLzOSUXD0m91XLs3D8bOSuavrQ==}
+  /astro@4.5.17(typescript@5.4.4):
+    resolution: {integrity: sha512-fr5onZt7MOe+6v08Ub1AZL9eUVo4f0y0nvL55AFMpVG2bMM1/omcwAH1uU2mkvwMLLtcd4RDtYz4mtJzd54Nfw==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1356,7 +1356,7 @@ packages:
       prompts: 2.4.2
       rehype: 13.0.1
       resolve: 1.22.8
-      semver: 7.5.4
+      semver: 7.6.0
       shiki: 1.2.3
       string-width: 7.1.0
       strip-ansi: 7.1.0
@@ -3162,7 +3162,7 @@ packages:
     engines: {node: '>=10'}
     requiresBuild: true
     dependencies:
-      semver: 7.5.4
+      semver: 7.6.0
     dev: false
     optional: true
 
@@ -3713,6 +3713,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.6.0:
     resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
@@ -3730,7 +3731,7 @@ packages:
       detect-libc: 2.0.2
       node-addon-api: 6.1.0
       prebuild-install: 7.1.1
-      semver: 7.5.4
+      semver: 7.6.0
       simple-get: 4.0.1
       tar-fs: 3.0.4
       tunnel-agent: 0.6.0
