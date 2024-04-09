@@ -21,7 +21,7 @@
   "dependencies": {
     "@astrojs/check": "0.5.10",
     "@catppuccin/palette": "1.1.1",
-    "astro": "4.5.16",
+    "astro": "4.5.17",
     "remark-breaks": "4.0.0",
     "typescript": "5.4.4"
   },
