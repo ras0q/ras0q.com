@@ -12,8 +12,8 @@ dependencies:
     specifier: 1.1.1
     version: 1.1.1
   astro:
-    specifier: 4.6.2
-    version: 4.6.2(typescript@5.4.5)
+    specifier: 4.6.3
+    version: 4.6.3(typescript@5.4.5)
   remark-breaks:
     specifier: 4.0.0
     version: 4.0.0
@@ -1306,8 +1306,8 @@ packages:
       - typescript
     dev: true
 
-  /astro@4.6.2(typescript@5.4.5):
-    resolution: {integrity: sha512-Kl+Wd7MJMQFnI3+V0JxF4HPbs8M67eltqQgtztReOwDLSl0VnOd39rM61W/3LEh10FZ0F13xrDgtdgfXzuLVbg==}
+  /astro@4.6.3(typescript@5.4.5):
+    resolution: {integrity: sha512-p2zs1Gac+ysdc/yFCoc8pOXTZE5L9foAtmqUzUVL22WX68bYTRovd03GRs7J1MDpwzsl9kJtlK20ROpjyIFpNw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     dependencies:
