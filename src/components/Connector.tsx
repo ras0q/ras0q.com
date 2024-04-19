@@ -1,16 +1,15 @@
-import type { ReactNode, RefObject } from 'react'
+import type { RefObject } from 'react'
 import { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 
 type Props = {
-  children: ReactNode
   fromRef: RefObject<HTMLElement>
   toRef: RefObject<HTMLElement>
   direction?: 'leftToRight' | 'rightToLeft'
   curve?: number
 }
 
-export default ({ children, fromRef, toRef, direction = 'leftToRight', curve = 50 }: Props) => {
+export default ({ fromRef, toRef, direction = 'leftToRight', curve = 50 }: Props) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
 
@@ -63,10 +62,6 @@ export default ({ children, fromRef, toRef, direction = 'leftToRight', curve = 5
     }
   }, [fromRef, toRef, direction, curve])
 
-  const Container = styled.div`
-    width: fit-content;
-  `
-
   const SVG = styled.svg`
     position: absolute;
     overflow: visible;
@@ -80,11 +75,8 @@ export default ({ children, fromRef, toRef, direction = 'leftToRight', curve = 5
   `
 
   return (
-    <Container>
-      <SVG ref={svgRef} version="1.1">
-        <Path ref={pathRef} />
-      </SVG>
-      <span ref={fromRef}>{children}</span>
-    </Container>
+    <SVG ref={svgRef} version="1.1">
+      <Path ref={pathRef} />
+    </SVG>
   )
 }

@@ -1,4 +1,4 @@
-import ConnectProvider from '../components/ConnectProvider.tsx'
+import Connector from './Connector.tsx'
 import LinkCard from '../components/LinkCard.tsx'
 import { domain, subDomains, subRoutes } from '../libs/consts'
 import { useEffect, useRef, type RefObject } from 'react'
@@ -107,14 +107,15 @@ export default () => {
     <Container>
       <CardsContainer>
         {subDomains.map(({ name, description }, i) => (
-          <ConnectProvider key={name} fromRef={subDomainsRefs[i]} toRef={titleRef}>
+          <>
+            <Connector key={name} fromRef={subDomainsRefs[i]} toRef={titleRef} />
             <LinkCard
               aRef={subDomainsRefs[i]}
               title={name}
               body={description}
               href={`https://${name}.${domain}`}
             />
-          </ConnectProvider>
+          </>
         ))}
       </CardsContainer>
 
@@ -122,14 +123,15 @@ export default () => {
 
       <CardsContainer>
         {subRoutes.map(({ path, description }, i) => (
-          <ConnectProvider
-            key={path}
-            fromRef={subRoutesRefs[i]}
-            toRef={titleRef}
-            direction="rightToLeft"
-          >
+          <>
+            <Connector
+              key={path}
+              fromRef={subRoutesRefs[i]}
+              toRef={titleRef}
+              direction="rightToLeft"
+            />
             <LinkCard aRef={subRoutesRefs[i]} title={path} body={description} href={path} />
-          </ConnectProvider>
+          </>
         ))}
       </CardsContainer>
     </Container>

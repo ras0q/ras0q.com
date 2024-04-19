@@ -10,6 +10,7 @@ type Props = {
 
 export default ({ aRef, title, body, href }: Props) => {
   const Container = styled.a`
+    width: fit-content;
     display: inline-block;
     padding: 1.5rem;
     background-color: var(--ctp-macchiato-base);
