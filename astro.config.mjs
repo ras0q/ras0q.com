@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
@@ -6,4 +7,5 @@ export default defineConfig({
     remarkPlugins: ['remark-breaks'],
     extendDefaultPlugins: true,
   },
+  integrations: [react({})],
 })
