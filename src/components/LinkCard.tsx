@@ -18,12 +18,16 @@ export default ({ aRef, title, body, href }: Props) => {
     user-select: none;
     white-space: nowrap;
     cursor: inherit;
+
+    > * {
+      margin: 0;
+    }
   `
 
   return (
     <Container ref={aRef} href={href} draggable="false">
-      <h2 style={{ margin: 0 }}>{title} →</h2>
-      <p style={{ margin: 0 }}>{body}</p>
+      <h2>{title} →</h2>
+      <p>{body}</p>
     </Container>
   )
 }

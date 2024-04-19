@@ -1,5 +1,6 @@
 import type { ReactNode, RefObject } from 'react'
 import { useRef, useEffect } from 'react'
+import styled from 'styled-components'
 
 type Props = {
   children: ReactNode
@@ -62,31 +63,28 @@ export default ({ children, fromRef, toRef, direction = 'leftToRight', curve = 5
     }
   }, [fromRef, toRef, direction, curve])
 
+  const Container = styled.div`
+    width: fit-content;
+  `
+
+  const SVG = styled.svg`
+    position: absolute;
+    overflow: visible;
+    z-index: -1;
+  `
+
+  const Path = styled.path`
+    fill: none;
+    stroke: var(--ctp-latte-text);
+    stroke-width: 0.25rem;
+  `
+
   return (
-    <div
-      style={{
-        width: 'fit-content',
-      }}
-    >
-      <svg
-        ref={svgRef}
-        version="1.1"
-        style={{
-          position: 'absolute',
-          overflow: 'visible',
-          zIndex: -1,
-        }}
-      >
-        <path
-          ref={pathRef}
-          style={{
-            fill: 'none',
-            stroke: 'var(--ctp-latte-text)',
-            strokeWidth: '0.25rem',
-          }}
-        />
-      </svg>
+    <Container>
+      <SVG ref={svgRef} version="1.1">
+        <Path ref={pathRef} />
+      </SVG>
       <span ref={fromRef}>{children}</span>
-    </div>
+    </Container>
   )
 }

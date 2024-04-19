@@ -104,17 +104,7 @@ export default () => {
   `
 
   return (
-    <Container
-      style={{
-        height: '100vh',
-        width: 'auto',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '6rem',
-      }}
-    >
+    <Container>
       <CardsContainer>
         {subDomains.map(({ name, description }, i) => (
           <ConnectProvider key={name} fromRef={subDomainsRefs[i]} toRef={titleRef}>
