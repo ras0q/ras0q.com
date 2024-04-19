@@ -2,7 +2,7 @@ import Connector from './Connector.tsx'
 import LinkCard from '../components/LinkCard.tsx'
 import { domain, subDomains, subRoutes } from '../libs/consts'
 import { useEffect, useRef, type RefObject } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export default () => {
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -88,7 +88,21 @@ export default () => {
     gap: 5rem;
   `
 
+  const draggableStyle = css`
+    position: relative;
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
+  `
+
+  const DraggableLinkCard = styled(LinkCard)`
+    ${draggableStyle}
+    pointer-events: none;
+  `
+
   const Title = styled.h1`
+    ${draggableStyle}
     font-size: 5rem;
     margin: 0;
     user-select: none;
@@ -109,7 +123,7 @@ export default () => {
         {subDomains.map(({ name, description }, i) => (
           <>
             <Connector key={name} fromRef={subDomainsRefs[i]} toRef={titleRef} />
-            <LinkCard
+            <DraggableLinkCard
               aRef={subDomainsRefs[i]}
               title={name}
               body={description}
@@ -125,7 +139,12 @@ export default () => {
         {subRoutes.map(({ path, description }, i) => (
           <>
             <Connector key={path} fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
-            <LinkCard aRef={subRoutesRefs[i]} title={path} body={description} href={path} />
+            <DraggableLinkCard
+              aRef={subRoutesRefs[i]}
+              title={path}
+              body={description}
+              href={path}
+            />
           </>
         ))}
       </CardsContainer>
