@@ -124,12 +124,7 @@ export default () => {
       <CardsContainer>
         {subRoutes.map(({ path, description }, i) => (
           <>
-            <Connector
-              key={path}
-              fromRef={subRoutesRefs[i]}
-              toRef={titleRef}
-              direction="rightToLeft"
-            />
+            <Connector key={path} fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
             <LinkCard aRef={subRoutesRefs[i]} title={path} body={description} href={path} />
           </>
         ))}

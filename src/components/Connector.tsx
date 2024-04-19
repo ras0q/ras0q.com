@@ -5,11 +5,11 @@ import styled from 'styled-components'
 type Props = {
   fromRef: RefObject<HTMLElement>
   toRef: RefObject<HTMLElement>
-  direction?: 'leftToRight' | 'rightToLeft'
+  r2l?: boolean // right to left?
   curve?: number
 }
 
-export default ({ fromRef, toRef, direction = 'leftToRight', curve = 50 }: Props) => {
+export default ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
 
@@ -42,10 +42,7 @@ export default ({ fromRef, toRef, direction = 'leftToRight', curve = 50 }: Props
   useEffect(() => {
     if (!fromRef.current || !toRef.current) return
 
-    const [left, right] =
-      direction === 'leftToRight'
-        ? [fromRef.current, toRef.current]
-        : [toRef.current, fromRef.current]
+    const [left, right] = r2l ? [toRef.current, fromRef.current] : [fromRef.current, toRef.current]
 
     const observer = new MutationObserver(() => fit(left, right))
     observer.observe(left, { attributes: true, characterData: true })
@@ -60,7 +57,7 @@ export default ({ fromRef, toRef, direction = 'leftToRight', curve = 50 }: Props
       observer.disconnect()
       resizeObserver.disconnect()
     }
-  }, [fromRef, toRef, direction, curve])
+  }, [fromRef, toRef, r2l, curve])
 
   const SVG = styled.svg`
     position: absolute;
