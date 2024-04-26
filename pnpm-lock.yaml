@@ -13,7 +13,7 @@ importers:
         version: 0.5.10(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.4.5)
       '@astrojs/react':
         specifier: ^3.3.0
-        version: 3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.0)(react-dom@18.3.0(react@18.3.0))(react@18.3.0)(vite@5.2.10)
+        version: 3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.10)
       '@catppuccin/palette':
         specifier: 1.1.1
         version: 1.1.1
@@ -28,16 +28,16 @@ importers:
         version: 4.7.0(typescript@5.4.5)
       react:
         specifier: ^18.2.0
-        version: 18.3.0
+        version: 18.3.1
       react-dom:
         specifier: ^18.2.0
-        version: 18.3.0(react@18.3.0)
+        version: 18.3.1(react@18.3.1)
       remark-breaks:
         specifier: 4.0.0
         version: 4.0.0
       styled-components:
         specifier: ^6.1.8
-        version: 6.1.8(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
+        version: 6.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -1942,17 +1942,17 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  react-dom@18.3.0:
-    resolution: {integrity: sha512-zaKdLBftQJnvb7FtDIpZtsAIb2MZU087RM8bRDZU8LVCCFYjPTsDZJNFUWPcVz3HFSN1n/caxi0ca4B/aaVQGQ==}
+  react-dom@18.3.1:
+    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
-      react: ^18.3.0
+      react: ^18.3.1
 
   react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
 
-  react@18.3.0:
-    resolution: {integrity: sha512-RPutkJftSAldDibyrjuku7q11d3oy6wKOyPe5K1HA/HwwrXcEqBdHsLypkC2FFYjP7bPUa6gbzSBhw4sY2JcDg==}
+  react@18.3.1:
+    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
 
   readdirp@3.6.0:
@@ -2039,8 +2039,8 @@ packages:
   sass-formatter@0.7.9:
     resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
 
-  scheduler@0.23.1:
-    resolution: {integrity: sha512-5GKS5JGfiah1O38Vfa9srZE4s3wdHbwjlCrvIookrg2FO9aIwKLOJXuJQFlEfNcVSOXuaL2hzDeY20uVXcUtrw==}
+  scheduler@0.23.2:
+    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
   section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
@@ -2601,13 +2601,13 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.0)(react-dom@18.3.0(react@18.3.0))(react@18.3.0)(vite@5.2.10)':
+  '@astrojs/react@3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.10)':
     dependencies:
       '@types/react': 18.3.0
       '@types/react-dom': 18.3.0
       '@vitejs/plugin-react': 4.2.1(vite@5.2.10)
-      react: 18.3.0
-      react-dom: 18.3.0(react@18.3.0)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.5.3
     transitivePeerDependencies:
       - supports-color
@@ -4708,15 +4708,15 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-dom@18.3.0(react@18.3.0):
+  react-dom@18.3.1(react@18.3.1):
     dependencies:
       loose-envify: 1.4.0
-      react: 18.3.0
-      scheduler: 0.23.1
+      react: 18.3.1
+      scheduler: 0.23.2
 
   react-refresh@0.14.0: {}
 
-  react@18.3.0:
+  react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
 
@@ -4873,7 +4873,7 @@ snapshots:
     dependencies:
       suf-log: 2.5.3
 
-  scheduler@0.23.1:
+  scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
 
@@ -4989,7 +4989,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  styled-components@6.1.8(react-dom@18.3.0(react@18.3.0))(react@18.3.0):
+  styled-components@6.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.2.1
       '@emotion/unitless': 0.8.0
@@ -4997,8 +4997,8 @@ snapshots:
       css-to-react-native: 3.2.0
       csstype: 3.1.2
       postcss: 8.4.31
-      react: 18.3.0
-      react-dom: 18.3.0(react@18.3.0)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
       shallowequal: 1.1.0
       stylis: 4.3.1
       tslib: 2.5.0
