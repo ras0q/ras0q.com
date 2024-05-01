@@ -1,7 +1,7 @@
 import { Connector } from './Connector.tsx'
 import { LinkCard } from '../components/LinkCard.tsx'
 import { domain, subDomains, subRoutes } from '../libs/consts'
-import { useEffect, useRef, type RefObject } from 'react'
+import { Fragment, useEffect, useRef, type RefObject } from 'react'
 import styled, { css } from 'styled-components'
 
 const Container = styled.div`
@@ -120,16 +120,15 @@ export const InfiniteCanvas = () => {
     <Container ref={containerRef}>
       <CardsContainer key="subDomains">
         {subDomains.map(({ name, description }, i) => (
-          <>
-            <Connector key={'connector_' + name} fromRef={subDomainsRefs[i]} toRef={titleRef} />
+          <Fragment key={name}>
+            <Connector fromRef={subDomainsRefs[i]} toRef={titleRef} />
             <DraggableLinkCard
-              key={name}
               aRef={subDomainsRefs[i]}
               title={name}
               body={description}
               href={`https://${name}.${domain}`}
             />
-          </>
+          </Fragment>
         ))}
       </CardsContainer>
 
@@ -139,16 +138,15 @@ export const InfiniteCanvas = () => {
 
       <CardsContainer key="subRoutes">
         {subRoutes.map(({ path, description }, i) => (
-          <>
-            <Connector key={'connector_' + path} fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
+          <Fragment key={path}>
+            <Connector fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
             <DraggableLinkCard
-              key={path}
               aRef={subRoutesRefs[i]}
               title={path}
               body={description}
               href={path}
             />
-          </>
+          </Fragment>
         ))}
       </CardsContainer>
     </Container>
