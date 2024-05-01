@@ -8,23 +8,23 @@ type Props = {
   href: string
 }
 
-export default ({ aRef, title, body, href }: Props) => {
-  const Container = styled.a`
-    width: fit-content;
-    display: inline-block;
-    padding: 1.5rem;
-    background-color: var(--ctp-macchiato-base);
-    color: var(--ctp-macchiato-text);
-    border-radius: 10px;
-    user-select: none;
-    white-space: nowrap;
-    cursor: inherit;
+const Container = styled.a`
+  width: fit-content;
+  display: inline-block;
+  padding: 1.5rem;
+  background-color: var(--ctp-macchiato-base);
+  color: var(--ctp-macchiato-text);
+  border-radius: 10px;
+  user-select: none;
+  white-space: nowrap;
+  cursor: inherit;
 
-    > * {
-      margin: 0;
-    }
-  `
+  > * {
+    margin: 0;
+  }
+`
 
+export const LinkCard = ({ aRef, title, body, href }: Props) => {
   return (
     <Container ref={aRef} href={href} draggable="false">
       <h2>{title} →</h2>

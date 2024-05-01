@@ -1,10 +1,57 @@
-import Connector from './Connector.tsx'
-import LinkCard from '../components/LinkCard.tsx'
+import { Connector } from './Connector.tsx'
+import { LinkCard } from '../components/LinkCard.tsx'
 import { domain, subDomains, subRoutes } from '../libs/consts'
 import { useEffect, useRef, type RefObject } from 'react'
 import styled, { css } from 'styled-components'
 
-export default () => {
+const Container = styled.div`
+  height: 100vh;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+`
+
+const CardsContainer = styled.div`
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+`
+
+const draggableStyle = css`
+  position: relative;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+`
+
+const DraggableLinkCard = styled(LinkCard)`
+  ${draggableStyle}
+  pointer-events: none;
+`
+
+const Title = styled.h1`
+  ${draggableStyle}
+  font-size: 5rem;
+  margin: 0;
+  user-select: none;
+  display: inline-block;
+  background: linear-gradient(120deg, var(--ctp-latte-lavender), var(--ctp-latte-pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media screen and (max-width: 600px) {
+    font-size: 4rem;
+  }
+`
+
+export const InfiniteCanvas = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subDomainsRefs = subDomains.map(() => useRef<HTMLAnchorElement>(null))
   const subRoutesRefs = subRoutes.map(() => useRef<HTMLAnchorElement>(null))
@@ -21,8 +68,6 @@ export default () => {
     draggableRefs.forEach((ref) => {
       const el = ref.current
       if (!el) return
-
-      console.log(el)
 
       // save original position for damping oscillation
       const { nowLeft: originalLeft, nowTop: originalTop } = nowOffset(el)
@@ -71,59 +116,14 @@ export default () => {
     })
   }, [draggableRefs])
 
-  const Container = styled.div`
-    height: 100vh;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 6rem;
-  `
-
-  const CardsContainer = styled.div`
-    max-width: 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-  `
-
-  const draggableStyle = css`
-    position: relative;
-    cursor: grab;
-    &:active {
-      cursor: grabbing;
-    }
-  `
-
-  const DraggableLinkCard = styled(LinkCard)`
-    ${draggableStyle}
-    pointer-events: none;
-  `
-
-  const Title = styled.h1`
-    ${draggableStyle}
-    font-size: 5rem;
-    margin: 0;
-    user-select: none;
-    display: inline-block;
-    background: linear-gradient(120deg, var(--ctp-latte-lavender), var(--ctp-latte-pink));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    @media screen and (max-width: 600px) {
-      font-size: 4rem;
-    }
-  `
-
   return (
-    <Container>
-      <CardsContainer>
+    <Container ref={containerRef}>
+      <CardsContainer key="subDomains">
         {subDomains.map(({ name, description }, i) => (
           <>
-            <Connector key={name} fromRef={subDomainsRefs[i]} toRef={titleRef} />
+            <Connector key={'connector_' + name} fromRef={subDomainsRefs[i]} toRef={titleRef} />
             <DraggableLinkCard
+              key={name}
               aRef={subDomainsRefs[i]}
               title={name}
               body={description}
@@ -133,13 +133,16 @@ export default () => {
         ))}
       </CardsContainer>
 
-      <Title ref={titleRef}>ras0q.com</Title>
+      <Title ref={titleRef} key="title">
+        ras0q.com
+      </Title>
 
-      <CardsContainer>
+      <CardsContainer key="subRoutes">
         {subRoutes.map(({ path, description }, i) => (
           <>
-            <Connector key={path} fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
+            <Connector key={'connector_' + path} fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
             <DraggableLinkCard
+              key={path}
               aRef={subRoutesRefs[i]}
               title={path}
               body={description}

@@ -9,7 +9,19 @@ type Props = {
   curve?: number
 }
 
-export default ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
+const SVG = styled.svg`
+  position: absolute;
+  overflow: visible;
+  z-index: -1;
+`
+
+const Path = styled.path`
+  fill: none;
+  stroke: var(--ctp-latte-text);
+  stroke-width: 0.25rem;
+`
+
+export const Connector = ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
 
@@ -58,18 +70,6 @@ export default ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
       resizeObserver.disconnect()
     }
   }, [fromRef, toRef, r2l, curve])
-
-  const SVG = styled.svg`
-    position: absolute;
-    overflow: visible;
-    z-index: -1;
-  `
-
-  const Path = styled.path`
-    fill: none;
-    stroke: var(--ctp-latte-text);
-    stroke-width: 0.25rem;
-  `
 
   return (
     <SVG ref={svgRef} version="1.1">
