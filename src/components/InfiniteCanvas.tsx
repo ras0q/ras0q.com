@@ -62,6 +62,10 @@ export const InfiniteCanvas = () => {
       el.style.left = `${originalLeft}px`
       el.style.top = `${originalTop}px`
 
+      if (el == titleRef.current) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
+      }
+
       el.addEventListener('pointermove', (e) => {
         if (e.buttons === 1) {
           const { nowLeft, nowTop } = nowOffset(el)
