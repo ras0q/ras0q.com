@@ -42,18 +42,20 @@ export const InfiniteCanvas = () => {
   const draggableRefs: RefObject<HTMLElement>[] = [titleRef, ...subDomainsRefs, ...subRoutesRefs]
   const draggablePositions: { left: number; top: number }[] = [domain, ...subDomains, ...subRoutes]
 
-  const nowOffset = (el: HTMLElement) => {
-    return {
-      nowLeft: el.offsetLeft,
-      nowTop: el.offsetTop,
-    }
-  }
-
   useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const nowOffset = (el: HTMLElement) => {
+      return {
+        nowLeft: el.offsetLeft,
+        nowTop: el.offsetTop,
+      }
+    }
+
     draggableRefs.forEach((ref, i) => {
-      const container = containerRef.current
       const el = ref.current
-      if (!container || !el) return
+      if (!el) return
 
       // save original position for damping oscillation
       const { left: originalLeft, top: originalTop } = draggablePositions[i]
@@ -72,7 +74,7 @@ export const InfiniteCanvas = () => {
           const left = nowLeft + e.movementX
           const top = nowTop + e.movementY
 
-          // document.body.style.touchAction = 'none'
+          container.style.touchAction = 'none'
           el.style.left = `${left}px`
           el.style.right = 'auto'
           el.style.top = `${top}px`
@@ -83,7 +85,7 @@ export const InfiniteCanvas = () => {
       })
 
       el.addEventListener('pointerup', (e) => {
-        // document.body.style.touchAction = 'auto'
+        container.style.touchAction = 'auto'
         el.releasePointerCapture(e.pointerId)
 
         // return to original position with damping oscillation
@@ -110,7 +112,7 @@ export const InfiniteCanvas = () => {
   }, [draggableRefs])
 
   return (
-    <Container ref={containerRef}>
+    <Container id="container" ref={containerRef}>
       <Title ref={titleRef}>{domain.name}</Title>
 
       {subDomains.map(({ name, description }, i) => (
