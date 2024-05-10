@@ -13,3 +13,10 @@ const { title } = Astro.props.frontmatter
 <BaseLayout pageTitle={title}>
   <slot />
 </BaseLayout>
+
+<style>
+  body {
+    margin: 0 auto;
+    padding: 5rem;
+  }
+</style>
