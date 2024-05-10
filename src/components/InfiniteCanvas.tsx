@@ -37,8 +37,8 @@ const Title = styled.h1`
 export const InfiniteCanvas = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const subDomainsRefs = subDomains.map(() => useRef<HTMLAnchorElement>(null))
-  const subRoutesRefs = subRoutes.map(() => useRef<HTMLAnchorElement>(null))
+  const subDomainsRefs = subDomains.map(() => useRef<HTMLDivElement>(null))
+  const subRoutesRefs = subRoutes.map(() => useRef<HTMLDivElement>(null))
   const draggableRefs: RefObject<HTMLElement>[] = [titleRef, ...subDomainsRefs, ...subRoutesRefs]
   const draggablePositions: { left: number; top: number }[] = [domain, ...subDomains, ...subRoutes]
 
@@ -119,7 +119,7 @@ export const InfiniteCanvas = () => {
         <Fragment key={name}>
           <Connector fromRef={subDomainsRefs[i]} toRef={titleRef} />
           <DraggableLinkCard
-            aRef={subDomainsRefs[i]}
+            divRef={subDomainsRefs[i]}
             title={name}
             body={description}
             href={`https://${name}.${domain.name}`}
@@ -130,7 +130,12 @@ export const InfiniteCanvas = () => {
       {subRoutes.map(({ path, description }, i) => (
         <Fragment key={path}>
           <Connector fromRef={subRoutesRefs[i]} toRef={titleRef} r2l />
-          <DraggableLinkCard aRef={subRoutesRefs[i]} title={path} body={description} href={path} />
+          <DraggableLinkCard
+            divRef={subRoutesRefs[i]}
+            title={path}
+            body={description}
+            href={path}
+          />
         </Fragment>
       ))}
 

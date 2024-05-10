@@ -2,13 +2,13 @@ import type { RefObject } from 'react'
 import styled from 'styled-components'
 
 type Props = {
-  aRef: RefObject<HTMLAnchorElement>
+  divRef: RefObject<HTMLDivElement>
   title: string
   body?: string
   href: string
 }
 
-const Container = styled.a`
+const Container = styled.div`
   width: fit-content;
   display: inline-block;
   padding: 1.5rem;
@@ -22,12 +22,18 @@ const Container = styled.a`
   > * {
     margin: 0;
   }
+
+  a {
+    color: var(--ctp-macchiato-text);
+  }
 `
 
-export const LinkCard = ({ aRef, title, body, href }: Props) => {
+export const LinkCard = ({ divRef: divRef, title, body, href }: Props) => {
   return (
-    <Container ref={aRef} href={href} draggable="false">
-      <h2>{title} →</h2>
+    <Container ref={divRef} draggable="false">
+      <h2>
+        <a href={href}>{title} →</a>
+      </h2>
       <p>{body}</p>
     </Container>
   )
