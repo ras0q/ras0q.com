@@ -45,10 +45,7 @@ export const InfiniteCanvas = () => {
   const subDomainsRefs = subDomains.map(() => useRef<HTMLAnchorElement>(null))
   const subRoutesRefs = subRoutes.map(() => useRef<HTMLAnchorElement>(null))
   const draggableRefs: RefObject<HTMLElement>[] = [titleRef, ...subDomainsRefs, ...subRoutesRefs]
-  const draggablePositions = [domain, ...subDomains, ...subRoutes].map(({ left, top }) => ({
-    originalLeft: left,
-    originalTop: top,
-  }))
+  const draggablePositions: { left: number; top: number }[] = [domain, ...subDomains, ...subRoutes]
 
   const nowOffset = (el: HTMLElement) => {
     return {
@@ -64,7 +61,7 @@ export const InfiniteCanvas = () => {
       if (!container || !el) return
 
       // save original position for damping oscillation
-      const { originalLeft, originalTop } = draggablePositions[i]
+      const { left: originalLeft, top: originalTop } = draggablePositions[i]
 
       el.style.position = 'absolute'
       el.style.left = `${originalLeft}px`
