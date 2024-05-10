@@ -8,7 +8,6 @@ const Container = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;
-  overflow: hidden;
 `
 
 const draggableStyle = css`
@@ -33,10 +32,6 @@ const Title = styled.h1`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  @media screen and (max-width: 600px) {
-    font-size: 4rem;
-  }
 `
 
 export const InfiniteCanvas = () => {
