@@ -15,8 +15,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.4(@types/react-dom@18.3.0)(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.11)
       '@catppuccin/palette':
-        specifier: 1.1.1
-        version: 1.1.1
+        specifier: 1.2.0
+        version: 1.2.0
       '@types/react':
         specifier: ^18.2.79
         version: 18.3.2
@@ -252,8 +252,8 @@ packages:
     resolution: {integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==}
     engines: {node: '>=6.9.0'}
 
-  '@catppuccin/palette@1.1.1':
-    resolution: {integrity: sha512-wgITbl3OEIUnv8WPTdG2BGjepSMZtJW9V4XpxNDJjCvel0Q5+BxRmKH3XYN0vVjohHR+APCyZCpzSnO+GdsTLg==}
+  '@catppuccin/palette@1.2.0':
+    resolution: {integrity: sha512-R5fxLcU47mRcsdQkXZBNfxt7SdEqLGWb1qhEKBrnYfEB4ZWOQRBEow4e78PKxaFUECBNOs6uEkwvwxFL9FmQqQ==}
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -3264,7 +3264,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
 
-  '@catppuccin/palette@1.1.1': {}
+  '@catppuccin/palette@1.2.0': {}
 
   '@emmetio/abbreviation@2.3.3':
     dependencies:
