@@ -24,8 +24,8 @@ importers:
         specifier: ^18.2.25
         version: 18.3.0
       astro:
-        specifier: 4.9.1
-        version: 4.9.1(typescript@5.4.5)
+        specifier: 4.9.2
+        version: 4.9.2(typescript@5.4.5)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1100,8 +1100,8 @@ packages:
     resolution: {integrity: sha512-8hJaCuqxObShWl2wEsnASqh/DbQ2O+S66m0Q3ctJlzBPEQ4pfGwwama3FCjZO3GDLQsjvn1T0v93Vxyu/+5fGw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@4.9.1:
-    resolution: {integrity: sha512-9TsoAu0WBPiqyAIj9H0JW7R+tIjPjFsPKo70Nja6WL3imTTuUJQmnCre4ZVmoNV3oicTTlb+N4zjRYANW0Ty9A==}
+  astro@4.9.2:
+    resolution: {integrity: sha512-apzpRoISk6L8g99m3zKIW5SYxw2GhOju/1Gq0Ccf3SH+X2UcFXF+MTdxPOFl5yJUQg7X0qsVQDOIVf8zHRRKFg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4024,7 +4024,7 @@ snapshots:
       - supports-color
       - typescript
 
-  astro@4.9.1(typescript@5.4.5):
+  astro@4.9.2(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
