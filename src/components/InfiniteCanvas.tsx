@@ -41,21 +41,109 @@ export const InfiniteCanvas = () => {
   const subRoutesRefs = subRoutes.map(() => useRef<HTMLDivElement>(null))
   const draggableRefs: RefObject<HTMLElement>[] = [titleRef, ...subDomainsRefs, ...subRoutesRefs]
   const draggablePositions: { left: number; top: number }[] = [domain, ...subDomains, ...subRoutes]
+  const targetRef = useRef<{ id: string; left: number; top: number }>()
+  const pointerIsDownRef = useRef(false)
+
+  const handlePointerDown = (e: PointerEvent) => {
+    pointerIsDownRef.current = true
+
+    const target = draggableRefs.find((ref) => {
+      const el = ref.current
+      if (!el) return false
+
+      const rect = el.getBoundingClientRect()
+      const ex = e.clientX
+      const ey = e.clientY
+      return ex >= rect.left && ex <= rect.right && ey >= rect.top && ey <= rect.bottom
+    })?.current
+    targetRef.current = target
+      ? { id: target.id, left: target.offsetLeft, top: target.offsetTop }
+      : undefined
+  }
+
+  const handlePointerMove = (e: PointerEvent) => {
+    const container = containerRef.current
+    if (!container || !pointerIsDownRef.current) return
+
+    container.setPointerCapture(e.pointerId)
+    container.style.touchAction = 'none'
+
+    const target = targetRef.current
+    if (!target) {
+      draggableRefs.forEach((ref) => {
+        const el = ref.current
+        if (!el) return
+
+        const left = el.offsetLeft + e.movementX
+        const top = el.offsetTop + e.movementY
+        el.style.left = `${left}px`
+        el.style.top = `${top}px`
+      })
+      return
+    }
+
+    const targetEl = document.getElementById(target.id)
+    if (!targetEl) return
+
+    const left = targetEl.offsetLeft + e.movementX
+    const top = targetEl.offsetTop + e.movementY
+    targetEl.style.left = `${left}px`
+    targetEl.style.top = `${top}px`
+  }
+
+  const handlePointerUp = (e: PointerEvent) => {
+    const container = containerRef.current
+    if (!container || !pointerIsDownRef.current) return
+
+    pointerIsDownRef.current = false
+
+    container.releasePointerCapture(e.pointerId)
+    container.style.touchAction = 'auto'
+
+    const target = targetRef.current
+    if (!target) {
+      targetRef.current = undefined
+      return
+    }
+
+    const targetEL = document.getElementById(target.id)
+    if (!targetEL) {
+      targetRef.current = undefined
+      return
+    }
+
+    // return to original position with damping oscillation
+    const omega = 0.01
+    const b = 0.001
+    const f = 0.01
+    const { left: originalLeft, top: originalTop } = target
+    const ampX = targetEL.offsetLeft - originalLeft
+    const ampY = targetEL.offsetTop - originalTop
+    const ts0 = performance.now()
+    const returnToOriginal = (ts: DOMHighResTimeStamp) => {
+      const { offsetLeft, offsetTop } = targetEL
+      if (Math.abs(offsetLeft - originalLeft) < f && Math.abs(offsetTop - originalTop) < f) return
+
+      const t = ts - ts0
+      const dx = ampX * Math.exp(-b * t) * Math.cos(omega * t)
+      const dy = ampY * Math.exp(-b * t) * Math.cos(omega * t)
+      targetEL.style.left = `${originalLeft + dx}px`
+      targetEL.style.top = `${originalTop + dy}px`
+
+      requestAnimationFrame(returnToOriginal)
+    }
+    requestAnimationFrame(returnToOriginal)
+  }
 
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
 
-    const nowOffset = (el: HTMLElement) => {
-      return {
-        nowLeft: el.offsetLeft,
-        nowTop: el.offsetTop,
-      }
-    }
-
     draggableRefs.forEach((ref, i) => {
       const el = ref.current
       if (!el) return
+
+      el.id = `draggable-${i}`
 
       // save original position for damping oscillation
       const { left: originalLeft, top: originalTop } = draggablePositions[i]
@@ -67,48 +155,17 @@ export const InfiniteCanvas = () => {
       if (el == titleRef.current) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
       }
-
-      el.addEventListener('pointermove', (e) => {
-        if (e.buttons === 1) {
-          const { nowLeft, nowTop } = nowOffset(el)
-          const left = nowLeft + e.movementX
-          const top = nowTop + e.movementY
-
-          container.style.touchAction = 'none'
-          el.style.left = `${left}px`
-          el.style.right = 'auto'
-          el.style.top = `${top}px`
-          el.style.bottom = 'auto'
-          el.draggable = false
-          el.setPointerCapture(e.pointerId)
-        }
-      })
-
-      el.addEventListener('pointerup', (e) => {
-        container.style.touchAction = 'auto'
-        el.releasePointerCapture(e.pointerId)
-
-        // return to original position with damping oscillation
-        const omega = 0.01
-        const b = 0.001
-        const f = 0.01
-        const { nowLeft: left0, nowTop: top0 } = nowOffset(el)
-        const ts0 = performance.now()
-        const returnToOriginal = (ts: DOMHighResTimeStamp) => {
-          const { nowLeft, nowTop } = nowOffset(el)
-          if (Math.abs(nowLeft - originalLeft) < f && Math.abs(nowTop - originalTop) < f) return
-
-          const t = ts - ts0
-          const dx = (left0 - originalLeft) * Math.exp(-b * t) * Math.cos(omega * t)
-          const dy = (top0 - originalTop) * Math.exp(-b * t) * Math.cos(omega * t)
-          el.style.left = `${originalLeft + dx}px`
-          el.style.top = `${originalTop + dy}px`
-
-          requestAnimationFrame(returnToOriginal)
-        }
-        requestAnimationFrame(returnToOriginal)
-      })
     })
+
+    container.addEventListener('pointerdown', handlePointerDown)
+    container.addEventListener('pointermove', handlePointerMove)
+    container.addEventListener('pointerup', handlePointerUp)
+
+    return () => {
+      container.removeEventListener('pointerdown', handlePointerDown)
+      container.removeEventListener('pointermove', handlePointerMove)
+      container.removeEventListener('pointerup', handlePointerUp)
+    }
   }, [draggableRefs])
 
   return (
