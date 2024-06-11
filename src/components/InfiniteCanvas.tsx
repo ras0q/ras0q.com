@@ -8,6 +8,7 @@ const Container = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;
+  overflow: hidden;
 `
 
 const draggableStyle = css`
@@ -137,24 +138,22 @@ export const InfiniteCanvas = () => {
 
   useEffect(() => {
     const container = containerRef.current
-    if (!container) return
+    const title = titleRef.current
+    if (!container || !title) return
 
+    const titleRect = title.getBoundingClientRect()
+    const dx = (container.clientWidth - titleRect.width) / 2 - domain.left
+    const dy = (container.clientHeight - titleRect.height) / 2 - domain.top
     draggableRefs.forEach((ref, i) => {
       const el = ref.current
       if (!el) return
 
       el.id = `draggable-${i}`
 
-      // save original position for damping oscillation
-      const { left: originalLeft, top: originalTop } = draggablePositions[i]
-
+      const { left, top } = draggablePositions[i]
       el.style.position = 'absolute'
-      el.style.left = `${originalLeft}px`
-      el.style.top = `${originalTop}px`
-
-      if (el == titleRef.current) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
-      }
+      el.style.left = `${left + dx}px`
+      el.style.top = `${top + dy}px`
     })
 
     container.addEventListener('pointerdown', handlePointerDown)
