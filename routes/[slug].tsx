@@ -1,8 +1,8 @@
 import { Handler, PageProps } from "$fresh/server.ts";
-import { render } from "$gfm";
+import { render } from "@deno/gfm";
 import { Head } from "$fresh/runtime.ts";
-import { extract } from "$std/front_matter/yaml.ts";
-import { exists } from "$std/fs/mod.ts";
+import { extract } from "@std/front-matter/yaml";
+import { exists } from "@std/fs";
 
 interface Page {
   markdown: string;
