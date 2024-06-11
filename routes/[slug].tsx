@@ -1,6 +1,6 @@
 import { Handler, PageProps } from "$fresh/server.ts";
 import { render } from "@deno/gfm";
-import { Head } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 import { extract } from "@std/front-matter/yaml";
 import { exists } from "@std/fs";
 
@@ -27,7 +27,7 @@ export default function MarkdownPage({ data }: PageProps<Page>) {
     <>
       <Head>
         <title>{attrs.title} | ras0q.com</title>
-        <link rel="stylesheet" href="/markdown.css" />
+        <link rel="stylesheet" href={asset("/markdown.css")} />
       </Head>
       <main>
         <div dangerouslySetInnerHTML={{ __html: render(markdown) }}></div>
