@@ -24,7 +24,7 @@ export const LinkCard = ({ divRef: divRef, title, body, href }: Props) => {
       ref={divRef}
       draggable={false}
     >
-      <h2>
+      <h2 style={{ margin: 0 }}>
         <a
           href={href}
           style={{
@@ -34,7 +34,7 @@ export const LinkCard = ({ divRef: divRef, title, body, href }: Props) => {
           {title} →
         </a>
       </h2>
-      <p>{body}</p>
+      <p style={{margin: 0}}>{body}</p>
     </div>
   );
 };

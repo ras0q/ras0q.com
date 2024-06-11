@@ -155,6 +155,7 @@ export default function InfiniteCanvas() {
         width: "100vw",
         position: "relative",
         overflow: "hidden",
+        // TODO: grab https://github.com/ras0q/ras0q.com/blob/1e18f972a885cfc2b96882a1abae9c2ff78cd4bc/src/components/InfiniteCanvas.tsx
       }}
       id="container"
       ref={containerRef}
@@ -185,10 +186,6 @@ export default function InfiniteCanvas() {
             title={name}
             body={description}
             href={`https://${name}.${domain.name}`}
-            // style={{
-            //   cursor: "grab",
-            //   pointerEvents: "none"
-            // }}
           />
         </Fragment>
       ))}
@@ -201,10 +198,6 @@ export default function InfiniteCanvas() {
             title={path}
             body={description}
             href={path}
-            // style={{
-            //   cursor: "grab",
-            //   pointerEvents: "none"
-            // }}
           />
         </Fragment>
       ))}
