@@ -29,6 +29,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "ras0q-com"
+          project: "ras0q"
           entrypoint: "main.ts"
           root: "."
