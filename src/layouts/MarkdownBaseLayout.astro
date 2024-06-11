@@ -18,5 +18,10 @@ const { title } = Astro.props.frontmatter
   body {
     margin: 0 auto;
     padding: 5rem;
+
+    /* mobile */
+    @media screen and (max-width: 600px) {
+      padding: 2rem;
+    }
   }
 </style>
