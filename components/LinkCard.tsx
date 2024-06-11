@@ -34,7 +34,7 @@ export const LinkCard = ({ divRef: divRef, title, body, href }: Props) => {
           {title} →
         </a>
       </h2>
-      <p style={{margin: 0}}>{body}</p>
+      <p style={{ margin: 0 }}>{body}</p>
     </div>
   );
 };

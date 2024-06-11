@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-deno@v4
         with:
-          node-version-file: .node-version
-      - run: corepack enable pnpm
-      - run: pnpm install
-      - run: pnpm run check
-      - run: pnpm run build
+          deno-version: v1.x
+      - run: deno task check
+      - run: deno task manifest && git diff --exit-code
+      - run: deno task build
+
