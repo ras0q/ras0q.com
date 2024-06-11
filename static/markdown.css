@@ -1,0 +1,8 @@
+main {
+  margin: 0 auto;
+  padding: 5rem;
+
+  @container style(--is-mobile: true) {
+    padding: 2rem;
+  }
+}

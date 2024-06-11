@@ -1,6 +1,5 @@
 ---
-layout: ../layouts/MarkdownBaseLayout.astro
-title: About me | ras0q.com
+title: About me
 ---
 
 # Hi👋 I'm `@ras0q` 😉😉😉

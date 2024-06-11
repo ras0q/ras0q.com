@@ -1,6 +1,5 @@
 ---
-layout: ../layouts/MarkdownBaseLayout.astro
-title: My Works | ras0q.com
+title: My Works
 ---
 
 # My Works
