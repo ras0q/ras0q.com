@@ -24,18 +24,24 @@ Links
 
 Languages
 - ★★★★★ Go (4y, Web backend)
+  - Echo
+  - GORM
+  - Static Analysis
+  - Template
 - ★★★★☆ Swift (2y, iOS app)
-- ★★★★☆ JavaScript / TypeScript (Node.js / Deno) (4y, Web frontend / Misc)
-- ★★★☆☆ HTML / CSS (2y, Web frontend)
+  - SwiftUI
+  - UIKit
+  - The Composable Architecture
+- ★★★★☆ JavaScript / TypeScript (4y, Web frontend / Misc)
+  - Node.js
+  - Deno
+  - React / Next.js
+  - React Three Fiber
+  - Deno Fresh
 - ★★★☆☆ Python (1y, Research / Class)
+  - NumPy
+  - PyTorch
 - ★☆☆☆☆ C / C++ (2y, Class / Competition)
-
-Frameworks
-- ★★★★☆ SwiftUI (2y, iOS app)
-- ★★★★☆ UIKit (2y, iOS app)
-- ★★★☆☆ React / Next.js (2y, Web frontend)
-- ★★☆☆☆ React Three Fiber (1y, Misc)
-- ★★☆☆☆ Deno Fresh (1y, Web frontend)
 
 Others
 - ★★★★★ Git (4y, Misc)
