@@ -6,3 +6,11 @@ main {
     padding: 2rem;
   }
 }
+
+li {
+  /* list-style: none; */
+}
+
+p, ul {
+  margin: 0.5rem 0;
+}
