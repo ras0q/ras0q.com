@@ -39,8 +39,8 @@ export const subRoutes = [
     top: 275,
   },
   {
-    path: "/contact",
-    description: "Contact",
+    path: "/blog",
+    description: "Blog",
     left: 897,
     top: 570,
   },

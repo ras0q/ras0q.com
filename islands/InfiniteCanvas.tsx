@@ -152,8 +152,8 @@ export default function InfiniteCanvas() {
   return (
     <div
       style={{
-        height: "100vh",
-        width: "100vw",
+        height: "100%",
+        width: "100%",
         position: "relative",
         overflow: "hidden",
         // TODO: grab https://github.com/ras0q/ras0q.com/blob/1e18f972a885cfc2b96882a1abae9c2ff78cd4bc/src/components/InfiniteCanvas.tsx
