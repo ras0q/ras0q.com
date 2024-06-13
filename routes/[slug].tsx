@@ -26,6 +26,7 @@ export default function MarkdownPage({ data }: PageProps<Page>) {
   return (
     <>
       <Head>
+        <meta name="og:title" content={`${attrs.title} | ras0q.com`} key="title" />
         <title>{attrs.title} | ras0q.com</title>
         <link rel="stylesheet" href={asset("/markdown.css")} />
       </Head>
