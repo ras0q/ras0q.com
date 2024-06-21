@@ -5,6 +5,24 @@ main {
   @container style(--is-mobile: true) {
     padding: 2rem;
   }
+
+  /* for gfm renderer */
+  > div {
+    > h1, h2, h3, h4, h5, h6 {
+      > a > svg {
+        display: none;
+      }
+
+      &:hover {
+        position: relative;
+        left: -16px;
+
+        > a > svg {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }
 
 li {
