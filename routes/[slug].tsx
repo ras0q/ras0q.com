@@ -32,9 +32,10 @@ export default function MarkdownPage({ data }: PageProps<Page>) {
           key="title"
         />
         <title>{attrs.title} | ras0q.com</title>
+        <link rel="stylesheet" href={asset("/style.css")} />
         <link rel="stylesheet" href={asset("/markdown.css")} />
       </Head>
-      <main>
+      <main class="markdown-body">
         <div dangerouslySetInnerHTML={{ __html: render(markdown) }}></div>
       </main>
     </>
