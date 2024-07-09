@@ -12,8 +12,8 @@ export const subDomains = [
     top: 55,
   },
   {
-    name: "foo",
-    description: "foo",
+    name: "diary",
+    description: "My diary",
     left: 59,
     top: 269,
   },
