@@ -36,7 +36,7 @@ export const LinkCard = (
             color: "var(--ctp-macchiato-text)",
           }}
         >
-          {title} →
+          {title}
         </a>
       </h2>
       <p style={{ margin: 0 }}>{body}</p>

@@ -6,22 +6,16 @@ export const domain = {
 
 export const subDomains = [
   {
-    name: "slitscan3d",
-    description: "Three.jsを活用したSlit-Scanアプリ",
+    name: "slitscan3d.",
+    description: "Slit-Scan powered by Three.js",
     left: 36,
-    top: 55,
+    top: 100,
   },
   {
-    name: "diary",
+    name: "diary.",
     description: "My diary",
     left: 59,
-    top: 269,
-  },
-  {
-    name: "bar",
-    description: "bar",
-    left: 22,
-    top: 520,
+    top: 400,
   },
 ];
 
