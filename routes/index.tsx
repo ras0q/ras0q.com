@@ -7,7 +7,7 @@ export default function Home() {
         height: "100vh",
       }}
     >
-      <InfiniteCanvas />;
+      <InfiniteCanvas />
     </main>
   );
 }
