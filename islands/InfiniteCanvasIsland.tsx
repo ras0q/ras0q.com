@@ -53,7 +53,7 @@ export default function InfiniteCanvasIsland() {
             divRef={subDomainsRefs[i]}
             title={name}
             body={description}
-            href={`https://${name}.${domain.name}`}
+            href={`https://${name}${domain.name}`}
             style={{
               position: "absolute",
               left,
