@@ -4,26 +4,16 @@ import { Connector } from "../components/Connector.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
 import { Fragment } from "preact/jsx-runtime";
 import { useRef } from "preact/hooks";
-import { signal } from "@preact/signals";
 
 export default function InfiniteCanvasIsland() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subDomainsRefs = subDomains.map(() => useRef<HTMLDivElement>(null));
   const subRoutesRefs = subRoutes.map(() => useRef<HTMLDivElement>(null));
-  const nodePositions = signal(
-    [domain, ...subDomains, ...subRoutes].map(({ left, top }) => ({
-      left,
-      top,
-      offsetLeft: 0,
-      offsetTop: 0,
-    })),
-  );
 
   return (
     <InfiniteCanvas
       childRefs={[titleRef, ...subDomainsRefs, ...subRoutesRefs]}
       titleRef={titleRef}
-      nodePositions={nodePositions.value}
     >
       <h1
         style={{

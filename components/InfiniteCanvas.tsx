@@ -5,8 +5,6 @@ import { signal } from "@preact/signals";
 import { RefObject } from "preact";
 
 type NodePosition = {
-  left: number;
-  top: number;
   offsetLeft: number;
   offsetTop: number;
 };
@@ -16,15 +14,18 @@ type Props = {
   children: ComponentChildren;
   childRefs: RefObject<HTMLElement>[];
   titleRef: RefObject<HTMLElement>;
-  nodePositions: NodePosition[];
 };
 
 export default function InfiniteCanvas(
-  { children, childRefs, titleRef, nodePositions }: Props,
+  { children, childRefs, titleRef }: Props,
 ) {
   const containerRef = useRef<HTMLDivElement>(null);
   const targetIndex = signal<number | undefined>(undefined);
   const backgroundOffset = signal({ left: 0, top: 0 });
+  const nodePositions = Array.from({ length: childRefs.length }, () => ({
+    offsetLeft: 0,
+    offsetTop: 0,
+  }));
 
   const handlePointerDown = (e: PointerEvent) => {
     targetIndex.value = childRefs.findIndex((ref) => {
