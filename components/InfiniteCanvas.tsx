@@ -1,7 +1,7 @@
 import { domain } from "../libs/consts.ts";
 import { ComponentChildren } from "preact";
 import { useEffect, useRef } from "preact/hooks";
-import { signal, useSignal } from "@preact/signals";
+import { useSignal } from "@preact/signals";
 import { RefObject } from "preact";
 
 type NodePosition = {
@@ -20,7 +20,7 @@ export default function InfiniteCanvas(
   { children, childRefs, titleRef }: Props,
 ) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const targetIndex = signal<number | undefined>(undefined);
+  const targetIndex = useSignal<number | undefined>(undefined);
   // NOTE: Signals currently supports string style values.
   // REF: https://github.com/preactjs/signals/issues/255#issuecomment-1318899145
   const bgOffsetX = useSignal(0);
