@@ -1,13 +1,9 @@
-import InfiniteCanvas from "../islands/InfiniteCanvas.tsx";
+import InfiniteCanvasIsland from "../islands/InfiniteCanvasIsland.tsx";
 
 export default function Home() {
   return (
-    <main
-      style={{
-        height: "100vh",
-      }}
-    >
-      <InfiniteCanvas />
+    <main style={{ height: "100vh" }}>
+      <InfiniteCanvasIsland />
     </main>
   );
 }

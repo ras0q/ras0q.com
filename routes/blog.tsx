@@ -1,5 +1,5 @@
 import { asset, Head } from "$fresh/runtime.ts";
-import InfiniteCanvas from "../islands/InfiniteCanvas.tsx";
+import InfiniteCanvas from "../islands/InfiniteCanvasIsland.tsx";
 
 export default function Blog() {
   return (
