@@ -49,6 +49,8 @@ export default function InfiniteCanvas(
     if (i === -1) {
       backgroundOffset.value.left += e.movementX;
       backgroundOffset.value.top += e.movementY;
+      container.style.backgroundPositionX = `${backgroundOffset.value.left}px`;
+      container.style.backgroundPositionY = `${backgroundOffset.value.top}px`;
 
       childRefs.forEach((ref, i) => {
         const el = ref.current;
@@ -142,6 +144,12 @@ export default function InfiniteCanvas(
     };
   }, []);
 
+  const bgSize = 16;
+  const bgImage = (deg: number) =>
+    `linear-gradient(${deg}deg, transparent ${
+      bgSize - 1
+    }px, var(--ctp-latte-surface0) ${bgSize}px)`;
+
   return (
     <div
       style={{
@@ -150,6 +158,8 @@ export default function InfiniteCanvas(
         position: "relative",
         overflow: "hidden",
         // TODO: grab https://github.com/ras0q/ras0q.com/blob/1e18f972a885cfc2b96882a1abae9c2ff78cd4bc/src/components/InfiniteCanvas.tsx
+        backgroundImage: `${bgImage(0)}, ${bgImage(90)}`,
+        backgroundSize: `${bgSize}px ${bgSize}px`,
       }}
       id="container"
       ref={containerRef}

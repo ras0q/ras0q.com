@@ -69,7 +69,7 @@ export const Connector = ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
     <svg
       ref={svgRef}
       version="1.1"
-      style={{ position: "absolute", overflow: "visible", zIndex: -1 }}
+      style={{ position: "absolute", overflow: "visible" }}
     >
       <path
         ref={pathRef}
