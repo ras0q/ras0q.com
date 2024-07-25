@@ -1,7 +1,7 @@
 import { domain } from "../libs/consts.ts";
 import { ComponentChildren } from "preact";
 import { useEffect, useRef } from "preact/hooks";
-import { signal } from "@preact/signals";
+import { signal, useSignal } from "@preact/signals";
 import { RefObject } from "preact";
 
 type NodePosition = {
@@ -21,7 +21,10 @@ export default function InfiniteCanvas(
 ) {
   const containerRef = useRef<HTMLDivElement>(null);
   const targetIndex = signal<number | undefined>(undefined);
-  const backgroundOffset = signal({ left: 0, top: 0 });
+  // NOTE: Signals currently supports string style values.
+  // REF: https://github.com/preactjs/signals/issues/255#issuecomment-1318899145
+  const bgOffsetX = useSignal(0);
+  const bgOffsetY = useSignal(0);
   const nodePositions = Array.from({ length: childRefs.length }, () => ({
     offsetLeft: 0,
     offsetTop: 0,
@@ -48,10 +51,8 @@ export default function InfiniteCanvas(
 
     const i = targetIndex.value;
     if (i === -1) {
-      backgroundOffset.value.left += e.movementX;
-      backgroundOffset.value.top += e.movementY;
-      container.style.backgroundPositionX = `${backgroundOffset.value.left}px`;
-      container.style.backgroundPositionY = `${backgroundOffset.value.top}px`;
+      bgOffsetX.value += e.movementX;
+      bgOffsetY.value += e.movementY;
 
       childRefs.forEach((ref, i) => {
         const el = ref.current;
@@ -62,7 +63,7 @@ export default function InfiniteCanvas(
       return;
     }
 
-    const targetEl = childRefs[i].current;
+    const targetEl = childRefs[i]?.current;
     if (!targetEl) return;
 
     nodePositions[i].offsetLeft += e.movementX;
@@ -80,7 +81,7 @@ export default function InfiniteCanvas(
     container.style.touchAction = "auto";
 
     const target = nodePositions[i];
-    const targetEL = childRefs[i].current;
+    const targetEL = childRefs[i]?.current;
     if (!targetEL) return;
 
     // return to original position with damping oscillation
@@ -111,9 +112,8 @@ export default function InfiniteCanvas(
 
   const moveElement = (el: HTMLElement, position: NodePosition) => {
     const { offsetLeft, offsetTop } = position;
-    const { left: bgOffsetLeft, top: bgOffsetTop } = backgroundOffset.value;
-    const dx = offsetLeft + bgOffsetLeft;
-    const dy = offsetTop + bgOffsetTop;
+    const dx = offsetLeft + bgOffsetX.value;
+    const dy = offsetTop + bgOffsetY.value;
     el.style.transform = `translate(${dx}px, ${dy}px)`;
   };
 
@@ -123,10 +123,10 @@ export default function InfiniteCanvas(
     if (!container || !title) return;
 
     const titleRect = title.getBoundingClientRect();
-    backgroundOffset.value = {
-      left: (container.clientWidth - titleRect.width) / 2 - domain.left,
-      top: (container.clientHeight - titleRect.height) / 2 - domain.top,
-    };
+    bgOffsetX.value = (container.clientWidth - titleRect.width) / 2 -
+      domain.left;
+    bgOffsetY.value = (container.clientHeight - titleRect.height) / 2 -
+      domain.top;
     childRefs.forEach((ref, i) => {
       const el = ref.current;
       if (!el) return;
@@ -161,6 +161,8 @@ export default function InfiniteCanvas(
         // TODO: grab https://github.com/ras0q/ras0q.com/blob/1e18f972a885cfc2b96882a1abae9c2ff78cd4bc/src/components/InfiniteCanvas.tsx
         backgroundImage: `${bgImage(0)}, ${bgImage(90)}`,
         backgroundSize: `${bgSize}px ${bgSize}px`,
+        backgroundPositionX: `${bgOffsetX.value}px`,
+        backgroundPositionY: `${bgOffsetY.value}px`,
       }}
       id="container"
       ref={containerRef}
