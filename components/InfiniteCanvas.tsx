@@ -4,11 +4,6 @@ import { useEffect, useRef } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 import { RefObject } from "preact";
 
-type NodePosition = {
-  offsetLeft: number;
-  offsetTop: number;
-};
-
 // TODO: propの対応をindexだけで繋いでいるので1つのobjectに集約したい
 type Props = {
   children: ComponentChildren;
@@ -25,10 +20,10 @@ export default function InfiniteCanvas(
   // REF: https://github.com/preactjs/signals/issues/255#issuecomment-1318899145
   const bgOffsetX = useSignal(0);
   const bgOffsetY = useSignal(0);
-  const nodePositions = Array.from({ length: childRefs.length }, () => ({
-    offsetLeft: 0,
-    offsetTop: 0,
-  }));
+  const elOffsets = Array.from(
+    { length: childRefs.length },
+    () => ({ x: 0, y: 0 }),
+  );
 
   const handlePointerDown = (e: PointerEvent) => {
     targetIndex.value = childRefs.findIndex((ref) => {
@@ -58,7 +53,7 @@ export default function InfiniteCanvas(
         const el = ref.current;
         if (!el) return;
 
-        moveElement(el, nodePositions[i]);
+        moveElement(el, elOffsets[i]);
       });
       return;
     }
@@ -66,9 +61,9 @@ export default function InfiniteCanvas(
     const targetEl = childRefs[i]?.current;
     if (!targetEl) return;
 
-    nodePositions[i].offsetLeft += e.movementX;
-    nodePositions[i].offsetTop += e.movementY;
-    moveElement(targetEl, nodePositions[i]);
+    elOffsets[i].x += e.movementX;
+    elOffsets[i].y += e.movementY;
+    moveElement(targetEl, elOffsets[i]);
   };
 
   const handlePointerUp = (e: PointerEvent) => {
@@ -80,7 +75,6 @@ export default function InfiniteCanvas(
     container.releasePointerCapture(e.pointerId);
     container.style.touchAction = "auto";
 
-    const target = nodePositions[i];
     const targetEL = childRefs[i]?.current;
     if (!targetEL) return;
 
@@ -88,32 +82,29 @@ export default function InfiniteCanvas(
     const omega = 0.01;
     const b = 0.001;
     const f = 0.01;
-    const { offsetLeft: ampX, offsetTop: ampY } = target;
+    const { x: ampX, y: ampY } = elOffsets[i];
     const ts0 = performance.now();
     const returnToOriginal = (ts: DOMHighResTimeStamp) => {
-      const nowTarget = nodePositions[i];
-      const { offsetLeft: nowOffsetLeft, offsetTop: nowOffsetTop } = nowTarget;
-      if (Math.abs(nowOffsetLeft) < f && Math.abs(nowOffsetTop) < f) return;
+      const { x: offsetX, y: offsetY } = elOffsets[i];
+      if (Math.abs(offsetX) < f && Math.abs(offsetY) < f) return;
 
       const t = ts - ts0;
       const dx = ampX * Math.exp(-b * t) * Math.cos(omega * t);
       const dy = ampY * Math.exp(-b * t) * Math.cos(omega * t);
-      nodePositions[i] = {
-        ...nowTarget,
-        offsetLeft: dx,
-        offsetTop: dy,
+      elOffsets[i] = {
+        x: dx,
+        y: dy,
       };
-      moveElement(targetEL, nodePositions[i]);
+      moveElement(targetEL, elOffsets[i]);
 
       requestAnimationFrame(returnToOriginal);
     };
     requestAnimationFrame(returnToOriginal);
   };
 
-  const moveElement = (el: HTMLElement, position: NodePosition) => {
-    const { offsetLeft, offsetTop } = position;
-    const dx = offsetLeft + bgOffsetX.value;
-    const dy = offsetTop + bgOffsetY.value;
+  const moveElement = (el: HTMLElement, offset: { x: number; y: number }) => {
+    const dx = offset.x + bgOffsetX.value;
+    const dy = offset.y + bgOffsetY.value;
     el.style.transform = `translate(${dx}px, ${dy}px)`;
   };
 
@@ -131,7 +122,7 @@ export default function InfiniteCanvas(
       const el = ref.current;
       if (!el) return;
 
-      moveElement(el, nodePositions[i]);
+      moveElement(el, elOffsets[i]);
     });
 
     container.addEventListener("pointerdown", handlePointerDown);
