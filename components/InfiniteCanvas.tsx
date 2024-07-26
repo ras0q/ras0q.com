@@ -1,8 +1,7 @@
-import { domain } from "../libs/consts.ts";
-import { ComponentChildren } from "preact";
-import { useEffect, useRef } from "preact/hooks";
 import { useSignal } from "@preact/signals";
-import { RefObject } from "preact";
+import { ComponentChildren, RefObject } from "preact";
+import { useEffect, useRef } from "preact/hooks";
+import { domain } from "../libs/consts.ts";
 
 // TODO: propの対応をindexだけで繋いでいるので1つのobjectに集約したい
 type Props = {

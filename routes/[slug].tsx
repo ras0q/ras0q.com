@@ -1,6 +1,6 @@
+import { asset, Head } from "$fresh/runtime.ts";
 import { Handler, PageProps } from "$fresh/server.ts";
 import { render } from "@deno/gfm";
-import { asset, Head } from "$fresh/runtime.ts";
 import { extract } from "@std/front-matter/yaml";
 import { exists } from "@std/fs";
 

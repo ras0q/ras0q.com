@@ -1,5 +1,4 @@
-import { JSX } from "preact";
-import { RefObject } from "preact";
+import { JSX, RefObject } from "preact";
 
 type Props = {
   divRef: RefObject<HTMLDivElement>;

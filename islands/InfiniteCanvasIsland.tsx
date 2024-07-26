@@ -1,9 +1,9 @@
-import InfiniteCanvas from "../components/InfiniteCanvas.tsx";
-import { domain, subDomains, subRoutes } from "../libs/consts.ts";
-import { Connector } from "../components/Connector.tsx";
-import { LinkCard } from "../components/LinkCard.tsx";
-import { Fragment } from "preact/jsx-runtime";
 import { useRef } from "preact/hooks";
+import { Fragment } from "preact/jsx-runtime";
+import { Connector } from "../components/Connector.tsx";
+import InfiniteCanvas from "../components/InfiniteCanvas.tsx";
+import { LinkCard } from "../components/LinkCard.tsx";
+import { domain, subDomains, subRoutes } from "../libs/consts.ts";
 
 export default function InfiniteCanvasIsland() {
   const titleRef = useRef<HTMLHeadingElement>(null);

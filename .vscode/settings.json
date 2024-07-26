@@ -1,18 +1,14 @@
 {
-  "[javascript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[typescriptreact]": {
+  "[typescript][typescriptreact]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
   "deno.enable": true,
   "deno.lint": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.removeUnusedImports": "explicit",
+    "source.sortImports": "explicit"
+  },
   "editor.defaultFormatter": "denoland.vscode-deno",
   "markdownlint.config": {
     "single-h1": false
