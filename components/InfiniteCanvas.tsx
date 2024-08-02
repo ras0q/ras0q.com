@@ -83,6 +83,8 @@ export const InfiniteCanvas = ({ children }: Props) => {
     container.releasePointerCapture(e.pointerId);
     container.style.touchAction = "auto";
 
+    if (i == -1) return;
+
     // return to original position with damping oscillation
     const omega = 0.01;
     const b = 0.001;
