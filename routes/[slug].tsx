@@ -32,7 +32,7 @@ export default function MarkdownPage({ data }: PageProps<Page>) {
           key="title"
         />
         <title>{attrs.title} | ras0q.com</title>
-        <link rel="stylesheet" href={asset("/style.css")} />
+        <link rel="stylesheet" href={asset("/styles.css")} />
         <link rel="stylesheet" href={asset("/markdown.css")} />
       </Head>
       <main class="markdown-body">
