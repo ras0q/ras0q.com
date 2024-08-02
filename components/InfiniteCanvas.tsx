@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals";
+import { batch, effect, useSignal } from "@preact/signals";
 import { ComponentChildren, RefObject } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 import { domain } from "../libs/consts.ts";
@@ -21,8 +21,22 @@ export default function InfiniteCanvas(
   const bgOffsetY = useSignal(0);
   const elOffsets = Array.from(
     { length: childRefs.length },
-    () => ({ x: 0, y: 0 }),
+    () => ({ x: useSignal(0), y: useSignal(0) }),
   );
+
+  effect(() => {
+    childRefs.map((ref, i) => {
+      const el = ref.current;
+      if (!el) return;
+
+      const dx = elOffsets[i].x.value + bgOffsetX.value;
+      const dy = elOffsets[i].y.value + bgOffsetY.value;
+      const transform = `translate(${dx}px, ${dy}px)`;
+      if (el.style.transform != transform) {
+        el.style.transform = transform;
+      }
+    });
+  });
 
   const handlePointerDown = (e: PointerEvent) => {
     targetIndex.value = childRefs.findIndex((ref) => {
@@ -45,14 +59,9 @@ export default function InfiniteCanvas(
 
     const i = targetIndex.value;
     if (i === -1) {
-      bgOffsetX.value += e.movementX;
-      bgOffsetY.value += e.movementY;
-
-      childRefs.forEach((ref, i) => {
-        const el = ref.current;
-        if (!el) return;
-
-        moveElement(el, elOffsets[i]);
+      batch(() => {
+        bgOffsetX.value += e.movementX;
+        bgOffsetY.value += e.movementY;
       });
       return;
     }
@@ -60,9 +69,10 @@ export default function InfiniteCanvas(
     const targetEl = childRefs[i]?.current;
     if (!targetEl) return;
 
-    elOffsets[i].x += e.movementX;
-    elOffsets[i].y += e.movementY;
-    moveElement(targetEl, elOffsets[i]);
+    batch(() => {
+      elOffsets[i].x.value += e.movementX;
+      elOffsets[i].y.value += e.movementY;
+    });
   };
 
   const handlePointerUp = (e: PointerEvent) => {
@@ -81,30 +91,24 @@ export default function InfiniteCanvas(
     const omega = 0.01;
     const b = 0.001;
     const f = 0.01;
-    const { x: ampX, y: ampY } = elOffsets[i];
+    const ampX = elOffsets[i].x.value;
+    const ampY = elOffsets[i].y.value;
     const ts0 = performance.now();
     const returnToOriginal = (ts: DOMHighResTimeStamp) => {
       const { x: offsetX, y: offsetY } = elOffsets[i];
-      if (Math.abs(offsetX) < f && Math.abs(offsetY) < f) return;
+      if (Math.abs(offsetX.value) < f && Math.abs(offsetY.value) < f) return;
 
-      const t = ts - ts0;
-      const dx = ampX * Math.exp(-b * t) * Math.cos(omega * t);
-      const dy = ampY * Math.exp(-b * t) * Math.cos(omega * t);
-      elOffsets[i] = {
-        x: dx,
-        y: dy,
-      };
-      moveElement(targetEL, elOffsets[i]);
+      batch(() => {
+        const t = ts - ts0;
+        const dx = ampX * Math.exp(-b * t) * Math.cos(omega * t);
+        const dy = ampY * Math.exp(-b * t) * Math.cos(omega * t);
+        elOffsets[i].x.value = dx;
+        elOffsets[i].y.value = dy;
+      });
 
       requestAnimationFrame(returnToOriginal);
     };
     requestAnimationFrame(returnToOriginal);
-  };
-
-  const moveElement = (el: HTMLElement, offset: { x: number; y: number }) => {
-    const dx = offset.x + bgOffsetX.value;
-    const dy = offset.y + bgOffsetY.value;
-    el.style.transform = `translate(${dx}px, ${dy}px)`;
   };
 
   useEffect(() => {
@@ -112,16 +116,12 @@ export default function InfiniteCanvas(
     const title = titleRef.current;
     if (!container || !title) return;
 
-    const titleRect = title.getBoundingClientRect();
-    bgOffsetX.value = (container.clientWidth - titleRect.width) / 2 -
-      domain.left;
-    bgOffsetY.value = (container.clientHeight - titleRect.height) / 2 -
-      domain.top;
-    childRefs.forEach((ref, i) => {
-      const el = ref.current;
-      if (!el) return;
-
-      moveElement(el, elOffsets[i]);
+    batch(() => {
+      const titleRect = title.getBoundingClientRect();
+      const x = (container.clientWidth - titleRect.width) / 2 - domain.left;
+      const y = (container.clientHeight - titleRect.height) / 2 - domain.top;
+      bgOffsetX.value = x;
+      bgOffsetY.value = y;
     });
 
     container.addEventListener("pointerdown", handlePointerDown);
