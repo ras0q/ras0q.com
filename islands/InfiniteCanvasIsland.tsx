@@ -19,10 +19,7 @@ export default function InfiniteCanvasIsland() {
   const subRoutesRefs = subRoutes.map(() => useRef<HTMLDivElement>(null));
 
   return (
-    <InfiniteCanvas
-      childRefs={[titleRef, ...subDomainsRefs, ...subRoutesRefs]}
-      titleRef={titleRef}
-    >
+    <InfiniteCanvas titleRef={titleRef}>
       <h1
         id={titleID}
         style={{

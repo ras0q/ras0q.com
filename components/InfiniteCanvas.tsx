@@ -1,19 +1,19 @@
 import { batch, effect, useSignal } from "@preact/signals";
-import { ComponentChildren, RefObject } from "preact";
+import { ComponentChildren, RefObject, toChildArray, VNode } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 import { domain } from "../libs/consts.ts";
 
-// TODO: propの対応をindexだけで繋いでいるので1つのobjectに集約したい
 type Props = {
   children: ComponentChildren;
-  childRefs: RefObject<HTMLElement>[];
   titleRef: RefObject<HTMLElement>;
 };
 
-export default function InfiniteCanvas(
-  { children, childRefs, titleRef }: Props,
-) {
+export default function InfiniteCanvas({ children, titleRef }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const childRefs = toChildArray(children).map((c) =>
+    (c as VNode).ref as RefObject<HTMLElement>
+  ).filter(Boolean);
+
   const targetIndex = useSignal<number | undefined>(undefined);
   // NOTE: Signals currently supports string style values.
   // REF: https://github.com/preactjs/signals/issues/255#issuecomment-1318899145
