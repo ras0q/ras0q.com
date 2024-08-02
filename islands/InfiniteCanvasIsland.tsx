@@ -2,26 +2,64 @@ import { useRef } from "preact/hooks";
 import { Connector } from "../components/Connector.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
-import { domain, subDomains, subRoutes } from "../libs/consts.ts";
 
 export default function InfiniteCanvasIsland() {
-  const titleID = "title";
-  const subDomainIDs = Array.from(
-    { length: subDomains.length },
-    (_, i) => `subdomains_${i}`,
-  );
-  const subRoutesIDs = Array.from(
-    { length: subRoutes.length },
-    (_, i) => `subroutes${i}`,
-  );
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subDomainsRefs = subDomains.map(() => useRef<HTMLDivElement>(null));
-  const subRoutesRefs = subRoutes.map(() => useRef<HTMLDivElement>(null));
+  const title = {
+    id: "title",
+    ref: useRef<HTMLHeadingElement>(null),
+    name: "ras0q.com",
+    left: 345,
+    top: 276,
+  };
+
+  const subDomains = [
+    {
+      name: "slitscan3d.",
+      description: "Slit-Scan powered by Three.js",
+      left: 36,
+      top: 100,
+    },
+    {
+      name: "diary.",
+      description: "My diary",
+      left: 59,
+      top: 400,
+    },
+  ].map((v, i) => ({
+    id: `subdomains_${i}`,
+    ref: useRef<HTMLDivElement>(null),
+    ...v,
+  }));
+
+  const subRoutes = [
+    {
+      path: "/about",
+      description: "About me",
+      left: 778,
+      top: 43,
+    },
+    {
+      path: "/works",
+      description: "Works",
+      left: 862,
+      top: 275,
+    },
+    {
+      path: "/blog",
+      description: "Blog",
+      left: 897,
+      top: 570,
+    },
+  ].map((v, i) => ({
+    id: `subroutes${i}`,
+    ref: useRef<HTMLDivElement>(null),
+    ...v,
+  }));
 
   return (
-    <InfiniteCanvas titleRef={titleRef}>
+    <InfiniteCanvas>
       <h1
-        id={titleID}
+        id={title.id}
         style={{
           cursor: "grab",
           fontSize: "5rem",
@@ -34,45 +72,45 @@ export default function InfiniteCanvasIsland() {
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           position: "absolute",
-          left: domain.left,
-          top: domain.top,
+          left: title.left,
+          top: title.top,
         }}
-        ref={titleRef}
+        ref={title.ref}
       >
-        {domain.name}
+        {title.name}
       </h1>
 
-      {subDomainIDs.map((id) => <Connector leftID={id} rightID={titleID} />)}
-      {subDomains.map(({ name, description, left, top }, i) => (
+      {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
+      {subDomains.map(({ id, ref, name, description, left, top }, i) => (
         <div
-          id={subDomainIDs[i]}
+          id={id}
           style={{
             position: "absolute",
             left,
             top,
           }}
           key={name}
-          ref={subDomainsRefs[i]}
+          ref={ref}
         >
           <LinkCard
             title={name}
             body={description}
-            href={`https://${name}${domain.name}`}
+            href={`https://${name}${title.name}`}
           />
         </div>
       ))}
 
-      {subRoutesIDs.map((id) => <Connector leftID={titleID} rightID={id} />)}
-      {subRoutes.map(({ path, description, left, top }, i) => (
+      {subRoutes.map((v) => <Connector leftID={title.id} rightID={v.id} />)}
+      {subRoutes.map(({ id, ref, path, description, left, top }, i) => (
         <div
-          id={subRoutesIDs[i]}
+          id={id}
           style={{
             position: "absolute",
             left,
             top,
           }}
           key={path}
-          ref={subRoutesRefs[i]}
+          ref={ref}
         >
           <LinkCard
             title={path}

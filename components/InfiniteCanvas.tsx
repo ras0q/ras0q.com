@@ -1,14 +1,12 @@
 import { batch, effect, useSignal } from "@preact/signals";
 import { ComponentChildren, RefObject, toChildArray, VNode } from "preact";
 import { useEffect, useRef } from "preact/hooks";
-import { domain } from "../libs/consts.ts";
 
 type Props = {
   children: ComponentChildren;
-  titleRef: RefObject<HTMLElement>;
 };
 
-export const InfiniteCanvas = ({ children, titleRef }: Props) => {
+export const InfiniteCanvas = ({ children }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const childRefs = toChildArray(children).map((c) =>
     (c as VNode).ref as RefObject<HTMLElement>
@@ -113,16 +111,7 @@ export const InfiniteCanvas = ({ children, titleRef }: Props) => {
 
   useEffect(() => {
     const container = containerRef.current;
-    const title = titleRef.current;
-    if (!container || !title) return;
-
-    batch(() => {
-      const titleRect = title.getBoundingClientRect();
-      const x = (container.clientWidth - titleRect.width) / 2 - domain.left;
-      const y = (container.clientHeight - titleRect.height) / 2 - domain.top;
-      bgOffsetX.value = x;
-      bgOffsetY.value = y;
-    });
+    if (!container) return;
 
     container.addEventListener("pointerdown", handlePointerDown);
     container.addEventListener("pointermove", handlePointerMove);
