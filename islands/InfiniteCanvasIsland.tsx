@@ -81,7 +81,7 @@ export default function InfiniteCanvasIsland() {
       </h1>
 
       {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
-      {subDomains.map(({ id, ref, name, description, left, top }, i) => (
+      {subDomains.map(({ id, ref, name, description, left, top }) => (
         <div
           id={id}
           style={{
@@ -101,7 +101,7 @@ export default function InfiniteCanvasIsland() {
       ))}
 
       {subRoutes.map((v) => <Connector leftID={title.id} rightID={v.id} />)}
-      {subRoutes.map(({ id, ref, path, description, left, top }, i) => (
+      {subRoutes.map(({ id, ref, path, description, left, top }) => (
         <div
           id={id}
           style={{
