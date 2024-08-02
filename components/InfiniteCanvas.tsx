@@ -8,27 +8,31 @@ type Props = {
 
 export const InfiniteCanvas = ({ children }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const childRefs = toChildArray(children).map((c) =>
-    (c as VNode).ref as RefObject<HTMLElement>
-  ).filter(Boolean);
+  const canvasElements = toChildArray(children).flatMap((c) =>
+    (c as VNode).ref !== undefined
+      ? {
+        ref: (c as VNode).ref as RefObject<HTMLElement>,
+        offset: {
+          x: useSignal(0),
+          y: useSignal(0),
+        },
+      }
+      : []
+  );
 
   const targetIndex = useSignal<number | undefined>(undefined);
   // NOTE: Signals currently supports string style values.
   // REF: https://github.com/preactjs/signals/issues/255#issuecomment-1318899145
   const bgOffsetX = useSignal(0);
   const bgOffsetY = useSignal(0);
-  const elOffsets = Array.from(
-    { length: childRefs.length },
-    () => ({ x: useSignal(0), y: useSignal(0) }),
-  );
 
   effect(() => {
-    childRefs.map((ref, i) => {
-      const el = ref.current;
+    canvasElements.map((c) => {
+      const el = c.ref.current;
       if (!el) return;
 
-      const dx = elOffsets[i].x.value + bgOffsetX.value;
-      const dy = elOffsets[i].y.value + bgOffsetY.value;
+      const dx = c.offset.x.value + bgOffsetX.value;
+      const dy = c.offset.y.value + bgOffsetY.value;
       const transform = `translate(${dx}px, ${dy}px)`;
       if (el.style.transform != transform) {
         el.style.transform = transform;
@@ -37,8 +41,8 @@ export const InfiniteCanvas = ({ children }: Props) => {
   });
 
   const handlePointerDown = (e: PointerEvent) => {
-    targetIndex.value = childRefs.findIndex((ref) => {
-      const el = ref.current;
+    targetIndex.value = canvasElements.findIndex((c) => {
+      const el = c.ref.current;
       if (!el) return false;
 
       const rect = el.getBoundingClientRect();
@@ -65,8 +69,8 @@ export const InfiniteCanvas = ({ children }: Props) => {
     }
 
     batch(() => {
-      elOffsets[i].x.value += e.movementX;
-      elOffsets[i].y.value += e.movementY;
+      canvasElements[i].offset.x.value += e.movementX;
+      canvasElements[i].offset.y.value += e.movementY;
     });
   };
 
@@ -83,19 +87,19 @@ export const InfiniteCanvas = ({ children }: Props) => {
     const omega = 0.01;
     const b = 0.001;
     const f = 0.01;
-    const ampX = elOffsets[i].x.value;
-    const ampY = elOffsets[i].y.value;
+    const ampX = canvasElements[i].offset.x.value;
+    const ampY = canvasElements[i].offset.y.value;
     const ts0 = performance.now();
     const returnToOriginal = (ts: DOMHighResTimeStamp) => {
-      const { x: offsetX, y: offsetY } = elOffsets[i];
+      const { x: offsetX, y: offsetY } = canvasElements[i].offset;
       if (Math.abs(offsetX.value) < f && Math.abs(offsetY.value) < f) return;
 
       batch(() => {
         const t = ts - ts0;
         const dx = ampX * Math.exp(-b * t) * Math.cos(omega * t);
         const dy = ampY * Math.exp(-b * t) * Math.cos(omega * t);
-        elOffsets[i].x.value = dx;
-        elOffsets[i].y.value = dy;
+        canvasElements[i].offset.x.value = dx;
+        canvasElements[i].offset.y.value = dy;
       });
 
       requestAnimationFrame(returnToOriginal);
