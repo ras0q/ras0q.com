@@ -1,16 +1,10 @@
-import { JSX, RefObject } from "preact";
-
 type Props = {
-  divRef: RefObject<HTMLDivElement>;
   title: string;
   body?: string;
   href: string;
-  style: JSX.CSSProperties;
 };
 
-export const LinkCard = (
-  { divRef: divRef, title, body, href, style }: Props,
-) => {
+export const LinkCard = ({ title, body, href }: Props) => {
   return (
     <div
       style={{
@@ -23,9 +17,7 @@ export const LinkCard = (
         userSelect: "none",
         whiteSpace: "nowrap",
         cursor: "inherit",
-        ...style,
       }}
-      ref={divRef}
       draggable={false}
     >
       <h2 style={{ margin: 0 }}>

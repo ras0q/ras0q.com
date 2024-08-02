@@ -1,14 +1,12 @@
-import { RefObject } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 type Props = {
-  fromRef: RefObject<HTMLElement>;
-  toRef: RefObject<HTMLElement>;
-  r2l?: boolean; // right to left?
+  leftID: string;
+  rightID: string;
   curve?: number;
 };
 
-export const Connector = ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
+export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
 
@@ -44,26 +42,24 @@ export const Connector = ({ fromRef, toRef, r2l, curve = 50 }: Props) => {
   };
 
   useEffect(() => {
-    if (!fromRef.current || !toRef.current) return;
+    const leftEL = document.querySelector<HTMLElement>(`#${leftID}`);
+    const rightEL = document.querySelector<HTMLElement>(`#${rightID}`);
+    if (!leftEL || !rightEL) return;
 
-    const [left, right] = r2l
-      ? [toRef.current, fromRef.current]
-      : [fromRef.current, toRef.current];
+    const observer = new MutationObserver(() => fit(leftEL, rightEL));
+    observer.observe(leftEL, { attributes: true, characterData: true });
+    observer.observe(rightEL, { attributes: true, characterData: true });
 
-    const observer = new MutationObserver(() => fit(left, right));
-    observer.observe(left, { attributes: true, characterData: true });
-    observer.observe(right, { attributes: true, characterData: true });
-
-    const resizeObserver = new ResizeObserver(() => fit(left, right));
+    const resizeObserver = new ResizeObserver(() => fit(leftEL, rightEL));
     resizeObserver.observe(document.body);
-    resizeObserver.observe(left);
-    resizeObserver.observe(right);
+    resizeObserver.observe(leftEL);
+    resizeObserver.observe(rightEL);
 
     return () => {
       observer.disconnect();
       resizeObserver.disconnect();
     };
-  }, [fromRef, toRef, r2l, curve]);
+  }, [leftID, rightID, curve]);
 
   return (
     <svg
