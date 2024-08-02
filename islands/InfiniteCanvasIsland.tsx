@@ -1,6 +1,6 @@
 import { useRef } from "preact/hooks";
 import { Connector } from "../components/Connector.tsx";
-import InfiniteCanvas from "../components/InfiniteCanvas.tsx";
+import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
 import { domain, subDomains, subRoutes } from "../libs/consts.ts";
 

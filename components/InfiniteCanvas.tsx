@@ -8,7 +8,7 @@ type Props = {
   titleRef: RefObject<HTMLElement>;
 };
 
-export default function InfiniteCanvas({ children, titleRef }: Props) {
+export const InfiniteCanvas = ({ children, titleRef }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const childRefs = toChildArray(children).map((c) =>
     (c as VNode).ref as RefObject<HTMLElement>
@@ -160,4 +160,4 @@ export default function InfiniteCanvas({ children, titleRef }: Props) {
       {children}
     </div>
   );
-}
+};
