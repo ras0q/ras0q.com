@@ -64,9 +64,6 @@ export const InfiniteCanvas = ({ children }: Props) => {
       return;
     }
 
-    const targetEl = childRefs[i]?.current;
-    if (!targetEl) return;
-
     batch(() => {
       elOffsets[i].x.value += e.movementX;
       elOffsets[i].y.value += e.movementY;
@@ -81,9 +78,6 @@ export const InfiniteCanvas = ({ children }: Props) => {
     targetIndex.value = undefined;
     container.releasePointerCapture(e.pointerId);
     container.style.touchAction = "auto";
-
-    const targetEL = childRefs[i]?.current;
-    if (!targetEL) return;
 
     // return to original position with damping oscillation
     const omega = 0.01;
