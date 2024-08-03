@@ -1,4 +1,4 @@
-import { batch, effect, useSignal } from "@preact/signals";
+import { batch, computed, effect, useSignal } from "@preact/signals";
 import { ComponentChildren, RefObject, toChildArray, VNode } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
@@ -25,16 +25,23 @@ export const InfiniteCanvas = ({ children }: Props) => {
   // REF: https://github.com/preactjs/signals/issues/255#issuecomment-1318899145
   const bgOffsetX = useSignal(0);
   const bgOffsetY = useSignal(0);
+  const bgScale = useSignal(1);
 
   effect(() => {
     canvasElements.map((c) => {
       const el = c.ref.current;
       if (!el) return;
 
-      const dx = c.offset.x.value + bgOffsetX.value;
-      const dy = c.offset.y.value + bgOffsetY.value;
-      const transform = `translate(${dx}px, ${dy}px)`;
+      const dx =
+        (el.offsetLeft + bgOffsetX.value + c.offset.x.value) * bgScale.value -
+        el.offsetLeft;
+      const dy =
+        (el.offsetTop + bgOffsetY.value + c.offset.y.value) * bgScale.value -
+        el.offsetTop;
+      const transform =
+        `translate(${dx}px, ${dy}px) scale(${bgScale.value}, ${bgScale.value})`;
       if (el.style.transform != transform) {
+        el.style.transformOrigin = "top left";
         el.style.transform = transform;
       }
     });
@@ -109,6 +116,11 @@ export const InfiniteCanvas = ({ children }: Props) => {
     requestAnimationFrame(returnToOriginal);
   };
 
+  const handleWheel = (e: WheelEvent) => {
+    e.preventDefault();
+    bgScale.value += -0.05 * Math.sign(e.deltaY);
+  };
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -116,19 +128,21 @@ export const InfiniteCanvas = ({ children }: Props) => {
     container.addEventListener("pointerdown", handlePointerDown);
     container.addEventListener("pointermove", handlePointerMove);
     container.addEventListener("pointerup", handlePointerUp);
+    container.addEventListener("wheel", handleWheel);
 
     return () => {
       container.removeEventListener("pointerdown", handlePointerDown);
       container.removeEventListener("pointermove", handlePointerMove);
       container.removeEventListener("pointerup", handlePointerUp);
+      container.removeEventListener("wheel", handleWheel);
     };
   }, []);
 
-  const bgSize = 16;
+  const bgSize = computed(() => 16 * bgScale.value);
   const bgImage = (deg: number) =>
     `linear-gradient(${deg}deg, transparent ${
-      bgSize - 1
-    }px, var(--ctp-latte-surface0) ${bgSize}px)`;
+      bgSize.value - 1
+    }px, var(--ctp-latte-surface0) ${bgSize.value}px)`;
 
   return (
     <div
@@ -139,9 +153,9 @@ export const InfiniteCanvas = ({ children }: Props) => {
         overflow: "hidden",
         // TODO: grab https://github.com/ras0q/ras0q.com/blob/1e18f972a885cfc2b96882a1abae9c2ff78cd4bc/src/components/InfiniteCanvas.tsx
         backgroundImage: `${bgImage(0)}, ${bgImage(90)}`,
-        backgroundSize: `${bgSize}px ${bgSize}px`,
-        backgroundPositionX: `${bgOffsetX.value}px`,
-        backgroundPositionY: `${bgOffsetY.value}px`,
+        backgroundSize: `${bgSize.value}px ${bgSize.value}px`,
+        backgroundPositionX: `${bgOffsetX.value * bgScale.value}px`,
+        backgroundPositionY: `${bgOffsetY.value * bgScale.value}px`,
       }}
       id="container"
       ref={containerRef}
