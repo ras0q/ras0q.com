@@ -46,13 +46,17 @@ export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
     const leftEL = document.querySelector<HTMLElement>(`#${leftID}`);
     const rightEL = document.querySelector<HTMLElement>(`#${rightID}`);
     const parentEL = leftEL?.parentElement;
-    if (!leftEL || !rightEL || !parentEL || parentEL !== rightEL.parentElement) return;
+    if (
+      !leftEL || !rightEL || !parentEL || parentEL !== rightEL.parentElement
+    ) return;
 
     const observer = new MutationObserver(() => fit(parentEL, leftEL, rightEL));
     observer.observe(leftEL, { attributes: true, characterData: true });
     observer.observe(rightEL, { attributes: true, characterData: true });
 
-    const resizeObserver = new ResizeObserver(() => fit(parentEL, leftEL, rightEL));
+    const resizeObserver = new ResizeObserver(() =>
+      fit(parentEL, leftEL, rightEL)
+    );
     resizeObserver.observe(document.body);
     resizeObserver.observe(leftEL);
     resizeObserver.observe(rightEL);
