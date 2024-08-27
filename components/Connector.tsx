@@ -10,16 +10,17 @@ export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
 
-  const fit = (left: HTMLElement, right: HTMLElement) => {
+  const fit = (parent: HTMLElement, left: HTMLElement, right: HTMLElement) => {
     if (!svgRef.current || !pathRef.current) return;
 
     const { scrollX, scrollY } = window;
+    const parentRect = parent.getBoundingClientRect();
     const leftRect = left.getBoundingClientRect();
     const rightRect = right.getBoundingClientRect();
-    const lx = scrollX + leftRect.right;
-    const ly = scrollY + leftRect.top + leftRect.height / 2;
-    const rx = scrollX + rightRect.left;
-    const ry = scrollY + rightRect.top + rightRect.height / 2;
+    const lx = scrollX + leftRect.right - parentRect.left;
+    const ly = scrollY + leftRect.top - parentRect.top + leftRect.height / 2;
+    const rx = scrollX + rightRect.left - parentRect.left;
+    const ry = scrollY + rightRect.top - parentRect.top + rightRect.height / 2;
     const viewLeft = Math.min(lx, rx);
     const viewTop = Math.min(ly, ry);
     const w = Math.max(Math.abs(rx - lx), 1);
@@ -44,13 +45,14 @@ export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
   useEffect(() => {
     const leftEL = document.querySelector<HTMLElement>(`#${leftID}`);
     const rightEL = document.querySelector<HTMLElement>(`#${rightID}`);
-    if (!leftEL || !rightEL) return;
+    const parentEL = leftEL?.parentElement;
+    if (!leftEL || !rightEL || !parentEL || parentEL !== rightEL.parentElement) return;
 
-    const observer = new MutationObserver(() => fit(leftEL, rightEL));
+    const observer = new MutationObserver(() => fit(parentEL, leftEL, rightEL));
     observer.observe(leftEL, { attributes: true, characterData: true });
     observer.observe(rightEL, { attributes: true, characterData: true });
 
-    const resizeObserver = new ResizeObserver(() => fit(leftEL, rightEL));
+    const resizeObserver = new ResizeObserver(() => fit(parentEL, leftEL, rightEL));
     resizeObserver.observe(document.body);
     resizeObserver.observe(leftEL);
     resizeObserver.observe(rightEL);
