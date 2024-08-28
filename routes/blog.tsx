@@ -18,8 +18,8 @@ export default function Blog() {
         <p>Coming soon...</p>
         <div
           style={{
-            width: "80vw",
-            height: "80vh",
+            width: "80svw",
+            height: "80svh",
             border: "1px solid black",
           }}
         >

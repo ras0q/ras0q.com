@@ -2,11 +2,12 @@ import { useRef } from "preact/hooks";
 import { Connector } from "../components/Connector.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
+import { TitleLogo } from "../components/TitleLogo.tsx";
 
 export default function InfiniteCanvasIsland() {
   const title = {
     id: "title",
-    ref: useRef<HTMLHeadingElement>(null),
+    ref: useRef<HTMLDivElement>(null),
     name: "ras0q.com",
     left: 345,
     top: 276,
@@ -58,27 +59,19 @@ export default function InfiniteCanvasIsland() {
 
   return (
     <InfiniteCanvas>
-      <h1
+      <div
         id={title.id}
+        ref={title.ref}
         style={{
-          cursor: "grab",
           fontSize: "5rem",
-          margin: 0,
-          userSelect: "none",
-          display: "inline-block",
-          background:
-            "linear-gradient(120deg, var(--ctp-latte-lavender), var(--ctp-latte-pink))",
-          backgroundClip: "text",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
+          cursor: "grab",
           position: "absolute",
           left: title.left,
           top: title.top,
         }}
-        ref={title.ref}
       >
-        {title.name}
-      </h1>
+        <TitleLogo />
+      </div>
 
       {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
       {subDomains.map(({ id, ref, name, description, left, top }) => (

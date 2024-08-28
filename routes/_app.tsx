@@ -1,7 +1,13 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
+import { TitleLogo } from "../components/TitleLogo.tsx";
 
 export default function App({ Component }: PageProps) {
+  const headerLinks = {
+    "X": "https://x.com/ras0q",
+    "GitHub": "https://github.com/ras0q",
+  };
+
   return (
     <html lang="ja">
       <head>
@@ -17,7 +23,42 @@ export default function App({ Component }: PageProps) {
         <title>ras0q.com</title>
         <link rel="stylesheet" href={asset("/styles.css")} />
       </head>
-      <body>
+      <body
+        style={{
+          minHeight: "100svh",
+        }}
+      >
+        <header
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0.5rem 2rem",
+            background: "var(--ctp-latte-mantle)",
+          }}
+        >
+          <a href="/" style={{ fontSize: "2rem" }}>
+            <TitleLogo />
+          </a>
+          <div
+            style={{
+              display: "flex",
+              gap: "0.5rem",
+            }}
+          >
+            {Object.entries(headerLinks).map(([key, link]) => (
+              <a
+                key={key}
+                href={link}
+                style={{
+                  color: "var(--ctp-latte-text)",
+                }}
+              >
+                <strong>{key}</strong>↗
+              </a>
+            ))}
+          </div>
+        </header>
         <Component />
       </body>
     </html>
