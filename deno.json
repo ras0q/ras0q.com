@@ -20,7 +20,8 @@
   },
   "exclude": [
     "**/_fresh/*",
-    "**/*.md"
+    "**/*.md",
+    "./static/styled-system"
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.6.8/",

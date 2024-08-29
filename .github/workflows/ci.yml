@@ -17,4 +17,3 @@ jobs:
       - run: deno task check
       - run: deno task manifest && git diff --exit-code
       - run: deno task build
-
