@@ -5,8 +5,8 @@ export const handler: Handlers = {
     return new Response(
       JSON.stringify({
         "names": {
-          "admin":
-            "1f60f02ded6e17bf5f5e419049bbc29077947946a8fd4a29ca776ea539fddf",
+          "_":
+            "1f60f02ded6e17bf5f5e419049bbc2907709047946a8fd4a29ca776ea539fddf",
         },
       }),
       {
