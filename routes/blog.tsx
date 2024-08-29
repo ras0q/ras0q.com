@@ -1,5 +1,7 @@
 import { asset, Head } from "$fresh/runtime.ts";
 import InfiniteCanvas from "../islands/InfiniteCanvasIsland.tsx";
+// @ts-types="../static/styled-system/css/index.d.mts"
+import { css } from "../static/styled-system/css/index.mjs";
 
 export default function Blog() {
   return (
@@ -17,11 +19,11 @@ export default function Blog() {
         <h1>Blog</h1>
         <p>Coming soon...</p>
         <div
-          style={{
+          class={css({
             width: "80svw",
             height: "80svh",
             border: "1px solid black",
-          }}
+          })}
         >
           <InfiniteCanvas />
         </div>

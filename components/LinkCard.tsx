@@ -1,3 +1,6 @@
+// @ts-types="../static/styled-system/css/index.d.mts"
+import { css } from "../static/styled-system/css/index.mjs";
+
 type Props = {
   title: string;
   body?: string;
@@ -7,30 +10,33 @@ type Props = {
 export const LinkCard = ({ title, body, href }: Props) => {
   return (
     <div
-      style={{
-        width: "fit-content",
-        display: "inline-block",
-        padding: "1.5rem",
-        backgroundColor: "var(--ctp-macchiato-base)",
-        color: "var(--ctp-macchiato-text)",
-        borderRadius: "10px",
-        userSelect: "none",
-        whiteSpace: "nowrap",
-        cursor: "inherit",
-      }}
+      class={css`
+        width: fit-content;
+        display: inline-block;
+        padding: 1.5rem;
+        background-color: var(--ctp-macchiato-base);
+        color: var(--ctp-macchiato-text);
+        border-radius: 10px;
+        user-select: none;
+        white-space: nowrap;
+        cursor: inherit;
+        & > * {
+          margin: 0;
+        }
+      `}
       draggable={false}
     >
-      <h2 style={{ margin: 0 }}>
+      <h2>
         <a
           href={href}
-          style={{
-            color: "var(--ctp-macchiato-text)",
-          }}
+          class={css`
+            color: var(--ctp-macchiato-text);
+          `}
         >
           {title}
         </a>
       </h2>
-      <p style={{ margin: 0 }}>{body}</p>
+      <p>{body}</p>
     </div>
   );
 };

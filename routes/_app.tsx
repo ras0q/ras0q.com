@@ -1,6 +1,8 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 import { TitleLogo } from "../components/TitleLogo.tsx";
+// @ts-types="../static/styled-system/css/index.d.mts"
+import { css } from "../static/styled-system/css/css.mjs";
 
 export default function App({ Component }: PageProps) {
   const headerLinks = {
@@ -22,37 +24,32 @@ export default function App({ Component }: PageProps) {
         <meta property="og:image:height" content="630" key="image-height" />
         <title>ras0q.com</title>
         <link rel="stylesheet" href={asset("/styles.css")} />
+        <link rel="stylesheet" href={asset("/styled-system/styles.css")} />
       </head>
-      <body
-        style={{
-          minHeight: "100svh",
-        }}
-      >
+      <body class={css`min-height: 100svh;`}>
         <header
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "0.5rem 2rem",
-            background: "var(--ctp-latte-mantle)",
-          }}
+          class={css`
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 2rem;
+            background: var(--ctp-latte-mantle);
+          `}
         >
-          <a href="/" style={{ fontSize: "2rem" }}>
-            <TitleLogo />
+          <a href="/">
+            <TitleLogo class={css`font-size: 2rem;k`} />
           </a>
           <div
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-            }}
+            class={css`
+              display: flex;
+              gap: 0.5rem;
+            `}
           >
             {Object.entries(headerLinks).map(([key, link]) => (
               <a
                 key={key}
                 href={link}
-                style={{
-                  color: "var(--ctp-latte-text)",
-                }}
+                class={css`color: var(--ctp-latte-text);`}
               >
                 <strong>{key}</strong>↗
               </a>

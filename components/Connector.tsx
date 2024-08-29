@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "preact/hooks";
+// @ts-types="../static/styled-system/css/index.d.mts"
+import { css } from "../static/styled-system/css/index.mjs";
 
 type Props = {
   leftID: string;
@@ -71,15 +73,18 @@ export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
     <svg
       ref={svgRef}
       version="1.1"
-      style={{ position: "absolute", overflow: "visible" }}
+      class={css`
+        position: absolute;
+        overflow: visible;
+      `}
     >
       <path
         ref={pathRef}
-        style={{
-          fill: "none",
-          stroke: "var(--ctp-latte-text)",
-          strokeWidth: "0.25rem",
-        }}
+        class={css`
+          fill: none;
+          stroke: var(--ctp-latte-text);
+          stroke-width: 0.25rem;
+        `}
       />
     </svg>
   );

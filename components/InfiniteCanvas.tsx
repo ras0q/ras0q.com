@@ -1,6 +1,8 @@
 import { batch, computed, effect, useSignal } from "@preact/signals";
 import { ComponentChildren, RefObject, toChildArray, VNode } from "preact";
 import { useEffect, useRef } from "preact/hooks";
+// @ts-types="../static/styled-system/css/index.d.mts"
+import { css } from "../static/styled-system/css/index.mjs";
 
 type Props = {
   children: ComponentChildren;
@@ -146,12 +148,20 @@ export const InfiniteCanvas = ({ children }: Props) => {
 
   return (
     <div
+      class={css`
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        & > * {
+          cursor: grab;
+          &:active {
+            cursor: grabbing;
+          }
+        }
+      `}
       style={{
-        height: "100%",
-        width: "100%",
-        position: "relative",
-        overflow: "hidden",
-        // TODO: grab https://github.com/ras0q/ras0q.com/blob/1e18f972a885cfc2b96882a1abae9c2ff78cd4bc/src/components/InfiniteCanvas.tsx
         backgroundImage: `${bgImage(0)}, ${bgImage(90)}`,
         backgroundSize: `${bgSize.value}px ${bgSize.value}px`,
         backgroundPositionX: `${bgOffsetX.value * bgScale.value}px`,

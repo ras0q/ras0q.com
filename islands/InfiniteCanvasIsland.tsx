@@ -3,6 +3,8 @@ import { Connector } from "../components/Connector.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
 import { TitleLogo } from "../components/TitleLogo.tsx";
+// @ts-types="../static/styled-system/css/index.d.mts"
+import { css } from "../static/styled-system/css/css.mjs";
 
 export default function InfiniteCanvasIsland() {
   const title = {
@@ -63,14 +65,12 @@ export default function InfiniteCanvasIsland() {
         id={title.id}
         ref={title.ref}
         style={{
-          fontSize: "5rem",
-          cursor: "grab",
           position: "absolute",
           left: title.left,
           top: title.top,
         }}
       >
-        <TitleLogo />
+        <TitleLogo class={css`font-size: 5rem;`} />
       </div>
 
       {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
