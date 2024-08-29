@@ -19,11 +19,11 @@ export default function Blog() {
         <h1>Blog</h1>
         <p>Coming soon...</p>
         <div
-          class={css({
-            width: "80svw",
-            height: "80svh",
-            border: "1px solid black",
-          })}
+          class={css`
+            width: 80svw;
+            height: 80svh;
+            border: 1px solid black;
+          `}
         >
           <InfiniteCanvas />
         </div>
