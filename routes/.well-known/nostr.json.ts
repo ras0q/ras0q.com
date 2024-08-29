@@ -1,8 +1,8 @@
 import { Handlers } from "$fresh/server.ts";
 
 export const handler: Handlers = {
-  GET(req, ctx) {
-    const name = ctx.params["name"];
+  GET(req) {
+    const name = new URL(req.url).searchParams.get("name");
     if (!name) {
       return new Response(
         JSON.stringify({
