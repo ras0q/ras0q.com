@@ -1,6 +1,6 @@
 import { Log } from "../components/Log.tsx";
 // @ts-types="../static/styled-system/css/index.d.mts"
-import { css } from "../static/styled-system/css/index.d.mts";
+import { css } from "../static/styled-system/css/index.mjs";
 
 export default function About() {
   return (
