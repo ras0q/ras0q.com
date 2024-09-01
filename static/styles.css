@@ -34,7 +34,7 @@
 
     code {
       font-family: "Source Code Pro";
-      background-color: rgb(var(--ctp-latte-surface2-rgb) / 0.4);
+      background-color: var(--ctp-latte-mantle);
       border-radius: 0.25rem;
       padding: 0 0.25rem;
     }
