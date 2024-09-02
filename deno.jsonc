@@ -10,7 +10,7 @@
     "build": "deno task panda && deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "panda": "deno run -A npm:@pandacss/dev@0.45.1",
+    "panda": "deno cache panda.config.mjs && deno run -A npm:@pandacss/dev@0.45.1",
     "panda-studio": "deno run -A npm:@pandacss/studio@0.45.1"
   },
   "lint": {
