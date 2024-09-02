@@ -28,8 +28,6 @@ export const InfiniteCanvas = ({ children }: Props) => {
   const bgOffsetX = useSignal(0);
   const bgOffsetY = useSignal(0);
   const bgScale = useSignal(1);
-  const bgScalePointX = useSignal(0);
-  const bgScalePointY = useSignal(0);
 
   effect(() => {
     canvasElements.map((c) => {
@@ -45,10 +43,7 @@ export const InfiniteCanvas = ({ children }: Props) => {
       const transform =
         `translate(${dx}px, ${dy}px) scale(${bgScale.value}, ${bgScale.value})`;
       if (el.style.transform != transform) {
-        // el.style.transformOrigin = "top left";
-        el.style.transformOrigin = `${bgScalePointX.value - el.offsetLeft}px ${
-          bgScalePointY.value - el.offsetTop
-        }px`;
+        el.style.transformOrigin = "top left";
         el.style.transform = transform;
       }
     });
@@ -126,8 +121,6 @@ export const InfiniteCanvas = ({ children }: Props) => {
   const handleWheel = (e: WheelEvent) => {
     e.preventDefault();
     bgScale.value += -0.05 * Math.sign(e.deltaY);
-    bgScalePointX.value = e.clientX;
-    bgScalePointY.value = e.clientY;
   };
 
   useEffect(() => {

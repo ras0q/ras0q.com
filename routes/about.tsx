@@ -20,7 +20,6 @@ export default function About() {
             "skills"
             "contests"
             "talks";
-          grid-template-columns: 1fr;
         }
         padding: 5% 10%;
         & * {
