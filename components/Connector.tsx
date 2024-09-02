@@ -82,7 +82,7 @@ export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
         ref={pathRef}
         class={css`
           fill: none;
-          stroke: var(--ctp-latte-text);
+          stroke: var(--colors-text);
           stroke-width: 0.25rem;
         `}
       />

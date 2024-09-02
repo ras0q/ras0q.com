@@ -10,7 +10,8 @@
     "build": "deno task panda && deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "panda": "deno run -A npm:@pandacss/dev@0.45.1"
+    "panda": "deno run -A npm:@pandacss/dev@0.45.1",
+    "panda-studio": "deno run -A npm:@pandacss/studio@0.45.1"
   },
   "lint": {
     "rules": {
@@ -28,6 +29,7 @@
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.6.8/",
+    "@catppuccin/palette": "jsr:@catppuccin/palette@^1.2.0",
     "@deno/gfm": "jsr:@deno/gfm@0.8.2",
     "@pandacss/dev": "npm:@pandacss/dev@^0.45.1",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",

@@ -14,8 +14,8 @@ export const LinkCard = ({ title, body, href }: Props) => {
         width: fit-content;
         display: inline-block;
         padding: 1.5rem;
-        background-color: var(--ctp-macchiato-base);
-        color: var(--ctp-macchiato-text);
+        background-color: var(--colors-macchiato-base);
+        color: var(--colors-macchiato-text);
         border-radius: 10px;
         user-select: none;
         white-space: nowrap;
@@ -30,7 +30,7 @@ export const LinkCard = ({ title, body, href }: Props) => {
         <a
           href={href}
           class={css`
-            color: var(--ctp-macchiato-text);
+            color: var(--colors-macchiato-text);
           `}
         >
           {title}

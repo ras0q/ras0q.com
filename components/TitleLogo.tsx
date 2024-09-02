@@ -11,7 +11,7 @@ export const TitleLogo = (props: { class?: string }) => (
         padding-right: 0.25rem; /* prevent text cut */
         user-select: none;
         display: inline-block;
-        background: linear-gradient(120deg, var(--ctp-latte-lavender), var(--ctp-latte-pink));
+        background: var(--gradients-primary);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

@@ -151,7 +151,7 @@ export const InfiniteCanvas = ({ children }: Props) => {
   const bgImage = (deg: number) =>
     `linear-gradient(${deg}deg, transparent ${
       bgSize.value - 1
-    }px, var(--ctp-latte-surface0) ${bgSize.value}px)`;
+    }px, var(--colors-surface0) ${bgSize.value}px)`;
 
   return (
     <div

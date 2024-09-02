@@ -23,8 +23,8 @@ export default function App({ Component }: PageProps) {
         <meta property="og:image:width" content="1200" key="image-width" />
         <meta property="og:image:height" content="630" key="image-height" />
         <title>ras0q.com</title>
-        <link rel="stylesheet" href={asset("/styles.css")} />
         <link rel="stylesheet" href={asset("/styled-system/styles.css")} />
+        <link rel="stylesheet" href={asset("/styles.css")} />
       </head>
       <body class={css`min-height: 100svh;`}>
         <header
@@ -33,7 +33,7 @@ export default function App({ Component }: PageProps) {
             align-items: center;
             justify-content: space-between;
             padding: 0.5rem 2rem;
-            background: var(--ctp-latte-mantle);
+            background: var(--colors-mantle);
           `}
         >
           <a href="/">
@@ -49,7 +49,7 @@ export default function App({ Component }: PageProps) {
               <a
                 key={key}
                 href={link}
-                class={css`color: var(--ctp-latte-text);`}
+                class={css`color: var(--colors-text);`}
               >
                 <strong>{key}</strong>↗
               </a>

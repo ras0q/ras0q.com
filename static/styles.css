@@ -1,4 +1,3 @@
-@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css"); /* https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap");
 
@@ -17,14 +16,14 @@
   }
 
   body {
-    background-color: var(--ctp-latte-base);
+    background-color: var(--colors-base);
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    color: var(--ctp-latte-text);
+    color: var(--colors-text);
 
     a {
-      color: var(--ctp-latte-blue);
+      color: var(--colors-blue);
       text-decoration: none;
 
       &:hover {
@@ -34,7 +33,7 @@
 
     code {
       font-family: "Source Code Pro";
-      background-color: var(--ctp-latte-mantle);
+      background-color: var(--colors-mantle);
       border-radius: 0.25rem;
       padding: 0 0.25rem;
     }
