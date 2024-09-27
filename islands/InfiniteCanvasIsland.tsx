@@ -23,8 +23,8 @@ export default function InfiniteCanvasIsland() {
       top: 100,
     },
     {
-      name: "diary.",
-      description: "My diary",
+      name: "blog.",
+      description: "My Blog",
       left: 59,
       top: 400,
     },
