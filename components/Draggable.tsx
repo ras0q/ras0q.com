@@ -29,19 +29,19 @@ export const Draggable = ({ children, id, left, top }: Props) => {
     if (!el) return;
 
     const abortController = new AbortController();
-    el.addEventListener("mousedown", (e: Event) => {
+    el.addEventListener("pointerdown", (e: Event) => {
       e.stopPropagation();
 
-      const mouseAbortController = new AbortController();
-      document.addEventListener("mousemove", (e: MouseEvent) => {
+      const pointerAbortController = new AbortController();
+      document.addEventListener("pointermove", (e: PointerEvent) => {
         batch(() => {
           offsetX.value += e.movementX;
           offsetY.value += e.movementY;
         });
-      }, { signal: mouseAbortController.signal });
+      }, { signal: pointerAbortController.signal });
 
-      document.addEventListener("mouseup", () => {
-        mouseAbortController.abort("mouseup");
+      document.addEventListener("pointerup", () => {
+        pointerAbortController.abort("pointerup");
 
         // return to original position with damping oscillation
         const omega = 0.01;
@@ -67,7 +67,7 @@ export const Draggable = ({ children, id, left, top }: Props) => {
         };
         requestAnimationFrame(returnToOriginal);
       }, {
-        signal: mouseAbortController.signal,
+        signal: pointerAbortController.signal,
         once: true,
       });
     }, { signal: abortController.signal });
