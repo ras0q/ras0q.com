@@ -1,5 +1,6 @@
 import { useRef } from "preact/hooks";
 import { Connector } from "../components/Connector.tsx";
+import { Draggable } from "../components/Draggable.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
 import { TitleLogo } from "../components/TitleLogo.tsx";
@@ -61,56 +62,30 @@ export default function InfiniteCanvasIsland() {
 
   return (
     <InfiniteCanvas>
-      <div
-        id={title.id}
-        ref={title.ref}
-        style={{
-          position: "absolute",
-          left: title.left,
-          top: title.top,
-        }}
-      >
+      <Draggable id={title.id} left={title.left} top={title.top}>
         <TitleLogo class={css`font-size: 5rem;`} />
-      </div>
+      </Draggable>
 
       {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
-      {subDomains.map(({ id, ref, name, description, left, top }) => (
-        <div
-          id={id}
-          style={{
-            position: "absolute",
-            left,
-            top,
-          }}
-          key={name}
-          ref={ref}
-        >
+      {subDomains.map(({ id, name, description, left, top }) => (
+        <Draggable id={id} key={name} left={left} top={top}>
           <LinkCard
             title={name}
             body={description}
             href={`https://${name}${title.name}`}
           />
-        </div>
+        </Draggable>
       ))}
 
       {subRoutes.map((v) => <Connector leftID={title.id} rightID={v.id} />)}
-      {subRoutes.map(({ id, ref, path, description, left, top }) => (
-        <div
-          id={id}
-          style={{
-            position: "absolute",
-            left,
-            top,
-          }}
-          key={path}
-          ref={ref}
-        >
+      {subRoutes.map(({ id, path, description, left, top }) => (
+        <Draggable id={id} key={path} left={left} top={top}>
           <LinkCard
             title={path}
             body={description}
             href={path}
           />
-        </div>
+        </Draggable>
       ))}
     </InfiniteCanvas>
   );

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { css } from "../static/styled-system/css/index.mjs";
 
 type Props = {
+  // TODO: Can I use key instead of id?
   leftID: string;
   rightID: string;
   curve?: number;
