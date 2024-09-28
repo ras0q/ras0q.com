@@ -20,22 +20,22 @@ export const InfiniteCanvas = ({ children }: Props) => {
     if (!el) return;
 
     const abortController = new AbortController();
-    el.addEventListener("mousedown", () => {
-      const mouseAbortController = new AbortController();
-      document.addEventListener("mousemove", (e: MouseEvent) => {
+    el.addEventListener("pointerdown", () => {
+      const pointerAbortController = new AbortController();
+      document.addEventListener("pointermove", (e: PointerEvent) => {
         batch(() => {
           translateX.value += e.movementX;
           translateY.value += e.movementY;
         });
-      }, { signal: mouseAbortController.signal });
+      }, { signal: pointerAbortController.signal });
 
-      document.addEventListener("mouseup", () => {
-        mouseAbortController.abort("mouseup");
+      document.addEventListener("pointerup", () => {
+        pointerAbortController.abort("pointerup");
       }, {
-        signal: mouseAbortController.signal,
+        signal: pointerAbortController.signal,
         once: true,
       });
-    }, { signal: abortController.signal });
+    }, { signal: pointerAbortController.signal });
 
     el.addEventListener("wheel", (e: WheelEvent) => {
       e.preventDefault();
