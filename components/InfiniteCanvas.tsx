@@ -35,7 +35,7 @@ export const InfiniteCanvas = ({ children }: Props) => {
         signal: pointerAbortController.signal,
         once: true,
       });
-    }, { signal: pointerAbortController.signal });
+    }, { signal: abortController.signal });
 
     el.addEventListener("wheel", (e: WheelEvent) => {
       e.preventDefault();
