@@ -41,7 +41,7 @@ export const Draggable = ({ children, id, left, top }: Props) => {
       }, { signal: mouseAbortController.signal });
 
       document.addEventListener("mouseup", () => {
-        mouseAbortController.abort();
+        mouseAbortController.abort("mouseup");
 
         // return to original position with damping oscillation
         const omega = 0.01;
@@ -72,7 +72,9 @@ export const Draggable = ({ children, id, left, top }: Props) => {
       });
     }, { signal: abortController.signal });
 
-    return abortController.abort;
+    return () => {
+      abortController.abort("unmount");
+    };
   }, []);
 
   return (

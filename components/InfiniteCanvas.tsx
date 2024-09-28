@@ -29,7 +29,9 @@ export const InfiniteCanvas = ({ children }: Props) => {
         });
       }, { signal: mouseAbortController.signal });
 
-      document.addEventListener("mouseup", mouseAbortController.abort, {
+      document.addEventListener("mouseup", () => {
+        mouseAbortController.abort("mouseup");
+      }, {
         signal: mouseAbortController.signal,
         once: true,
       });
@@ -40,7 +42,9 @@ export const InfiniteCanvas = ({ children }: Props) => {
       scale.value += -0.05 * Math.sign(e.deltaY);
     }, { signal: abortController.signal });
 
-    return abortController.abort;
+    return () => {
+      abortController.abort("unmount");
+    };
   }, []);
 
   return (
