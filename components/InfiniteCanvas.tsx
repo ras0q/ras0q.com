@@ -1,4 +1,4 @@
-import { batch, computed, effect, useSignal } from "@preact/signals";
+import { batch, useSignal } from "@preact/signals";
 import { ComponentChildren, RefObject, toChildArray, VNode } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 // @ts-types="../static/styled-system/css/index.d.mts"
@@ -29,7 +29,19 @@ export const InfiniteCanvas = ({ children }: Props) => {
   const bgOffsetY = useSignal(0);
   const bgScale = useSignal(1);
 
-  effect(() => {
+  useEffect(() => {
+    const container = containerRef.current;
+    console.log("container", container);
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
+    container.style.setProperty("--bg-size", `${16 * bgScale.value}px`);
+    container.style.setProperty(
+      "--bg-position",
+      `${bgOffsetX.value * bgScale.value - containerRect.left}px
+      ${bgOffsetY.value * bgScale.value - containerRect.top}px`,
+    );
+
     canvasElements.map((c) => {
       const el = c.ref.current;
       if (!el) return;
@@ -47,7 +59,12 @@ export const InfiniteCanvas = ({ children }: Props) => {
         el.style.transform = transform;
       }
     });
-  });
+  }, [
+    bgOffsetX.value,
+    bgOffsetY.value,
+    bgScale.value,
+    ...canvasElements.flatMap((c) => [c.offset.x.value, c.offset.y.value]),
+  ]);
 
   const handlePointerDown = (e: PointerEvent) => {
     targetIndex.value = canvasElements.findIndex((c) => {
@@ -140,19 +157,29 @@ export const InfiniteCanvas = ({ children }: Props) => {
     };
   }, []);
 
-  const bgSize = computed(() => 16 * bgScale.value);
-  const bgImage = (deg: number) =>
-    `linear-gradient(${deg}deg, transparent ${
-      bgSize.value - 1
-    }px, var(--colors-surface0) ${bgSize.value}px)`;
-
   return (
     <div
       class={css`
+        --bg-size: 16px;
+        --bg-position: 0px 0px;
+
         height: 100%;
         width: 100%;
         position: relative;
         overflow: hidden;
+        background-image:
+          linear-gradient(
+            0deg,
+            transparent calc(var(--bg-size) - 1px),
+            var(--colors-surface0) var(--bg-size)
+          ),
+          linear-gradient(
+            90deg,
+            transparent calc(var(--bg-size) - 1px),
+            var(--colors-surface0) var(--bg-size)
+          );
+        background-size: var(--bg-size) var(--bg-size);
+        background-position: var(--bg-position);
 
         & > * {
           cursor: grab;
@@ -161,12 +188,6 @@ export const InfiniteCanvas = ({ children }: Props) => {
           }
         }
       `}
-      style={{
-        backgroundImage: `${bgImage(0)}, ${bgImage(90)}`,
-        backgroundSize: `${bgSize.value}px ${bgSize.value}px`,
-        backgroundPositionX: `${bgOffsetX.value * bgScale.value}px`,
-        backgroundPositionY: `${bgOffsetY.value * bgScale.value}px`,
-      }}
       id="container"
       ref={containerRef}
     >
