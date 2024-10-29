@@ -1,15 +1,9 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
-import { TitleLogo } from "../components/TitleLogo.tsx";
 // @ts-types="../static/styled-system/css/index.d.mts"
 import { css } from "../static/styled-system/css/css.mjs";
 
 export default function App({ Component }: PageProps) {
-  const headerLinks = {
-    "X": "https://x.com/ras0q",
-    "GitHub": "https://github.com/ras0q",
-  };
-
   return (
     <html lang="ja">
       <head>
@@ -27,29 +21,6 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href={asset("/styles.css")} />
       </head>
       <body class={css`min-height: 100svh;`}>
-        <header
-          class={css`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 2rem;
-            background: var(--colors-mantle);
-          `}
-        >
-          <a href="/">
-            <TitleLogo class={css`font-size: 2rem;k`} />
-          </a>
-          <div
-            class={css`
-              display: flex;
-              gap: 0.5rem;
-            `}
-          >
-            {Object.entries(headerLinks).map(([key, link]) => (
-              <a key={key} href={link} class={css`font-weight: 500;`}>{key}</a>
-            ))}
-          </div>
-        </header>
         <Component />
       </body>
     </html>

@@ -4,7 +4,7 @@ import { css } from "../static/styled-system/css/css.mjs";
 
 export default function Home() {
   return (
-    <main class={css`height: calc(100svh - 4rem);`}>
+    <main class={css`height: 100svh;`}>
       <InfiniteCanvasIsland />
     </main>
   );
