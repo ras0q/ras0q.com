@@ -1,6 +1,6 @@
 {
   "lock": false,
-  "nodeModulesDir": true,
+  "nodeModulesDir": "auto",
   "tasks": {
     // TODO: exclude node_modules
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
