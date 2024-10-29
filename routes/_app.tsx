@@ -46,13 +46,7 @@ export default function App({ Component }: PageProps) {
             `}
           >
             {Object.entries(headerLinks).map(([key, link]) => (
-              <a
-                key={key}
-                href={link}
-                class={css`color: var(--colors-text);`}
-              >
-                <strong>{key}</strong>↗
-              </a>
+              <a key={key} href={link} class={css`font-weight: 500;`}>{key}</a>
             ))}
           </div>
         </header>
