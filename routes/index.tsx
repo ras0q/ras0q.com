@@ -6,7 +6,15 @@ import { css } from "../static/styled-system/css/css.mjs";
 export default function Home() {
   return (
     <main>
-      <section id="top" class={css`height: 100svh;`}>
+      <section
+        id="top"
+        class={css`
+          height: 100svh;
+          @media (max-width: 600px) {
+            height: 60svh;
+          }
+        `}
+      >
         <InfiniteCanvasIsland />
       </section>
       <section
