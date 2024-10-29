@@ -37,10 +37,10 @@ export const InfiniteCanvas = ({ children }: Props) => {
       });
     }, { signal: abortController.signal });
 
-    el.addEventListener("wheel", (e: WheelEvent) => {
-      e.preventDefault();
-      scale.value += -0.05 * Math.sign(e.deltaY);
-    }, { signal: abortController.signal });
+    // el.addEventListener("wheel", (e: WheelEvent) => {
+    //   e.preventDefault();
+    //   scale.value += -0.05 * Math.sign(e.deltaY);
+    // }, { signal: abortController.signal });
 
     return () => {
       abortController.abort("unmount");
