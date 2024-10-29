@@ -86,7 +86,7 @@ export default function InfiniteCanvasIsland() {
 
   return (
     <InfiniteCanvas>
-      <Draggable id={title.id} left={title.left} top={title.top}>
+      <Draggable id={title.id} left={title.left} top={title.top} canDamping>
         <GradientText
           class={css`
             font-style: italic;
@@ -99,7 +99,7 @@ export default function InfiniteCanvasIsland() {
       </Draggable>
 
       {icons.map(({ name, link, path, left, top }) => (
-        <Draggable id={name} left={left} top={top}>
+        <Draggable id={name} left={left} top={top} canDamping>
           <a href={link}>
             <img src={path} alt={name} width="32px" height="32px" />
           </a>
@@ -108,7 +108,7 @@ export default function InfiniteCanvasIsland() {
 
       {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
       {subDomains.map(({ id, name, description, left, top }) => (
-        <Draggable id={id} key={name} left={left} top={top}>
+        <Draggable id={id} key={name} left={left} top={top} canDamping>
           <LinkCard
             title={name}
             body={description}

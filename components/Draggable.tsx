@@ -9,9 +9,12 @@ type Props = {
   id: string;
   left: number;
   top: number;
+  canDamping?: boolean;
 };
 
-export const Draggable = ({ children, id, left, top }: Props) => {
+export const Draggable = (
+  { children, id, left, top, canDamping }: Props,
+) => {
   const ref = useRef<HTMLDivElement>(null);
   const offsetX = useSignal(0);
   const offsetY = useSignal(0);
@@ -42,6 +45,8 @@ export const Draggable = ({ children, id, left, top }: Props) => {
 
       document.addEventListener("pointerup", () => {
         pointerAbortController.abort("pointerup");
+
+        if (!canDamping) return;
 
         // return to original position with damping oscillation
         const omega = 0.01;
