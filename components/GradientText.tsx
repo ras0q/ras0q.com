@@ -1,14 +1,15 @@
+import { ComponentChildren } from "preact";
 // @ts-types="../static/styled-system/css/index.d.mts"
 import { css, cx } from "../static/styled-system/css/index.mjs";
 
-export const TitleLogo = (props: { class?: string }) => (
+export const GradientText = (
+  props: { children: ComponentChildren; class?: string },
+) => (
   <span
     class={cx(
       css`
-        font-style: italic;
-        font-weight: 800;
         margin: 0;
-        padding-right: 0.25rem; /* prevent text cut */
+        padding: 0 0.25rem; /* prevent text cut */
         user-select: none;
         display: inline-block;
         background: var(--gradients-primary);
@@ -19,6 +20,6 @@ export const TitleLogo = (props: { class?: string }) => (
       props.class,
     )}
   >
-    ras0q.com
+    {props.children}
   </span>
 );

@@ -1,9 +1,9 @@
 import { useRef } from "preact/hooks";
 import { Connector } from "../components/Connector.tsx";
 import { Draggable } from "../components/Draggable.tsx";
+import { GradientText } from "../components/GradientText.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
-import { TitleLogo } from "../components/TitleLogo.tsx";
 // @ts-types="../static/styled-system/css/index.d.mts"
 import { css } from "../static/styled-system/css/css.mjs";
 
@@ -68,22 +68,15 @@ export default function InfiniteCanvasIsland() {
 
   const subRoutes = [
     {
-      path: "/about",
-      description: "About me",
-      left: 778,
-      top: 43,
+      path: "#about",
+      left: 850,
+      top: 150,
     },
     {
       path: "/works",
       description: "Works",
-      left: 862,
-      top: 275,
-    },
-    {
-      path: "/blog",
-      description: "Blog",
-      left: 897,
-      top: 570,
+      left: 900,
+      top: 250,
     },
   ].map((v, i) => ({
     id: `subroutes${i}`,
@@ -94,7 +87,15 @@ export default function InfiniteCanvasIsland() {
   return (
     <InfiniteCanvas>
       <Draggable id={title.id} left={title.left} top={title.top}>
-        <TitleLogo class={css`font-size: 5rem;`} />
+        <GradientText
+          class={css`
+            font-style: italic;
+            font-weight: 800;
+            font-size: 5rem;
+          `}
+        >
+          ras0q.com
+        </GradientText>
       </Draggable>
 
       {icons.map(({ name, link, path, left, top }) => (
@@ -117,13 +118,19 @@ export default function InfiniteCanvasIsland() {
       ))}
 
       {subRoutes.map((v) => <Connector leftID={title.id} rightID={v.id} />)}
-      {subRoutes.map(({ id, path, description, left, top }) => (
+      {subRoutes.map(({ id, path, left, top }) => (
         <Draggable id={id} key={path} left={left} top={top}>
-          <LinkCard
-            title={path}
-            body={description}
-            href={path}
-          />
+          <a href={path}>
+            <GradientText
+              class={css`
+                font-style: italic;
+                font-weight: 800;
+                font-size: 2rem;
+              `}
+            >
+              {path}
+            </GradientText>
+          </a>
         </Draggable>
       ))}
     </InfiniteCanvas>
