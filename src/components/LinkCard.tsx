@@ -1,5 +1,4 @@
-// @ts-types="../static/styled-system/css/index.d.mts"
-import { css } from "../static/styled-system/css/index.mjs";
+import { css } from "../styled-system/css/index.mjs";
 
 type Props = {
   title: string;

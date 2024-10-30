@@ -1,17 +1,22 @@
 {
-  "lock": false,
-  "nodeModulesDir": "auto",
   "tasks": {
-    // TODO: exclude node_modules
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
-    "manifest": "deno task cli manifest $(pwd)",
-    "start": "deno run -A --watch=static/,routes/ dev.ts",
-    "build": "deno task panda && deno run -A dev.ts build",
-    "preview": "deno run -A main.ts",
-    "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "panda": "deno cache panda.config.mjs && deno run -A npm:@pandacss/dev@0.45.1",
-    "panda-studio": "deno run -A npm:@pandacss/studio@0.45.1"
+    "prepare": "deno run -A --node-modules-dir npm:@pandacss/dev",
+    "dev": "deno task prepare && deno run -A --node-modules-dir npm:vite",
+    "build": "deno task prepare && deno run -A --node-modules-dir npm:vite build",
+    "preview": "deno task prepare && deno run -A --node-modules-dir npm:vite preview",
+    "serve": "deno task prepare && deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
+  },
+  "compilerOptions": {
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "types": [
+      "vite/client"
+    ]
   },
   "lint": {
     "rules": {
@@ -23,25 +28,19 @@
   },
   "exclude": [
     "**/node_modules/",
-    "**/_fresh/*",
     "**/*.md",
-    "./static/styled-system"
+    "./src/styled-system"
   ],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
+    "@babel/plugin-transform-react-jsx": "npm:@babel/plugin-transform-react-jsx@^7.25.9",
+    "@babel/plugin-transform-react-jsx-development": "npm:@babel/plugin-transform-react-jsx-development@^7.25.9",
     "@catppuccin/palette": "npm:@catppuccin/palette@^1.2.0",
-    "@deno/gfm": "jsr:@deno/gfm@0.8.2",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.0",
     "@pandacss/dev": "npm:@pandacss/dev@^0.45.1",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-    "@std/dotenv": "jsr:@std/dotenv@^0.224.0",
-    "@std/front-matter": "jsr:@std/front-matter@^0.224.2",
-    "@std/fs": "jsr:@std/fs@^0.229.2",
-    "preact": "https://esm.sh/preact@10.19.6",
-    "preact/": "https://esm.sh/preact@10.19.6/"
-  },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "@preact/preset-vite": "npm:@preact/preset-vite@2.9.1",
+    "@preact/signals": "npm:@preact/signals@1.2.2",
+    "babel-plugin-transform-hook-names": "npm:babel-plugin-transform-hook-names@^1.0.2",
+    "preact": "npm:preact@10.19.6",
+    "vite": "npm:vite@^5.4.9"
   }
 }

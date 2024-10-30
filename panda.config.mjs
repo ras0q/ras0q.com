@@ -6,8 +6,8 @@ export default defineConfig({
   // preflight: true,
   minify: true,
   hash: { "cssVar": false, "className": true },
-  include: ["./{components,islands,routes}/**/*.{js,jsx,ts,tsx}"],
-  exclude: ["./static"],
+  include: ["./src/**/*.{js,jsx,ts,tsx}"],
+  exclude: ["./public"],
   theme: {
     extend: {
       tokens: {
@@ -35,7 +35,7 @@ export default defineConfig({
       },
     },
   },
-  outdir: "./static/styled-system",
+  outdir: "./src/styled-system",
   forceConsistentTypeExtension: true,
   syntax: "template-literal",
   jsxFramework: "preact",

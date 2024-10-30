@@ -4,8 +4,7 @@ import { Draggable } from "../components/Draggable.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
-// @ts-types="../static/styled-system/css/index.d.mts"
-import { css } from "../static/styled-system/css/css.mjs";
+import { css } from "../styled-system/css/css.mjs";
 
 export default function InfiniteCanvasIsland() {
   const title = {

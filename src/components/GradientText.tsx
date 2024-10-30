@@ -1,6 +1,5 @@
 import { ComponentChildren } from "preact";
-// @ts-types="../static/styled-system/css/index.d.mts"
-import { css, cx } from "../static/styled-system/css/index.mjs";
+import { css, cx } from "../styled-system/css/index.mjs";
 
 export const GradientText = (
   props: { children: ComponentChildren; class?: string },
