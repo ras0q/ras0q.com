@@ -6,7 +6,7 @@ import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
 import { css } from "../styled-system/css/css.mjs";
 
-export default function InfiniteCanvasIsland() {
+export const InfiniteCanvasSection = () => {
   const title = {
     id: "title",
     ref: useRef<HTMLDivElement>(null),
@@ -134,4 +134,4 @@ export default function InfiniteCanvasIsland() {
       ))}
     </InfiniteCanvas>
   );
-}
+};

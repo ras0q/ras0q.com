@@ -4,7 +4,7 @@ import { marked } from "marked";
 import { gfmHeadingId } from "marked-gfm-heading-id";
 import { css } from "../styled-system/css/css.mjs";
 
-export const Works = () => {
+export const WorksSection = () => {
   const parsed = marked
     .use(gfmHeadingId())
     .parse(markdown, { async: false });
