@@ -3,17 +3,17 @@
   "specifiers": {
     "npm:@babel/plugin-transform-react-jsx-development@7.25.9": "7.25.9_@babel+core@7.26.0",
     "npm:@babel/plugin-transform-react-jsx@7.25.9": "7.25.9_@babel+core@7.26.0",
-    "npm:@catppuccin/palette@1.2.0": "1.2.0",
-    "npm:@deno/vite-plugin@1.0.0": "1.0.0_vite@5.4.9__@types+node@22.5.4_@types+node@22.5.4",
-    "npm:@pandacss/dev@0.45.1": "0.45.1",
-    "npm:@preact/preset-vite@2.9.1": "2.9.1_@babel+core@7.26.0_vite@5.4.9__@types+node@22.5.4_preact@10.24.3_@types+node@22.5.4",
+    "npm:@catppuccin/palette@1.5.0": "1.5.0",
+    "npm:@deno/vite-plugin@1.0.0": "1.0.0_vite@5.4.10__@types+node@22.5.4_@types+node@22.5.4",
+    "npm:@pandacss/dev@0.47.0": "0.47.0",
+    "npm:@preact/preset-vite@2.9.1": "2.9.1_@babel+core@7.26.0_vite@5.4.10__@types+node@22.5.4_preact@10.24.3_@types+node@22.5.4",
     "npm:@preact/signals@1.3.0": "1.3.0_preact@10.24.3",
     "npm:@types/node@*": "22.5.4",
     "npm:babel-plugin-transform-hook-names@1.0.2": "1.0.2_@babel+core@7.26.0",
     "npm:marked-gfm-heading-id@4.1.0": "4.1.0_marked@14.1.3",
     "npm:marked@14.1.3": "14.1.3",
     "npm:preact@10.24.3": "10.24.3",
-    "npm:vite@5.4.9": "5.4.9_@types+node@22.5.4"
+    "npm:vite@5.4.10": "5.4.10_@types+node@22.5.4"
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -173,8 +173,8 @@
         "@babel/helper-validator-identifier"
       ]
     },
-    "@catppuccin/palette@1.2.0": {
-      "integrity": "sha512-R5fxLcU47mRcsdQkXZBNfxt7SdEqLGWb1qhEKBrnYfEB4ZWOQRBEow4e78PKxaFUECBNOs6uEkwvwxFL9FmQqQ=="
+    "@catppuccin/palette@1.5.0": {
+      "integrity": "sha512-SQd/1h2gkK+nA5SWfd7NnUA/RsM8fIMJaqB8HzwATlNSDtPzTI7qmy3ei+jlgThlGILvdDt0C5CJ+3n/G9trKw=="
     },
     "@clack/core@0.3.4": {
       "integrity": "sha512-H4hxZDXgHtWTwV3RAVenqcC4VbJZNegbBjlPvzOzCouXtS2y3sDvlO3IsbrPNWuLWPPlYVYPghQdSF64683Ldw==",
@@ -192,21 +192,21 @@
         "sisteransi"
       ]
     },
-    "@csstools/postcss-cascade-layers@4.0.6_postcss@8.4.41_postcss-selector-parser@6.1.1": {
+    "@csstools/postcss-cascade-layers@4.0.6_postcss@8.4.47_postcss-selector-parser@6.1.2": {
       "integrity": "sha512-Xt00qGAQyqAODFiFEJNkTpSUz5VfYqnDLECdlA/Vv17nl/OIV5QfTRHGAXrBGG5YcJyHpJ+GF9gF/RZvOQz4oA==",
       "dependencies": [
         "@csstools/selector-specificity",
-        "postcss@8.4.41",
+        "postcss",
         "postcss-selector-parser"
       ]
     },
-    "@csstools/selector-specificity@3.1.1_postcss-selector-parser@6.1.1": {
+    "@csstools/selector-specificity@3.1.1_postcss-selector-parser@6.1.2": {
       "integrity": "sha512-a7cxGcJ2wIlMFLlh8z2ONm+715QkPHiyJcxwQlKOz/03GPw1COpfhcmC9wm4xlZfp//jWHNNMwzjtqHXVWU9KA==",
       "dependencies": [
         "postcss-selector-parser"
       ]
     },
-    "@deno/vite-plugin@1.0.0_vite@5.4.9__@types+node@22.5.4_@types+node@22.5.4": {
+    "@deno/vite-plugin@1.0.0_vite@5.4.10__@types+node@22.5.4_@types+node@22.5.4": {
       "integrity": "sha512-Q9UeWqs3s7B5lqzu1Z5QrzYAzqTj3+F9YW17tWobGRbT2G40ihwis6zK/+QgMgcG4fm3IqdIfXmpQYhkZpdMfw==",
       "dependencies": [
         "vite"
@@ -391,14 +391,14 @@
         "fastq"
       ]
     },
-    "@pandacss/config@0.45.1": {
-      "integrity": "sha512-EDRv/3BomoNRgEFBS/NJPPWSh2jg2KAkVp01jCtKiPKIWo3WvAj8+BsCdWSVApYj8cVGSqbb/FlahYP8kK00qQ==",
+    "@pandacss/config@0.47.0": {
+      "integrity": "sha512-3K/t0e5WGuFuiQd8OqHam4ZPusTIPSkSJoGKrCiDH3sh4HDvIBHCDdv2WMTQWAhXZTEa1FQEWstfZ4jfqlhr+Q==",
       "dependencies": [
-        "@pandacss/logger@0.45.1",
-        "@pandacss/preset-base@0.45.1",
-        "@pandacss/preset-panda@0.45.1",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/logger",
+        "@pandacss/preset-base",
+        "@pandacss/preset-panda",
+        "@pandacss/shared",
+        "@pandacss/types",
         "bundle-n-require",
         "escalade@3.1.2",
         "merge-anything",
@@ -406,36 +406,21 @@
         "typescript"
       ]
     },
-    "@pandacss/config@0.45.2": {
-      "integrity": "sha512-yjcQcJuj+mz5oBEYftn2tqm0oGt4pyD6zAIHjgSf3bLYROsurXKsYNTRQUJLGb6hOqvnv7OMFOMGgIochx3/MQ==",
-      "dependencies": [
-        "@pandacss/logger@0.45.2",
-        "@pandacss/preset-base@0.45.2",
-        "@pandacss/preset-panda@0.45.2",
-        "@pandacss/shared@0.45.2",
-        "@pandacss/types@0.45.2",
-        "bundle-n-require",
-        "escalade@3.1.2",
-        "merge-anything",
-        "microdiff",
-        "typescript"
-      ]
-    },
-    "@pandacss/core@0.45.1_postcss@8.4.41": {
-      "integrity": "sha512-vO4GMlFBsFzCba3h87XvexwmTjdNILKXNtvrwRcdbP5FfhtKYY5ZNx5lC7zkHZlCL/vRNAZKs+fpNAJiEg2wEg==",
+    "@pandacss/core@0.47.0_postcss@8.4.47": {
+      "integrity": "sha512-D/l0kk/lF4hfK6Ifo6UUhtScnECK5PALVplS071Z8+8dNUPaDBCX6asmeZ+H3E+ojmcvHhs53PablGa780AAqg==",
       "dependencies": [
         "@csstools/postcss-cascade-layers",
         "@pandacss/is-valid-prop",
-        "@pandacss/logger@0.45.1",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/token-dictionary@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/logger",
+        "@pandacss/shared",
+        "@pandacss/token-dictionary",
+        "@pandacss/types",
         "browserslist@4.23.3",
         "hookable",
         "lightningcss",
         "lodash.merge",
         "outdent",
-        "postcss@8.4.41",
+        "postcss",
         "postcss-discard-duplicates",
         "postcss-discard-empty",
         "postcss-merge-rules",
@@ -446,99 +431,67 @@
         "ts-pattern"
       ]
     },
-    "@pandacss/core@0.45.2_postcss@8.4.41": {
-      "integrity": "sha512-Qfj7P6d7XZtQd67iPJf8XAEluWg9gU/0PgG+Tv7/UyHSC71zFPxzrJa/kQfZHUXvmucLtGt13xpPs0ILbooObA==",
-      "dependencies": [
-        "@csstools/postcss-cascade-layers",
-        "@pandacss/is-valid-prop",
-        "@pandacss/logger@0.45.2",
-        "@pandacss/shared@0.45.2",
-        "@pandacss/token-dictionary@0.45.2",
-        "@pandacss/types@0.45.2",
-        "browserslist@4.23.3",
-        "hookable",
-        "lightningcss",
-        "lodash.merge",
-        "outdent",
-        "postcss@8.4.41",
-        "postcss-discard-duplicates",
-        "postcss-discard-empty",
-        "postcss-merge-rules",
-        "postcss-minify-selectors",
-        "postcss-nested",
-        "postcss-normalize-whitespace",
-        "postcss-selector-parser",
-        "ts-pattern"
-      ]
-    },
-    "@pandacss/dev@0.45.1": {
-      "integrity": "sha512-Bdeb3GmgHZBCoMqUVvBh3mchBkf88LytBSdUCc9lV+YAxucPam7an85vCfRNa2fD8bJTZLGca48r0iTpdlgpIg==",
+    "@pandacss/dev@0.47.0": {
+      "integrity": "sha512-FEm+yKiVstPqTBm2Hy/xrXNNA89+LIeeAmBsgaL/HD+/HG1I8UgriBJ41CITdgDDlOn+nzqlR3CuP2qC7ebB5w==",
       "dependencies": [
         "@clack/prompts",
-        "@pandacss/config@0.45.1",
-        "@pandacss/logger@0.45.1",
+        "@pandacss/config",
+        "@pandacss/logger",
         "@pandacss/node",
         "@pandacss/postcss",
-        "@pandacss/preset-panda@0.45.1",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/token-dictionary@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/preset-panda",
+        "@pandacss/shared",
+        "@pandacss/token-dictionary",
+        "@pandacss/types",
         "cac"
       ]
     },
-    "@pandacss/extractor@0.45.1": {
-      "integrity": "sha512-/lomXtUuDjiQQbrG+dG2PQgVw3YkFBHOvmRwjKy9q8QIUu/lK1I6PjNnF0moxwAmqdsmRWqFshhPZxtKUJg9Ug==",
+    "@pandacss/extractor@0.47.0": {
+      "integrity": "sha512-tbGaHCtlwD1f4jw0PTic4DH7psAIF9duxv/sYkRa0+O2uk/tDk+JhAtm6LUyfQDVu11yviDt7yomTNqOzPqjEw==",
       "dependencies": [
-        "@pandacss/shared@0.45.1",
+        "@pandacss/shared",
         "ts-evaluator",
         "ts-morph"
       ]
     },
-    "@pandacss/generator@0.45.1": {
-      "integrity": "sha512-jOySRn+jGVqhB9w4HMB/EA3yB7rCLcnEGXK7wQUpkS6YPh2YXMChSVqOwJQKpDbQw2kzKK2YCq80/LBguCrYZQ==",
+    "@pandacss/generator@0.47.0": {
+      "integrity": "sha512-4x1qRGGiHzUG13Lrkg3Ki5rjQUu8y5SV4JzUCm9qpRgXD96qxsVI6B7fxmvG3WqF7H5z8N283r8YOrWQkpmf9g==",
       "dependencies": [
-        "@pandacss/core@0.45.1_postcss@8.4.41",
+        "@pandacss/core",
         "@pandacss/is-valid-prop",
-        "@pandacss/logger@0.45.1",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/token-dictionary@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/logger",
+        "@pandacss/shared",
+        "@pandacss/token-dictionary",
+        "@pandacss/types",
         "javascript-stringify",
         "outdent",
         "pluralize",
-        "postcss@8.4.41",
+        "postcss",
         "ts-pattern"
       ]
     },
-    "@pandacss/is-valid-prop@0.45.2": {
-      "integrity": "sha512-4ngKBc8W/TwWHM23Bci/m1I0JKtHZw7XWU9eqL+YCuAzgxAAep7PgTs6KrheidcS+XVRSQQO1yOk2666BbIC7Q=="
+    "@pandacss/is-valid-prop@0.47.0": {
+      "integrity": "sha512-xDGgTr9JgD7Qdmn+uw1Jmw4jq+0P3GgNhIRdE4DQ+Y5K6JSPTLFxAnZGQHrer3X5saJeCa+96Ffav3Ts5boqFg=="
     },
-    "@pandacss/logger@0.45.1": {
-      "integrity": "sha512-Q6VKluc3qJyjhblGQQWPpUf1ExiP6puolrWHdqw0yDmyAreb2EPC5DE9g19CY/6YkUDA576MVAe5jgTiJD1eWw==",
+    "@pandacss/logger@0.47.0": {
+      "integrity": "sha512-DReVPDbpBoKY9x4q8puHuAeLxEvNUn0Wr43Ynrk3o5TSenciWD3nM7qG8y1Ilf5H9XYdrI4uXox08sLiibdiYQ==",
       "dependencies": [
-        "@pandacss/types@0.45.1",
+        "@pandacss/types",
         "kleur"
       ]
     },
-    "@pandacss/logger@0.45.2": {
-      "integrity": "sha512-3Ni2qaP8aQ/P4zmP0ivKRexWCAAgM8peCAu+7Taf/a9rxirWs8DEpidTh/68Mif318ettgM9w9tJ5DW0x6BxsA==",
+    "@pandacss/node@0.47.0": {
+      "integrity": "sha512-wxgg+U7NYzJSMrdQdZyG6nB30fPTnbte/Ct7GAoBhXZne+9RywBgJR8rG3GZ0Dv3AZAyOvACre1out3h0Cuk+Q==",
       "dependencies": [
-        "@pandacss/types@0.45.2",
-        "kleur"
-      ]
-    },
-    "@pandacss/node@0.45.1": {
-      "integrity": "sha512-K3KpoKAuZXSQX3/jpaMrTXw1A3PU2b9C4DjxtbIZ/+JpEzW9QjS2NAm4NQ4itlxdGJzmRWTm1uOEbxIPYXbkjA==",
-      "dependencies": [
-        "@pandacss/config@0.45.1",
-        "@pandacss/core@0.45.1_postcss@8.4.41",
+        "@pandacss/config",
+        "@pandacss/core",
         "@pandacss/extractor",
         "@pandacss/generator",
-        "@pandacss/logger@0.45.1",
+        "@pandacss/logger",
         "@pandacss/parser",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/token-dictionary@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/shared",
+        "@pandacss/token-dictionary",
+        "@pandacss/types",
         "browserslist@4.23.3",
         "chokidar",
         "fast-glob",
@@ -554,90 +507,63 @@
         "perfect-debounce",
         "pkg-types@1.0.3",
         "pluralize",
-        "postcss@8.4.41",
+        "postcss",
         "prettier",
         "ts-morph",
         "ts-pattern",
         "tsconfck"
       ]
     },
-    "@pandacss/parser@0.45.1": {
-      "integrity": "sha512-5MJ65/VktMOVyA2xPvUmvyxOQnb3+xGQx/QmvaIQZx8wbJ6VANZfz3DjaMPWnkI+2QVUXcgIDhf7OHyB0pAb5w==",
+    "@pandacss/parser@0.47.0": {
+      "integrity": "sha512-KNxYUT1C+HnkbL1J12q/SWh18oTU9qmLSHqGPbOY1nbPj+0Tm2IRsv2C1VYeGjBDSyBOMbyW22ACmPbINxyOrg==",
       "dependencies": [
-        "@pandacss/config@0.45.2",
-        "@pandacss/core@0.45.2_postcss@8.4.41",
+        "@pandacss/config",
+        "@pandacss/core",
         "@pandacss/extractor",
-        "@pandacss/logger@0.45.1",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/logger",
+        "@pandacss/shared",
+        "@pandacss/types",
         "@vue/compiler-sfc",
-        "magic-string@0.30.11",
+        "magic-string@0.30.12",
         "ts-morph",
         "ts-pattern"
       ]
     },
-    "@pandacss/postcss@0.45.1": {
-      "integrity": "sha512-NSx4splVzXbJaJ5VNMgRl06H8Mw/4RT1+ahOpz1Sk4HzPBS2ooVfqjSAofku3HcXC+q6mZn0lSgVU+W2FnouDQ==",
+    "@pandacss/postcss@0.47.0": {
+      "integrity": "sha512-iQtYZPKJTkusjPO2JmwbLP8Z1xAWNyevrgCBwXy9HrH0/KwXFRv9LeIW/HXuYgkiH2e4LXcp5Ph9yL26fVe8SQ==",
       "dependencies": [
         "@pandacss/node",
-        "postcss@8.4.41"
+        "postcss"
       ]
     },
-    "@pandacss/preset-base@0.45.1": {
-      "integrity": "sha512-ke5nGIdSzKpFDz0iztFlK2laqqto+VCYdyPQsrl5wYjftTAbLpu3KC96WKxTixmon/hrI8u8/QslOepcW6A3Qw==",
+    "@pandacss/preset-base@0.47.0": {
+      "integrity": "sha512-PLfNTQIZqEKnOkjkHFhix5XoLZKQEyampxHrt1BaUTVFTdWWJOlFW+P1MXGDrLPAW9JvswMxDEDEE5ZfIQLi4g==",
       "dependencies": [
-        "@pandacss/types@0.45.1"
+        "@pandacss/types"
       ]
     },
-    "@pandacss/preset-base@0.45.2": {
-      "integrity": "sha512-N0mKsHOGo09D8fM7GBAKC1b40hq0DSxA08yZrLCMs5EPeRi1ZygmkfCri7WnAT16Y8Ow+fwo2jPUwBPAMO2e+Q==",
+    "@pandacss/preset-panda@0.47.0": {
+      "integrity": "sha512-ehsCK5FCgh6tolcPPJoNItKjU7gu58ZwAarQSWVeW6xOoKWv0Xlkn6FdVDv/OJI0k2GiSa10sTNFaDuN8z+66Q==",
       "dependencies": [
-        "@pandacss/types@0.45.2"
+        "@pandacss/types"
       ]
     },
-    "@pandacss/preset-panda@0.45.1": {
-      "integrity": "sha512-ft+8QZqS/ivEvQ4HzHEY30r9gP8DtO42sM07Bo3i7p9qSN4K+Fu5GT1X8roE40TOieB/u4pafI2ZLXwX2lQNoQ==",
+    "@pandacss/shared@0.47.0": {
+      "integrity": "sha512-LZ2l2s7JBHU5rjX1dAtWfnRD6gah51liFARNvUCXIw/UJ6lUsv+56YAohMMAcGQ/yGz1sZAUPrhMpSKhh84V8g=="
+    },
+    "@pandacss/token-dictionary@0.47.0": {
+      "integrity": "sha512-tTM+FBsq1lrDEXH9KNgnYqFvu4XDBzSSiFf5Z4rdMTKnEuWlMUipk57uVJ714TvDzSLCjdclLja7ZB/+jXE8Iw==",
       "dependencies": [
-        "@pandacss/types@0.45.1"
-      ]
-    },
-    "@pandacss/preset-panda@0.45.2": {
-      "integrity": "sha512-PC8aCZrixaGASYwii2GmjssOOTd9KqEgwkGXkDJSEiBhxK5QgaWAK1DU+TwM/J7HJiaER/Q/QCMwvh39Nf80UA==",
-      "dependencies": [
-        "@pandacss/types@0.45.2"
-      ]
-    },
-    "@pandacss/shared@0.45.1": {
-      "integrity": "sha512-05bY+vWkvB1CT0GlrbGsED89hN/wg9nKIedVad/eleuiioUyhX4iKJfnxP2dNcn2g6lFp1UJIeI7j19h5CForg=="
-    },
-    "@pandacss/shared@0.45.2": {
-      "integrity": "sha512-5dX0mKg3MNRZkqrAQoxuEQoDZvbMvAWVZUGAS494o+quHOFQIR4eimRE0hc20ln7cQChKzsr9PZD5bQzMoYvug=="
-    },
-    "@pandacss/token-dictionary@0.45.1": {
-      "integrity": "sha512-z4W/FBu29UYyiboNIq7apxjg7VEHgQaZSx26Ts3qVnAd21uFlKMdtGNGzrRFAGhi1w59oooyKVy7hhrLYOBbqQ==",
-      "dependencies": [
-        "@pandacss/logger@0.45.2",
-        "@pandacss/shared@0.45.1",
-        "@pandacss/types@0.45.1",
+        "@pandacss/logger",
+        "@pandacss/shared",
+        "@pandacss/types",
         "ts-pattern"
       ]
     },
-    "@pandacss/token-dictionary@0.45.2": {
-      "integrity": "sha512-aH6q+FqfMN0OcealYbjAYRz20D8T15s4+LsB5QVPnJwrnzO4qec9IsRUh/4Zu4T2VlQgf3QXi3Icu/RbJIF+wQ==",
-      "dependencies": [
-        "@pandacss/logger@0.45.2",
-        "@pandacss/shared@0.45.2",
-        "@pandacss/types@0.45.2",
-        "ts-pattern"
-      ]
+    "@pandacss/types@0.47.0": {
+      "integrity": "sha512-33C12ONYmKRAV6YAov1mGpus9eeuKnPfmEOpvMUJCNg1mE0QMG7Je1BrsX5EEZRillZw931xTTz1cC6KfesHzA=="
     },
-    "@pandacss/types@0.45.1": {
-      "integrity": "sha512-ZK9WwK3ha9qT4KPL2PseO5yPSLHRIv9SEvIRgDQfqPR7NdRZHAe4iZ6WVtSx6XGj3yx7dWDuopK3S41D5jZsHA=="
-    },
-    "@pandacss/types@0.45.2": {
-      "integrity": "sha512-RfXGVjVNz19Om2+LU5wI/SS+iURDvKPKkfzK4CFLYX8bgRlftUWqs1DUyXjc9KXY/VCyvss+tS30TC5kwhilaA=="
-    },
-    "@preact/preset-vite@2.9.1_@babel+core@7.26.0_vite@5.4.9__@types+node@22.5.4_preact@10.24.3_@types+node@22.5.4": {
+    "@preact/preset-vite@2.9.1_@babel+core@7.26.0_vite@5.4.10__@types+node@22.5.4_preact@10.24.3_@types+node@22.5.4": {
       "integrity": "sha512-JecWzrOx7ogFhklSMhY+aH/24pajL0Vx+beEgau3WDMUUAo32cpUo/UqerPhLOyhCKXlxK9a3cRoa8g68ZAp5g==",
       "dependencies": [
         "@babel/code-frame",
@@ -678,7 +604,7 @@
     "@prefresh/utils@1.2.0": {
       "integrity": "sha512-KtC/fZw+oqtwOLUFM9UtiitB0JsVX0zLKNyRTA332sqREqSALIIQQxdUCS1P3xR/jT1e2e8/5rwH6gdcMLEmsQ=="
     },
-    "@prefresh/vite@2.4.6_preact@10.24.3_vite@5.4.9__@types+node@22.5.4_@types+node@22.5.4": {
+    "@prefresh/vite@2.4.6_preact@10.24.3_vite@5.4.10__@types+node@22.5.4_@types+node@22.5.4": {
       "integrity": "sha512-miYbTl2J1YNaQJWyWHJzyIpNh7vKUuXC1qCDRzPeWjhQ+9bxeXkUBGDGd9I1f37R5GQYi1S65AN5oR0BR2WzvQ==",
       "dependencies": [
         "@babel/core",
@@ -799,7 +725,7 @@
         "@vue/shared",
         "estree-walker",
         "magic-string@0.30.11",
-        "postcss@8.4.47",
+        "postcss",
         "source-map-js"
       ]
     },
@@ -937,10 +863,10 @@
     "cssesc@3.0.0": {
       "integrity": "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg=="
     },
-    "cssnano-utils@5.0.0_postcss@8.4.41": {
+    "cssnano-utils@5.0.0_postcss@8.4.47": {
       "integrity": "sha512-Uij0Xdxc24L6SirFr25MlwC2rCFX6scyUmuKpzI+JQ7cyqDEwD42fJ0xfB3yLfOnRDU5LKGgjQ9FA6LYh76GWQ==",
       "dependencies": [
-        "postcss@8.4.41"
+        "postcss"
       ]
     },
     "debug@4.3.7": {
@@ -1067,8 +993,8 @@
     "file-size@1.0.0": {
       "integrity": "sha512-tLIdonWTpABkU6Axg2yGChYdrOsy4V8xcm0IcyAP8fSsu6jiXLm5pgs083e4sq5fzNRZuAYolUbZyYmPvCKfwQ=="
     },
-    "filesize@10.1.4": {
-      "integrity": "sha512-ryBwPIIeErmxgPnm6cbESAzXjuEFubs+yKYLBZvg3CaiNcmkJChoOGcBSrZ6IwkMwPABwPpVXE6IlNdGJJrvEg=="
+    "filesize@10.1.6": {
+      "integrity": "sha512-sJslQKU2uM33qH5nqewAwVB2QgR6w1aMNsYUp3aN5rMRyXEwJGmZvaWzeJFNTOXWlHQyBFCWrdj3fV/fsTOX8w=="
     },
     "fill-range@7.1.1": {
       "integrity": "sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==",
@@ -1235,6 +1161,12 @@
         "@jridgewell/sourcemap-codec"
       ]
     },
+    "magic-string@0.30.12": {
+      "integrity": "sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==",
+      "dependencies": [
+        "@jridgewell/sourcemap-codec"
+      ]
+    },
     "magic-string@0.30.5": {
       "integrity": "sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==",
       "dependencies": [
@@ -1365,52 +1297,52 @@
     "pluralize@8.0.0": {
       "integrity": "sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA=="
     },
-    "postcss-discard-duplicates@7.0.0_postcss@8.4.41": {
-      "integrity": "sha512-bAnSuBop5LpAIUmmOSsuvtKAAKREB6BBIYStWUTGq8oG5q9fClDMMuY8i4UPI/cEcDx2TN+7PMnXYIId20UVDw==",
+    "postcss-discard-duplicates@7.0.1_postcss@8.4.47": {
+      "integrity": "sha512-oZA+v8Jkpu1ct/xbbrntHRsfLGuzoP+cpt0nJe5ED2FQF8n8bJtn7Bo28jSmBYwqgqnqkuSXJfSUEE7if4nClQ==",
       "dependencies": [
-        "postcss@8.4.41"
+        "postcss"
       ]
     },
-    "postcss-discard-empty@7.0.0_postcss@8.4.41": {
+    "postcss-discard-empty@7.0.0_postcss@8.4.47": {
       "integrity": "sha512-e+QzoReTZ8IAwhnSdp/++7gBZ/F+nBq9y6PomfwORfP7q9nBpK5AMP64kOt0bA+lShBFbBDcgpJ3X4etHg4lzA==",
       "dependencies": [
-        "postcss@8.4.41"
+        "postcss"
       ]
     },
-    "postcss-merge-rules@7.0.2_postcss@8.4.41": {
-      "integrity": "sha512-VAR47UNvRsdrTHLe7TV1CeEtF9SJYR5ukIB9U4GZyZOptgtsS20xSxy+k5wMrI3udST6O1XuIn7cjQkg7sDAAw==",
+    "postcss-merge-rules@7.0.4_postcss@8.4.47": {
+      "integrity": "sha512-ZsaamiMVu7uBYsIdGtKJ64PkcQt6Pcpep/uO90EpLS3dxJi6OXamIobTYcImyXGoW0Wpugh7DSD3XzxZS9JCPg==",
       "dependencies": [
         "browserslist@4.24.2",
         "caniuse-api",
         "cssnano-utils",
-        "postcss@8.4.41",
+        "postcss",
         "postcss-selector-parser"
       ]
     },
-    "postcss-minify-selectors@7.0.2_postcss@8.4.41": {
-      "integrity": "sha512-dCzm04wqW1uqLmDZ41XYNBJfjgps3ZugDpogAmJXoCb5oCiTzIX4oPXXKxDpTvWOnKxQKR4EbV4ZawJBLcdXXA==",
+    "postcss-minify-selectors@7.0.4_postcss@8.4.47": {
+      "integrity": "sha512-JG55VADcNb4xFCf75hXkzc1rNeURhlo7ugf6JjiiKRfMsKlDzN9CXHZDyiG6x/zGchpjQS+UAgb1d4nqXqOpmA==",
       "dependencies": [
         "cssesc",
-        "postcss@8.4.41",
+        "postcss",
         "postcss-selector-parser"
       ]
     },
-    "postcss-nested@6.0.1_postcss@8.4.41": {
+    "postcss-nested@6.0.1_postcss@8.4.47": {
       "integrity": "sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==",
       "dependencies": [
-        "postcss@8.4.41",
+        "postcss",
         "postcss-selector-parser"
       ]
     },
-    "postcss-normalize-whitespace@7.0.0_postcss@8.4.41": {
+    "postcss-normalize-whitespace@7.0.0_postcss@8.4.47": {
       "integrity": "sha512-37/toN4wwZErqohedXYqWgvcHUGlT8O/m2jVkAfAe9Bd4MzRqlBmXrJRePH0e9Wgnz2X7KymTgTOaaFizQe3AQ==",
       "dependencies": [
-        "postcss@8.4.41",
+        "postcss",
         "postcss-value-parser"
       ]
     },
-    "postcss-selector-parser@6.1.1": {
-      "integrity": "sha512-b4dlw/9V8A71rLIDsSwVmak9z2DuBUB7CA1/wSdelNEzqsjoSPeADTWNO09lpH49Diy3/JIZ2bSPB1dI3LJCHg==",
+    "postcss-selector-parser@6.1.2": {
+      "integrity": "sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==",
       "dependencies": [
         "cssesc",
         "util-deprecate"
@@ -1418,14 +1350,6 @@
     },
     "postcss-value-parser@4.2.0": {
       "integrity": "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="
-    },
-    "postcss@8.4.41": {
-      "integrity": "sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==",
-      "dependencies": [
-        "nanoid",
-        "picocolors",
-        "source-map-js"
-      ]
     },
     "postcss@8.4.47": {
       "integrity": "sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==",
@@ -1558,13 +1482,13 @@
     "util-deprecate@1.0.2": {
       "integrity": "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="
     },
-    "vite@5.4.9_@types+node@22.5.4": {
-      "integrity": "sha512-20OVpJHh0PAM0oSOELa5GaZNWeDjcAvQjGXy2Uyr+Tp+/D2/Hdz6NLgpJLsarPTA2QJ6v8mX2P1ZfbsSKvdMkg==",
+    "vite@5.4.10_@types+node@22.5.4": {
+      "integrity": "sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==",
       "dependencies": [
         "@types/node@22.5.4",
         "esbuild@0.21.5",
         "fsevents",
-        "postcss@8.4.47",
+        "postcss",
         "rollup"
       ]
     },
@@ -1576,16 +1500,16 @@
     "dependencies": [
       "npm:@babel/plugin-transform-react-jsx-development@7.25.9",
       "npm:@babel/plugin-transform-react-jsx@7.25.9",
-      "npm:@catppuccin/palette@1.2.0",
+      "npm:@catppuccin/palette@1.5.0",
       "npm:@deno/vite-plugin@1.0.0",
-      "npm:@pandacss/dev@0.45.1",
+      "npm:@pandacss/dev@0.47.0",
       "npm:@preact/preset-vite@2.9.1",
       "npm:@preact/signals@1.3.0",
       "npm:babel-plugin-transform-hook-names@1.0.2",
       "npm:marked-gfm-heading-id@4.1.0",
       "npm:marked@14.1.3",
       "npm:preact@10.24.3",
-      "npm:vite@5.4.9"
+      "npm:vite@5.4.10"
     ]
   }
 }
