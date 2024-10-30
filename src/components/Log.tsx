@@ -1,5 +1,4 @@
-// @ts-types="../static/styled-system/css/index.d.mts"
-import { css } from "../static/styled-system/css/index.mjs";
+import { css } from "../styled-system/css/index.mjs";
 
 type Props = {
   duration: string;
@@ -22,7 +21,7 @@ export const Log = ({ duration, title, link, related }: Props) => (
     <p class={css`font-size: small;`}>
       {duration}
     </p>
-    <p>
+    <div>
       {link
         ? <a class={titleClass} href={link}>{title}</a>
         : <span class={titleClass}>{title}</span>}
@@ -36,6 +35,6 @@ export const Log = ({ duration, title, link, related }: Props) => (
             </li>
           ))}
       </ul>
-    </p>
+    </div>
   </div>
 );

@@ -4,10 +4,9 @@ import { Draggable } from "../components/Draggable.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { InfiniteCanvas } from "../components/InfiniteCanvas.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
-// @ts-types="../static/styled-system/css/index.d.mts"
-import { css } from "../static/styled-system/css/css.mjs";
+import { css } from "../styled-system/css/css.mjs";
 
-export default function InfiniteCanvasIsland() {
+export const InfiniteCanvasSection = () => {
   const title = {
     id: "title",
     ref: useRef<HTMLDivElement>(null),
@@ -73,7 +72,7 @@ export default function InfiniteCanvasIsland() {
       top: 150,
     },
     {
-      path: "/works",
+      path: "#works",
       description: "Works",
       left: 900,
       top: 250,
@@ -135,4 +134,4 @@ export default function InfiniteCanvasIsland() {
       ))}
     </InfiniteCanvas>
   );
-}
+};

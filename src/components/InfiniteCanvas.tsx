@@ -1,8 +1,7 @@
 import { batch, useSignal } from "@preact/signals";
 import { ComponentChildren } from "preact";
 import { useEffect, useRef } from "preact/hooks";
-// @ts-types="../static/styled-system/css/index.d.mts"
-import { css } from "../static/styled-system/css/index.mjs";
+import { css } from "../styled-system/css/index.mjs";
 
 type Props = {
   children: ComponentChildren;

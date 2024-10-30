@@ -1,8 +1,26 @@
----
-title: My Works
----
+// TODO: MarkdownをやめてJSXに整形する
 
-# My Works
+import { marked } from "marked";
+import { gfmHeadingId } from "marked-gfm-heading-id";
+import { css } from "../styled-system/css/css.mjs";
+
+export const WorksSection = () => {
+  const parsed = marked
+    .use(gfmHeadingId())
+    .parse(markdown, { async: false });
+
+  return (
+    <div
+      class={css`
+        padding: 5% 10%;
+      `}
+      dangerouslySetInnerHTML={{ __html: parsed }}
+    />
+  );
+};
+
+const markdown = `
+# Works
 
 ## Personal Projects
 
@@ -171,3 +189,4 @@ Goのソースコードを静的解析し、type guardが不足している箇�
 - GitHub: **[cat-crosswalk/mikage-client](https://github.com/cat-crosswalk/mikage-client)**
 - Presentation: **[世界をまるごと保存。写真の中を歩く体験を「Mikage」](https://docs.google.com/presentation/d/e/2PACX-1vSdMdN8t7vee_dLETWshYUYx8Vs62xhTL0XxLDGryFWyqeRGY7LxbAZ4hfbAEH7eXAjc0fGv4-Lusl2/pub)**
 - traP blog: **[DIGI-CON HACKATHON 2023『Mikage』](https://trap.jp/post/2031/)**
+`;
