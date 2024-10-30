@@ -30,6 +30,7 @@
   "exclude": [
     "**/.vite/",
     "**/node_modules/",
+    "./dist",
     "./src/styled-system",
     "./vite.config.ts"
   ],
