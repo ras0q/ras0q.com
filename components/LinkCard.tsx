@@ -11,32 +11,46 @@ export const LinkCard = ({ title, body, href }: Props) => {
   return (
     <div
       class={css`
+        --border-radius: 10px;
+
         width: fit-content;
         display: inline-block;
-        padding: 1.5rem;
-        background-color: var(--colors-macchiato-base);
-        color: var(--colors-macchiato-text);
-        border-radius: 10px;
         user-select: none;
         white-space: nowrap;
         cursor: inherit;
-        & > * {
-          margin: 0;
+
+        padding: 4px; /* as border width */
+        border-radius: var(--border-radius);
+        background: transparent;
+        &:hover {
+          background: linear-gradient(var(--angle), var(--colors-pink), var(--colors-lavender));
+          animation: 2s rotate linear infinite;
         }
       `}
       draggable={false}
     >
-      <h2>
-        <a
-          href={href}
-          class={css`
-            color: var(--colors-macchiato-text);
-          `}
-        >
-          {title}
-        </a>
-      </h2>
-      <p>{body}</p>
+      <div
+        class={css`
+          background-color: var(--colors-macchiato-base);
+          color: var(--colors-macchiato-text);
+          border-radius: var(--border-radius);
+          padding: 1.5rem;
+
+          & > * {
+            margin: 0;
+          }
+        `}
+      >
+        <h2>
+          <a
+            href={href}
+            class={css`color: var(--colors-macchiato-text);`}
+          >
+            {title}
+          </a>
+        </h2>
+        <p>{body}</p>
+      </div>
     </div>
   );
 };
