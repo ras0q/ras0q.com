@@ -1,5 +1,6 @@
 {
   "tasks": {
+    "check": "deno fmt --check && deno lint && deno check -I --all .",
     "prepare": "deno run -A --node-modules-dir npm:@pandacss/dev",
     "dev": "deno task prepare && deno run -A --node-modules-dir npm:vite",
     "build": "deno task prepare && deno run -A --node-modules-dir npm:vite build",
@@ -27,9 +28,10 @@
     }
   },
   "exclude": [
+    "**/.vite/",
     "**/node_modules/",
-    "**/*.md",
-    "./src/styled-system"
+    "./src/styled-system",
+    "./vite.config.ts"
   ],
   "imports": {
     "@babel/plugin-transform-react-jsx": "npm:@babel/plugin-transform-react-jsx@^7.25.9",
