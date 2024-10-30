@@ -72,7 +72,7 @@ export default function InfiniteCanvasIsland() {
       top: 150,
     },
     {
-      path: "/works",
+      path: "#works",
       description: "Works",
       left: 900,
       top: 250,

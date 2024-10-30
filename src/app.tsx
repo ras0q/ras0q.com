@@ -1,4 +1,5 @@
 import { Log } from "./components/Log.tsx";
+import { Works } from "./components/Works.tsx";
 import InfiniteCanvasIsland from "./islands/InfiniteCanvasIsland.tsx";
 import { css } from "./styled-system/css/css.mjs";
 
@@ -177,6 +178,9 @@ export function App() {
             />
           </div>
         </div>
+      </section>
+      <section>
+        <Works />
       </section>
     </main>
   );
