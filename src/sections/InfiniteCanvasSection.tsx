@@ -84,7 +84,7 @@ export const InfiniteCanvasSection = () => {
   }));
 
   return (
-    <InfiniteCanvas>
+    <InfiniteCanvas centerID={title.id}>
       <Draggable id={title.id} left={title.left} top={title.top} canDamping>
         <GradientText
           class={css`

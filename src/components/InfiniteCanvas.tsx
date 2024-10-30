@@ -5,9 +5,10 @@ import { css } from "../styled-system/css/index.mjs";
 
 type Props = {
   children: ComponentChildren;
+  centerID?: string;
 };
 
-export const InfiniteCanvas = ({ children }: Props) => {
+export const InfiniteCanvas = ({ children, centerID }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const resizerRef = useRef<HTMLDivElement>(null);
   const translateX = useSignal(0);
@@ -45,6 +46,25 @@ export const InfiniteCanvas = ({ children }: Props) => {
       abortController.abort("unmount");
     };
   }, []);
+
+  useEffect(() => {
+    if (!centerID) return;
+
+    const el = ref.current;
+    const resizerEL = resizerRef.current;
+    const centerEL = document.getElementById(centerID);
+    if (!el || !resizerEL || !centerEL) return;
+
+    const { width, height, left, top } = centerEL.getBoundingClientRect();
+    translateX.value = el.clientWidth / 2 - width / 2 - left;
+    translateY.value = el.clientHeight / 2 - height / 2 - top;
+
+    const transitionAbortController = new AbortController();
+    resizerEL.style.transition = "transform 0.5s ease";
+    resizerEL.addEventListener("transitionend", () => {
+      resizerEL.style.transition = "";
+    }, { signal: transitionAbortController.signal });
+  }, [centerID]);
 
   return (
     <div
