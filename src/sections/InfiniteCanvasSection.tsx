@@ -32,7 +32,7 @@ export const InfiniteCanvasSection = () => {
     },
     {
       name: "Bluesky",
-      link: "https://bsky.app/ras0q.com",
+      link: "https://bsky.app/profile/ras0q.com",
       path: "/img/bluesky.svg",
       left: 650,
       top: 250,
