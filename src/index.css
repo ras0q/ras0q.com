@@ -25,6 +25,10 @@
     line-height: 1.5;
     color: var(--colors-text);
 
+    * {
+      margin: 0;
+    }
+
     a {
       color: var(--colors-sapphire);
       text-decoration: none;
