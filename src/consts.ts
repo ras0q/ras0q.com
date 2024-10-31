@@ -179,7 +179,8 @@ React、Three.js (React Three Fiber) を使って作成した`,
       duration: "2022.07",
       title: "ISUCON Dashboard",
       link: "https://github.com/tetoraorg/isucon-dashboard",
-      subtitle: `Elasticsearch, Kibana, FluentBit, Luaなどを使用したISUCONのダッシュボード
+      subtitle:
+        `Elasticsearch, Kibana, FluentBit, Luaなどを使用したISUCONのダッシュボード
 ISUCON12で使用した`,
       related: {
         "traP blog": "https://trap.jp/post/1628/",
@@ -198,7 +199,8 @@ Swift Package centered project、The Composable Architectureなどを使用し�
       duration: "2020.03 ~ now",
       title: "traPortfolio",
       link: "https://portfolio.trap.jp",
-      subtitle: `部員のポートフォリオサイトや各種リンクなどをまとめる外部向けサービス
+      subtitle:
+        `部員のポートフォリオサイトや各種リンクなどをまとめる外部向けサービス
 バックエンドはGo、フロントエンドはVue.jsを使用して開発中
 バックエンドをメインにフロントエンドも担当し、プロジェクトリーダーとして開発を進めている`,
     },
@@ -268,7 +270,8 @@ Swift Package centered project、The Composable Architectureなどを使用し�
       duration: "2023.03",
       title: "missingtypeguard",
       link: "https://github.com/ras0q/missingtypeguard",
-      subtitle: `Goのソースコードを静的解析し、type guardが不足している箇所を検出するツール`,
+      subtitle:
+        `Goのソースコードを静的解析し、type guardが不足している箇所を検出するツール`,
       related: {
         Presentation:
           "https://docs.google.com/presentation/d/e/2PACX-1vShdRaEloexbntnvyRMr1mueYPddMNAIP_dWHchedo6wleYb_sq5Ttt5sepFMniRXJjtP-4CTpxRJQG/pub",
@@ -290,7 +293,8 @@ Swift Package centered project、The Composable Architectureなどを使用し�
       duration: "2023.09",
       title: "Mikage",
       link: "https://mikage.trap.show/",
-      subtitle: `複数の写真データを1つの3Dシーンとして保存・閲覧できるプラットフォーム
+      subtitle:
+        `複数の写真データを1つの3Dシーンとして保存・閲覧できるプラットフォーム
 3D Gaussian Splattingを使用して開発`,
       related: {
         GitHub: "https://github.com/cat-crosswalk/mikage-client",
