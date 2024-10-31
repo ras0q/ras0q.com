@@ -67,29 +67,34 @@ export const InfiniteCanvasSection = () => {
 
   const subRoutes = [
     {
+      path: "#about",
+      left: 900,
+      top: 50,
+    },
+    {
       path: "#careers",
       left: 900,
-      top: 100,
+      top: 150,
     },
     {
       path: "#skills",
       left: 900,
-      top: 200,
+      top: 250,
     },
     {
       path: "#talks",
       left: 900,
-      top: 300,
+      top: 350,
     },
     {
       path: "#contests",
       left: 900,
-      top: 400,
+      top: 450,
     },
     {
       path: "#works",
       left: 900,
-      top: 500,
+      top: 550,
     },
   ].map((v, i) => ({
     id: `subroutes${i}`,

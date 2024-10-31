@@ -1,3 +1,4 @@
+import { GradientText } from "./components/GradientText.tsx";
 import { Log } from "./components/Log.tsx";
 import { SkillsTable } from "./components/SkillsTable.tsx";
 import { careers, contests, skills, talks } from "./consts.ts";
@@ -36,12 +37,35 @@ export function App() {
           }
         `}
       >
-        <section id="careers">
-          <h2>Careers</h2>
-          <div class={css`display: grid; grid-row-gap: 1rem;`}>
-            {careers.map((c) => <Log key={c.title} {...c} />)}
-          </div>
-        </section>
+        <div
+          class={css`
+            display: grid;
+            grid-row-gap: 2rem;
+          `}
+        >
+          <section id="about">
+            <h2>About</h2>
+            <div
+              class={css`
+                display: grid;
+                grid-row-gap: 0.5rem;
+                font-size: large;
+              `}
+            >
+              <p>Ras / <GradientText>@ras0q</GradientText></p>
+              <p>
+                修士課程 / バックエンドエンジニア / iOSアプリエンジニア
+              </p>
+            </div>
+          </section>
+
+          <section id="careers">
+            <h2>Careers</h2>
+            <div class={css`display: grid; grid-row-gap: 1rem;`}>
+              {careers.map((c) => <Log key={c.title} {...c} />)}
+            </div>
+          </section>
+        </div>
 
         <div
           class={css`
