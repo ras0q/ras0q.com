@@ -32,7 +32,7 @@ export function App() {
           }
 
           h3 {
-            font-size: large;
+            font-size: x-large;
             margin-bottom: 0.5rem;
           }
         `}
