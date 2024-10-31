@@ -133,3 +133,171 @@ export const contests: LogProps[] = [
     },
   },
 ];
+
+export const works: { [key: string]: LogProps[] } = {
+  "Personal Projects": [
+    {
+      duration: "2024.03 ~",
+      title: "ras0q.com",
+      link: "https://ras0q.com/",
+      subtitle: `このポートフォリオ`,
+      related: {
+        GitHub: "https://github.com/ras0q/ras0q.com",
+      },
+    },
+    {
+      duration: "2023/02 ~ 2023/04",
+      title: "slitscan3d",
+      link: "https://slitscan3d.ras0q.com",
+      subtitle: `Slit-scanを3D空間で再現するアプリ
+slitの切り口を3D空間に描画し、パラメータを変更することで様々なパターンのSlit-scanを観察することができる
+React、Three.js (React Three Fiber) を使って作成した`,
+      related: {
+        GitHub: "https://github.com/ras0q/slitscan3d",
+        "traP blog": "https://trap.jp/post/1841/",
+      },
+    },
+    {
+      duration: "2020.11",
+      title: "gcg - Go Construtor Generator",
+      link: "https://github.com/ras0q/gcg",
+      subtitle: `Goの構造体のコンストラクタ関数を自動生成するCLIツール`,
+      related: {
+        "traP blog": "https://trap.jp/post/1429/",
+      },
+    },
+    {
+      duration: "2022.12",
+      title: "wscat",
+      link: "https://github.com/ras0q/go-wstest/tree/main/wscat",
+      subtitle: `Websocket通信を対話形式でテストできるようにしたCLIツール`,
+      related: {
+        "traP blog": "https://trap.jp/post/1790/",
+      },
+    },
+    {
+      duration: "2022.07",
+      title: "ISUCON Dashboard",
+      link: "https://github.com/tetoraorg/isucon-dashboard",
+      subtitle: `Elasticsearch, Kibana, FluentBit, Luaなどを使用したISUCONのダッシュボード
+ISUCON12で使用した`,
+      related: {
+        "traP blog": "https://trap.jp/post/1628/",
+      },
+    },
+    {
+      duration: "2022.08 ~",
+      title: "traQ iOS (WIP)",
+      link: "https://github.com/ras0q/traq-ios-clone",
+      subtitle: `部内SNS『traQ』をSwiftで再現したiOSアプリ (非公式)
+Swift Package centered project、The Composable Architectureなどを使用して開発中`,
+    },
+  ],
+  "Team Projects": [
+    {
+      duration: "2020.03 ~",
+      title: "traPortfolio",
+      link: "https://portfolio.trap.jp",
+      subtitle: `部員のポートフォリオサイトや各種リンクなどをまとめる外部向けサービス
+バックエンドはGo、フロントエンドはVue.jsを使用して開発中
+バックエンドをメインにフロントエンドも担当し、プロジェクトリーダーとして開発を進めている`,
+    },
+    {
+      duration: "2020.07",
+      title: "Make Sure The Pressure",
+      link: "https://make-sure-the-pressure.trap.games",
+      subtitle: `気圧を操作しゴールを目指すゲーム
+ゲームプログラミングを担当`,
+      related: {
+        "traP blog": "https://trap.jp/post/1097/",
+      },
+    },
+    {
+      duration: "2020.12",
+      title: "Qtheme",
+      subtitle: `部内SNS『traQ』のカスタムテーマを作成するサービス
+バックエンドを担当`,
+      related: {
+        "traP blog": "https://trap.jp/post/1192/",
+      },
+    },
+    {
+      duration: "2021.06",
+      title: "Qtunes",
+      subtitle: `部内SNS『traQ』に投稿された曲を一覧できるサービス
+チームリーダー、バックエンドを担当`,
+      related: {
+        "GitHub (Backend)": "https://github.com/traP-jp/qtunes-backend",
+        GitHub: "https://github.com/traP-jp/qtunes-frontend",
+        "traP blog": "https://trap.jp/post/1315/",
+      },
+    },
+    {
+      duration: "2021.12",
+      title: "Nascalay",
+      link: "https://nascalay.trap.games",
+      subtitle: `プレイヤー同士で協力してお題を完成させるお絵かきリレー
+バックエンドを担当`,
+      related: {
+        "GitHub (Backend)": "https://github.com/cat-crosswalk/nascalay-backend",
+        "GitHub (Frontend)":
+          "https://github.com/cat-crosswalk/nascalay-frontend",
+        "traP blog": "https://trap.jp/post/1467/",
+      },
+    },
+    {
+      duration: "2022.07",
+      title: "stanQ",
+      subtitle: `部内SNS『traQ』で用いるスタンプの生成ツール
+チームリーダー、バックエンドを担当`,
+      related: {
+        "traP blog": "https://trap.jp/post/1617/",
+      },
+    },
+    {
+      duration: "2023.03",
+      title: "memoru",
+      link: "https://memoru.trasta.dev/",
+      subtitle: `旅行先で集めたアイテムを仮想空間の家に飾ることができるアプリ
+バックエンドを担当`,
+      related: {
+        Presentation: "https://www.pref.miyagi.jp/documents/45294/04.pdf",
+      },
+    },
+    {
+      duration: "2023.03",
+      title: "missingtypeguard",
+      link: "https://github.com/ras0q/missingtypeguard",
+      subtitle: `Goのソースコードを静的解析し、type guardが不足している箇所を検出するツール`,
+      related: {
+        Presentation:
+          "https://docs.google.com/presentation/d/e/2PACX-1vShdRaEloexbntnvyRMr1mueYPddMNAIP_dWHchedo6wleYb_sq5Ttt5sepFMniRXJjtP-4CTpxRJQG/pub",
+      },
+    },
+    {
+      duration: "2023.06",
+      title: "traP Mission",
+      link: "https://mission.trap.games/",
+      subtitle: `部内SNS『traQ』で用いるミッションを作成するサービス
+リームリーダー、バックエンド、フロントエンドを担当`,
+      related: {
+        "GitHub (Backend)": "https://github.com/traP-jp/h23s_26",
+        "GitHub (Frontend)": "https://github.com/traP-jp/h23s_26-UI",
+        "traP blog": "https://trap.jp/post/1909/",
+      },
+    },
+    {
+      duration: "2023.09",
+      title: "Mikage",
+      link: "https://mikage.trap.show/",
+      subtitle: `複数の写真データを1つの3Dシーンとして保存・閲覧できるプラットフォーム
+3D Gaussian Splattingを使用して開発`,
+      related: {
+        GitHub: "https://github.com/cat-crosswalk/mikage-client",
+        Presentation:
+          "https://docs.google.com/presentation/d/e/2PACX-1vSdMdN8t7vee_dLETWshYUYx8Vs62xhTL0XxLDGryFWyqeRGY7LxbAZ4hfbAEH7eXAjc0fGv4-Lusl2/pub",
+        "traP blog": "https://trap.jp/post/2031/",
+      },
+    },
+  ],
+};
