@@ -5,3 +5,8 @@ import "./index.css";
 import "./styled-system/styles.css";
 
 render(<App />, document.getElementById("app") as HTMLElement);
+
+document.querySelectorAll("a").forEach((anchor) => {
+  anchor.setAttribute("target", "_blank");
+  anchor.setAttribute("rel", "noopener noreferrer");
+});
