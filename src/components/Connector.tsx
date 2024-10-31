@@ -15,14 +15,15 @@ export const Connector = ({ leftID, rightID, curve = 50 }: Props) => {
   const fit = (parent: HTMLElement, left: HTMLElement, right: HTMLElement) => {
     if (!svgRef.current || !pathRef.current) return;
 
-    const { scrollX, scrollY } = window;
     const parentRect = parent.getBoundingClientRect();
     const leftRect = left.getBoundingClientRect();
     const rightRect = right.getBoundingClientRect();
-    const lx = scrollX + leftRect.right - parentRect.left;
-    const ly = scrollY + leftRect.top - parentRect.top + leftRect.height / 2;
-    const rx = scrollX + rightRect.left - parentRect.left;
-    const ry = scrollY + rightRect.top - parentRect.top + rightRect.height / 2;
+    const lx = leftRect.right - parentRect.left;
+    const ly = leftRect.top - parentRect.top +
+      (leftRect.height - parentRect.height) / 2;
+    const rx = rightRect.left - parentRect.left;
+    const ry = rightRect.top - parentRect.top +
+      (rightRect.height - parentRect.height) / 2;
     const viewLeft = Math.min(lx, rx);
     const viewTop = Math.min(ly, ry);
     const w = Math.max(Math.abs(rx - lx), 1);

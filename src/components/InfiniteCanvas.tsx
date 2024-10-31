@@ -55,9 +55,12 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
     const centerEL = document.getElementById(centerID);
     if (!el || !resizerEL || !centerEL) return;
 
-    const { width, height, left, top } = centerEL.getBoundingClientRect();
-    translateX.value = el.clientWidth / 2 - width / 2 - left;
-    translateY.value = el.clientHeight / 2 - height / 2 - top;
+    const rect = el.getBoundingClientRect();
+    const centerRect = centerEL.getBoundingClientRect();
+    translateX.value = (rect.width - centerRect.width) / 2 +
+      rect.left - centerRect.left;
+    translateY.value = (rect.height - centerRect.height) / 2 +
+      rect.top - centerRect.top;
 
     const transitionAbortController = new AbortController();
     resizerEL.style.transition = "transform 0.5s ease";
