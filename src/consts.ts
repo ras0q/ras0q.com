@@ -137,7 +137,7 @@ export const contests: LogProps[] = [
 export const works: { [key: string]: LogProps[] } = {
   "Personal Projects": [
     {
-      duration: "2024.03 ~",
+      duration: "2024.03 ~ now",
       title: "ras0q.com",
       link: "https://ras0q.com/",
       subtitle: `このポートフォリオ`,
@@ -146,7 +146,7 @@ export const works: { [key: string]: LogProps[] } = {
       },
     },
     {
-      duration: "2023/02 ~ 2023/04",
+      duration: "2023.02 ~ 2023.04",
       title: "slitscan3d",
       link: "https://slitscan3d.ras0q.com",
       subtitle: `Slit-scanを3D空間で再現するアプリ
@@ -186,7 +186,7 @@ ISUCON12で使用した`,
       },
     },
     {
-      duration: "2022.08 ~",
+      duration: "2022.08",
       title: "traQ iOS (WIP)",
       link: "https://github.com/ras0q/traq-ios-clone",
       subtitle: `部内SNS『traQ』をSwiftで再現したiOSアプリ (非公式)
@@ -195,7 +195,7 @@ Swift Package centered project、The Composable Architectureなどを使用し�
   ],
   "Team Projects": [
     {
-      duration: "2020.03 ~",
+      duration: "2020.03 ~ now",
       title: "traPortfolio",
       link: "https://portfolio.trap.jp",
       subtitle: `部員のポートフォリオサイトや各種リンクなどをまとめる外部向けサービス
