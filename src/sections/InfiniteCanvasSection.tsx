@@ -138,7 +138,7 @@ export const InfiniteCanvasSection = () => {
 
       {subRoutes.map((v) => <Connector leftID={title.id} rightID={v.id} />)}
       {subRoutes.map(({ id, path, left, top }) => (
-        <Draggable id={id} key={path} left={left} top={top}>
+        <Draggable id={id} key={path} left={left} top={top} canDamping>
           <a href={path}>
             <GradientText
               class={css`

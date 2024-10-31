@@ -67,6 +67,13 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
     resizerEL.addEventListener("transitionend", () => {
       resizerEL.style.transition = "";
     }, { signal: transitionAbortController.signal });
+
+    // Disable drag and drop
+    resizerEL.querySelectorAll("a,img").forEach((child) => {
+      if (child instanceof HTMLElement) {
+        child.draggable = false;
+      }
+    });
   }, [centerID]);
 
   return (
