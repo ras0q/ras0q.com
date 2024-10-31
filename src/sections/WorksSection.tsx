@@ -20,7 +20,7 @@ export const WorksSection = () => {
 };
 
 const markdown = `
-# Works
+# Works (WIP)
 
 ## Personal Projects
 
