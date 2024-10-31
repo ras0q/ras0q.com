@@ -91,6 +91,7 @@ export const InfiniteCanvasSection = () => {
             font-style: italic;
             font-weight: 800;
             font-size: 5rem;
+            padding: 0 0.25rem; /* prevent italic text cut */
           `}
         >
           ras0q.com
@@ -125,6 +126,7 @@ export const InfiniteCanvasSection = () => {
                 font-style: italic;
                 font-weight: 800;
                 font-size: 2rem;
+                padding: 0 0.25rem; /* prevent italic text cut */
               `}
             >
               {path}
