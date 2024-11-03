@@ -37,7 +37,7 @@
   "imports": {
     "@babel/plugin-transform-react-jsx": "npm:@babel/plugin-transform-react-jsx@7.25.9",
     "@babel/plugin-transform-react-jsx-development": "npm:@babel/plugin-transform-react-jsx-development@7.25.9",
-    "@catppuccin/palette": "npm:@catppuccin/palette@1.7.0",
+    "@catppuccin/palette": "npm:@catppuccin/palette@1.7.1",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.0",
     "@pandacss/dev": "npm:@pandacss/dev@0.47.0",
     "@preact/preset-vite": "npm:@preact/preset-vite@2.9.1",
