@@ -26,6 +26,7 @@ export function App() {
         class={css`
           display: grid;
           grid-row-gap: 2rem;
+          grid-column-gap: 4rem;
           padding: 5% 10%;
 
           h2 {
@@ -42,7 +43,8 @@ export function App() {
         <div
           class={css`
           display: grid;
-          grid-column-gap: 4rem;
+          grid-gap: inherit;
+          align-items: start;
           grid-template-columns: 1fr 1fr;
           @media (max-width: 600px) {
             grid-template-columns: 1fr;
@@ -52,7 +54,7 @@ export function App() {
           <div
             class={css`
             display: grid;
-            grid-row-gap: 2rem;
+            grid-gap: inherit;
           `}
           >
             <section id="about">
@@ -67,9 +69,8 @@ export function App() {
                 <p>
                   Ras / <GradientText>@ras0q</GradientText>
                 </p>
-                <p>
-                  修士課程 / バックエンドエンジニア / iOSアプリエンジニア
-                </p>
+                <p>東京科学大学 修士課程1年</p>
+                <p>バックエンドエンジニア / iOSアプリエンジニア</p>
               </div>
             </section>
 
@@ -84,7 +85,7 @@ export function App() {
           <div
             class={css`
             display: grid;
-            grid-row-gap: 2rem;
+            grid-gap: inherit;
           `}
           >
             <section id="skills">
@@ -108,12 +109,12 @@ export function App() {
           </div>
         </div>
 
-        <section id="works">
+        <section id="works" class={css`grid-gap: inherit;`}>
           <h2>Works</h2>
           <div
             class={css`
             display: grid;
-            grid-column-gap: 4rem;
+            grid-gap: inherit;
             grid-template-columns: 1fr 1fr;
             @media (max-width: 600px) {
               grid-template-columns: 1fr;
