@@ -15,6 +15,8 @@ export function App() {
           @media (max-width: 600px) {
             height: 60svh;
           }
+
+          mask-image: linear-gradient(to bottom, black 80%, transparent);
         `}
       >
         <InfiniteCanvasSection />
