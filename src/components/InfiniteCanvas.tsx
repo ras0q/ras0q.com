@@ -1,6 +1,6 @@
-import { batch, useSignal } from "@preact/signals";
+import { batch, computed, useSignal } from "@preact/signals";
 import { ComponentChildren } from "preact";
-import { useEffect, useRef } from "preact/hooks";
+import { useCallback, useEffect, useRef } from "preact/hooks";
 import { css } from "../styled-system/css/index.mjs";
 
 type Props = {
@@ -14,6 +14,10 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
   const translateX = useSignal(0);
   const translateY = useSignal(0);
   const scale = useSignal(1);
+  const orientationX = useSignal(0);
+  const orientationY = useSignal(0);
+  const initialOrientationX = useSignal<number | null>(null);
+  const initialOrientationY = useSignal<number | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -76,6 +80,49 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
     });
   }, [centerID]);
 
+  const grantDeviceOrientation = useCallback(async () => {
+    if (!DeviceOrientationEvent) return;
+
+    if (
+      "requestPermission" in DeviceOrientationEvent &&
+      typeof DeviceOrientationEvent.requestPermission === "function"
+    ) {
+      // @ts-ignore: requestPermission is not defined now.
+      await DeviceOrientationEvent.requestPermission().catch((e) => alert(e));
+    }
+
+    // @ts-ignore: deviceorientation event is not defined now.
+    addEventListener(
+      "deviceorientation",
+      (e: DeviceOrientationEvent) => {
+        if (e.gamma === null || e.beta === null) return;
+        if (
+          initialOrientationX.value === null ||
+          initialOrientationY.value === null
+        ) {
+          initialOrientationX.value = e.gamma;
+          initialOrientationY.value = e.beta;
+          return;
+        }
+
+        if (Math.abs(e.gamma - orientationX.value) < 45) {
+          orientationX.value = e.gamma - initialOrientationX.value;
+        }
+        if (Math.abs(e.beta - orientationY.value) < 90) {
+          orientationY.value = e.beta - initialOrientationY.value;
+        }
+      },
+    );
+  }, []);
+
+  // TODO: use better names
+  const sumTranslateX = computed(() =>
+    translateX.value + orientationX.value * 5
+  );
+  const sumTranslateY = computed(() =>
+    translateY.value + orientationY.value * 5
+  );
+
   return (
     <div
       ref={ref}
@@ -103,10 +150,11 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
       `}
       style={{
         "--bg-size": `${16 * scale.value}px`,
-        "--bg-position": `${translateX.value * scale.value}px ${
-          translateY.value * scale.value
+        "--bg-position": `${sumTranslateX.value * scale.value}px ${
+          sumTranslateY.value * scale.value
         }px`,
       }}
+      onClick={grantDeviceOrientation}
     >
       <div
         ref={resizerRef}
@@ -118,7 +166,7 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
           user-select: none;
         `}
         style={{
-          "--translate": `${translateX.value}px, ${translateY.value}px`,
+          "--translate": `${sumTranslateX.value}px, ${sumTranslateY.value}px`,
           "--scale": `${scale.value}`,
         }}
       >
