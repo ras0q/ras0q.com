@@ -16,6 +16,13 @@ import {
   works,
 } from "./consts.ts";
 import { css } from "./styled-system/css/css.mjs";
+import { cx } from "./styled-system/css/cx.mjs";
+
+const boldItalicStyle = css`
+  font-style: italic;
+  font-weight: 800;
+  padding: 0 0.25rem; /* prevent italic text cut */
+`;
 
 export function App() {
   const titleID = "title";
@@ -37,14 +44,7 @@ export function App() {
       >
         <InfiniteCanvas centerID={titleID}>
           <Draggable id={titleID} left={title.left} top={title.top} canDamping>
-            <GradientText
-              class={css`
-                font-style: italic;
-                font-weight: 800;
-                font-size: 5rem;
-                padding: 0 0.25rem; /* prevent italic text cut */
-              `}
-            >
+            <GradientText class={cx(boldItalicStyle, css`font-size: 5rem;`)}>
               ras0q.com
             </GradientText>
           </Draggable>
@@ -73,12 +73,7 @@ export function App() {
             >
               <a href={`https://${name}${title.name}`}>
                 <GradientText
-                  class={css`
-                    font-style: italic;
-                    font-weight: 800;
-                    font-size: 2rem;
-                    padding: 0 0.25rem; /* prevent italic text cut */
-                  `}
+                  class={cx(boldItalicStyle, css`font-size: 2rem;`)}
                 >
                   {name}
                 </GradientText>
@@ -97,12 +92,7 @@ export function App() {
             >
               <a href={path}>
                 <GradientText
-                  class={css`
-                    font-style: italic;
-                    font-weight: 800;
-                    font-size: 2rem;
-                    padding: 0 0.25rem; /* prevent italic text cut */
-                  `}
+                  class={cx(boldItalicStyle, css`font-size: 2rem;`)}
                 >
                   {path}
                 </GradientText>
