@@ -115,6 +115,7 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
           --scale: 1;
 
           transform: translate(var(--translate)) scale(var(--scale));
+          user-select: none;
         `}
         style={{
           "--translate": `${translateX.value}px, ${translateY.value}px`,

@@ -8,7 +8,6 @@ export const GradientText = (
     class={cx(
       css`
         margin: 0;
-        user-select: none;
         display: inline-block;
         background: var(--gradients-primary);
         background-clip: text;
