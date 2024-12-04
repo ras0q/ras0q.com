@@ -49,14 +49,12 @@ export const InfiniteCanvasSection = () => {
   const subDomains = [
     {
       name: "slitscan3d.",
-      description: "Slit-Scan powered by Three.js",
-      left: 36,
-      top: 100,
+      left: 100,
+      top: 200,
     },
     {
       name: "blog.",
-      description: "My Blog",
-      left: 59,
+      left: 100,
       top: 400,
     },
   ].map((v, i) => ({
@@ -126,13 +124,20 @@ export const InfiniteCanvasSection = () => {
       ))}
 
       {subDomains.map((v) => <Connector leftID={v.id} rightID={title.id} />)}
-      {subDomains.map(({ id, name, description, left, top }) => (
+      {subDomains.map(({ id, name, left, top }) => (
         <Draggable id={id} key={name} left={left} top={top} canDamping>
-          <LinkCard
-            title={name}
-            body={description}
-            href={`https://${name}${title.name}`}
-          />
+          <a href={`https://${name}${title.name}`}>
+            <GradientText
+              class={css`
+                font-style: italic;
+                font-weight: 800;
+                font-size: 2rem;
+                padding: 0 0.25rem; /* prevent italic text cut */
+              `}
+            >
+              {name}
+            </GradientText>
+          </a>
         </Draggable>
       ))}
 
