@@ -1,5 +1,88 @@
 import type { Log } from "./components/Log.tsx";
 
+export const title = {
+  name: "ras0q.com",
+  left: 345,
+  top: 276,
+};
+
+export const icons = [
+  {
+    name: "X",
+    link: "https://x.com/ras0q",
+    path: "/img/x.svg",
+    left: 550,
+    top: 250,
+  },
+  {
+    name: "GitHub",
+    link: "https://github.com/ras0q",
+    path: "/img/github.svg",
+    left: 600,
+    top: 250,
+  },
+  {
+    name: "Bluesky",
+    link: "https://bsky.app/profile/ras0q.com",
+    path: "/img/bluesky.svg",
+    left: 650,
+    top: 250,
+  },
+  {
+    name: "Nostr",
+    link: "https://njump.me/ras0q.com",
+    path: "/img/nostr.svg",
+    left: 700,
+    top: 250,
+  },
+];
+
+export const subDomains = [
+  {
+    name: "slitscan3d.",
+    left: 100,
+    top: 200,
+  },
+  {
+    name: "blog.",
+    left: 100,
+    top: 400,
+  },
+];
+
+export const subRoutes = [
+  {
+    path: "#about",
+    left: 900,
+    top: 50,
+  },
+  {
+    path: "#careers",
+    left: 900,
+    top: 150,
+  },
+  {
+    path: "#skills",
+    left: 900,
+    top: 250,
+  },
+  {
+    path: "#talks",
+    left: 900,
+    top: 350,
+  },
+  {
+    path: "#contests",
+    left: 900,
+    top: 450,
+  },
+  {
+    path: "#works",
+    left: 900,
+    top: 550,
+  },
+];
+
 export const skills = [
   { name: "Go", level: 5 },
   { name: "Swift", level: 4 },
