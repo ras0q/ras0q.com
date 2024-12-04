@@ -41,12 +41,17 @@ export const subDomains = [
   {
     name: "slitscan3d.",
     left: 100,
-    top: 200,
+    top: 150,
   },
   {
     name: "blog.",
     left: 100,
-    top: 400,
+    top: 315,
+  },
+  {
+    name: "nostraq.",
+    left: 100,
+    top: 450,
   },
 ];
 
