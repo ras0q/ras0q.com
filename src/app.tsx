@@ -146,8 +146,23 @@ export function App() {
                 font-size: large;
               `}
               >
-                <p>
+                <p
+                  class={css`
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+
+                    & a img {
+                      vertical-align: middle;
+                    }
+                  `}
+                >
                   Ras / <GradientText>@ras0q</GradientText>
+                  {icons.map(({ name, link, path }) => (
+                    <a href={link}>
+                      <img src={path} alt={name} width="16px" height="16px" />
+                    </a>
+                  ))}
                 </p>
                 <p>東京科学大学 修士課程1年</p>
                 <p>バックエンドエンジニア / iOSアプリエンジニア</p>
