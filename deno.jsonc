@@ -45,7 +45,7 @@
     "babel-plugin-transform-hook-names": "npm:babel-plugin-transform-hook-names@1.0.2",
     "marked": "npm:marked@14.1.4",
     "marked-gfm-heading-id": "npm:marked-gfm-heading-id@4.1.1",
-    "preact": "npm:preact@10.25.3",
+    "preact": "npm:preact@10.25.4",
     "vite": "npm:vite@5.4.11"
   }
 }
