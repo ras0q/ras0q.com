@@ -96,14 +96,62 @@ export const subRoutes = [
 ];
 
 export const skills = [
-  { name: "Go", level: 5 },
-  { name: "Swift", level: 4 },
-  { name: "JavaScript / TypeScript", level: 4 },
-  { name: "Python", level: 3 },
-  { name: "C / C++", level: 1 },
-  { name: "Git", level: 5 },
-  { name: "Docker / Docker Compose", level: 4 },
-  { name: "Vim keybindings", level: 2 },
+  {
+    name: "Go",
+    level: 5,
+    description:
+      "文法がシンプルで、最も使用頻度の高い言語です。Webバックエンド、CLIの開発やOSS Contributionの経験があります。ISUCONなどのパフォーマンスチューニングコンテストでもよく用いています。",
+  },
+  {
+    name: "Git",
+    level: 5,
+    description:
+      "個人・チーム開発問わずコードを扱う際にはほとんど使っています。",
+  },
+  {
+    name: "Docker / Docker Compose",
+    level: 5,
+    description: "チーム開発の環境を揃えるために使っています。",
+  },
+  {
+    name: "Swift",
+    level: 4,
+    description:
+      "iOSアプリの開発がメインですが、Webバックエンド、WASMを用いたWebフロントエンドの経験もあります。iOSアプリ開発というよりはSwiftという言語自体が好きです。",
+  },
+  {
+    name: "JavaScript / TypeScript",
+    level: 4,
+    description:
+      "シェルスクリプトよりは複雑だがGo等のコンパイラ言語で書くほどではないスクリプトを書くときによく用いています。最近はDenoをJSランタイムにして書くことが多いです。",
+  },
+  {
+    name: "Python",
+    level: 4,
+    description: "研究で機械学習関連のコードを書く際に用いています。",
+  },
+  {
+    name: "MySQL",
+    level: 3,
+    description: "RDBの中では最も親しみがあります。",
+  },
+  {
+    name: "Project Management",
+    level: 2,
+    description:
+      "プログラミング技術とは異なりますが、部内のプロジェクトやハッカソンなどで何度か経験があります。",
+  },
+  {
+    name: "Vim Keybindings",
+    level: 2,
+    description:
+      "基本的な操作ができます。最近はVimではなくHelixをメインのエディタとして用いています。",
+  },
+  {
+    name: "Rust",
+    level: 1,
+    description: "書くのは怪しいですが、ある程度読むことはできます。",
+  },
 ];
 
 type LogProps = Parameters<typeof Log>[0];
