@@ -95,6 +95,10 @@ export const subRoutes = [
   },
 ];
 
+export const aboutDescription = `東京科学大学 修士課程1年
+Webバックエンド、iOSアプリの開発が得意です。
+現在は、開発ツールやプラグインのように普段の開発体験を拡張する形で支援するエンジニアリングや、機械学習のプライバシー保護などに興味があります。`;
+
 export const skills = [
   {
     name: "Go",
@@ -274,6 +278,12 @@ export const contests: LogProps[] = [
     related: {
       Blog: "https://trap.jp/post/2031/",
     },
+  },
+  {
+    duration: "2024.12.8",
+    title: "ISUCON14",
+    link: "https://isucon.net/archives/58818382.html",
+    subtitle: "25位（学生3位、MIXI賞）（tetora）",
   },
 ];
 

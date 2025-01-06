@@ -5,6 +5,7 @@ import { InfiniteCanvas } from "./components/InfiniteCanvas.tsx";
 import { Log } from "./components/Log.tsx";
 import { SkillsTable } from "./components/SkillsTable.tsx";
 import {
+  aboutDescription,
   careers,
   contests,
   icons,
@@ -164,8 +165,7 @@ export function App() {
                     </a>
                   ))}
                 </p>
-                <p>東京科学大学 修士課程1年</p>
-                <p>バックエンドエンジニア / iOSアプリエンジニア</p>
+                <p>{aboutDescription}</p>
               </div>
             </section>
 
