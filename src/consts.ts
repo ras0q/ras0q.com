@@ -35,6 +35,13 @@ export const icons = [
     left: 700,
     top: 250,
   },
+  {
+    name: "mixi2",
+    link: "https://mixi.social/@ras0q",
+    path: "/img/mixi2.svg",
+    left: 750,
+    top: 250,
+  },
 ];
 
 export const subDomains = [
