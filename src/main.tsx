@@ -10,5 +10,4 @@ document.querySelectorAll("a").forEach((anchor) => {
   if (new URL(anchor.href).host === document.location.host) return;
 
   anchor.setAttribute("target", "_blank");
-  anchor.setAttribute("rel", "noopener noreferrer");
 });
