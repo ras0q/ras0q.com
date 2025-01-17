@@ -24,7 +24,16 @@ export const Log = ({ duration, title, link, subtitle, related }: Props) => (
       {link
         ? <a class={titleClass} href={link}>{title}</a>
         : <p class={titleClass}>{title}</p>}
-      {subtitle && <p class={css`font-size: large;`}>{subtitle}</p>}
+      {subtitle && (
+        <p
+          class={css`
+            font-size: large;
+            white-space: pre-wrap;
+          `}
+        >
+          {subtitle}
+        </p>
+      )}
       {related && (
         <div
           class={css`

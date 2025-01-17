@@ -24,7 +24,6 @@
     padding: 0;
     line-height: 1.5;
     color: var(--colors-text);
-    white-space: pre-wrap;
 
     * {
       margin: 0;
