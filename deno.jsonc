@@ -40,7 +40,7 @@
     "@catppuccin/palette": "npm:@catppuccin/palette@1.7.1",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.3",
     "@pandacss/dev": "npm:@pandacss/dev@0.52.0",
-    "@preact/preset-vite": "npm:@preact/preset-vite@2.10.0",
+    "@preact/preset-vite": "npm:@preact/preset-vite@2.10.1",
     "@preact/signals": "npm:@preact/signals@1.3.2",
     "babel-plugin-transform-hook-names": "npm:babel-plugin-transform-hook-names@1.0.2",
     "marked": "npm:marked@14.1.4",
