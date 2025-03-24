@@ -46,6 +46,6 @@
     "marked": "npm:marked@14.1.4",
     "marked-gfm-heading-id": "npm:marked-gfm-heading-id@4.1.1",
     "preact": "npm:preact@10.26.2",
-    "vite": "npm:vite@5.4.14"
+    "vite": "npm:vite@6.2.3"
   }
 }
