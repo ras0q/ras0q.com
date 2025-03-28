@@ -82,7 +82,9 @@ export function App() {
             </Draggable>
           ))}
 
-          {subRouteIDs.map((id) => <Connector leftID={titleID} rightID={id} />)}
+          {subRouteIDs.map((id) => (
+            <Connector key={id} leftID={titleID} rightID={id} />
+          ))}
           {subRoutes.map(({ path, left, top }, i) => (
             <Draggable
               id={subRouteIDs[i]}
