@@ -186,46 +186,10 @@ export const careers: LogProps[] = [
     },
   },
   {
-    duration: "2023.03.15 ~ 2023.03.17",
-    title: "株式会社ナレッジワーク",
-    link: "https://kwork.studio/",
-    subtitle: "インターンシップ",
-    related: {
-      "Job Description": "https://job.tracks.run/challenges/kwork-24-01",
-    },
-  },
-  {
-    duration: "2023.12.06 ~ 2023.12.08",
-    title: "Mercoin Hackathon 2023",
-    link: "https://about.mercari.com/",
-    subtitle: "インターンシップ",
-    related: {
-      "Job Description": "https://mercan.mercari.com/articles/40371/",
-    },
-  },
-  {
     duration: "2024.04 ~ now",
     title: "東京科学大学 工学院 情報通信系 情報通信コース",
     link: "https://educ.titech.ac.jp/ict/",
     subtitle: "修士課程",
-  },
-  {
-    duration: "2024.08.12 ~ 2024.08.16",
-    title: "日本経済新聞社",
-    link: "https://hack.nikkei.com/",
-    subtitle: "インターンシップ",
-    related: {
-      "Job Description": "https://hack.nikkei.com/internJobs/2024_summer/",
-    },
-  },
-  {
-    duration: "2024.09.02 ~ 2024.09.13",
-    title: "株式会社サイボウズ",
-    link: "https://cybozu.co.jp/",
-    subtitle: "インターンシップ",
-    related: {
-      "Job Descriotion": "https://cybozu.co.jp/company/job/recruitment/intern/",
-    },
   },
 ];
 
