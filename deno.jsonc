@@ -37,7 +37,7 @@
   ],
   "imports": {
     "@catppuccin/palette": "npm:@catppuccin/palette@1.7.1",
-    "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.5",
     "@pandacss/dev": "npm:@pandacss/dev@0.53.3",
     "@preact/preset-vite": "npm:@preact/preset-vite@2.10.1",
     "@preact/signals": "npm:@preact/signals@2.0.2",
