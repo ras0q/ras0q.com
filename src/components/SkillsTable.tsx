@@ -16,17 +16,32 @@ export const SkillsTable = (props: {
     <tbody>
       {props.skills.map((skill) => (
         <tr key={skill.name}>
-          <td class={css`vertical-align: top; padding-right: 2rem;`}>
+          <td
+            class={css`
+              vertical-align: top;
+              padding-right: 2rem;
+            `}
+          >
             {skill.level === 5 ? <GradientText>★★★★★</GradientText> : (
               <span>
                 {"★".repeat(skill.level) + "☆".repeat(5 - skill.level)}
               </span>
             )}
           </td>
-          <td class={css`vertical-align: top;`}>
+          <td
+            class={css`
+              vertical-align: top;
+            `}
+          >
             <details>
               <summary>{skill.name}</summary>
-              <div class={css`font-size: large;`}>{skill.description}</div>
+              <div
+                class={css`
+                  font-size: large;
+                `}
+              >
+                {skill.description}
+              </div>
             </details>
           </td>
         </tr>

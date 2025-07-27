@@ -22,7 +22,11 @@ export const LinkCard = ({ title, body, href }: Props) => {
         border-radius: var(--border-radius);
         background: transparent;
         &:hover {
-          background: linear-gradient(var(--angle), var(--colors-pink), var(--colors-lavender));
+          background: linear-gradient(
+            var(--angle),
+            var(--colors-pink),
+            var(--colors-lavender)
+          );
           animation: 2s rotate linear infinite;
         }
       `}
@@ -43,7 +47,9 @@ export const LinkCard = ({ title, body, href }: Props) => {
         <h2>
           <a
             href={href}
-            class={css`color: var(--colors-macchiato-text);`}
+            class={css`
+              color: var(--colors-macchiato-text);
+            `}
           >
             {title}
           </a>

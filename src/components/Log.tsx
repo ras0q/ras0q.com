@@ -18,7 +18,15 @@ const titleClass = css`
 export const Log = ({ duration, title, link, subtitle, related }: Props) => (
   <div>
     {duration.endsWith("now")
-      ? <GradientText class={css`font-weight: 500;`}>{duration}</GradientText>
+      ? (
+        <GradientText
+          class={css`
+            font-weight: 500;
+          `}
+        >
+          {duration}
+        </GradientText>
+      )
       : <p>{duration}</p>}
     <div>
       {link

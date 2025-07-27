@@ -1,6 +1,7 @@
 {
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check -I --all .",
+    "check:fix": "deno fmt && deno lint --fix && deno check -I --all .",
     "prepare": "deno run -A --node-modules-dir npm:@pandacss/dev",
     "dev": "deno task prepare && deno run -A --node-modules-dir npm:vite",
     "build": "deno task prepare && deno run -A --node-modules-dir npm:vite build",

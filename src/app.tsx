@@ -45,7 +45,14 @@ export function App() {
       >
         <InfiniteCanvas centerID={titleID}>
           <Draggable id={titleID} left={title.left} top={title.top} canDamping>
-            <GradientText class={cx(boldItalicStyle, css`font-size: 5rem;`)}>
+            <GradientText
+              class={cx(
+                boldItalicStyle,
+                css`
+                  font-size: 5rem;
+                `,
+              )}
+            >
               ras0q.com
             </GradientText>
           </Draggable>
@@ -74,7 +81,12 @@ export function App() {
             >
               <a href={`https://${name}${title.name}`}>
                 <GradientText
-                  class={cx(boldItalicStyle, css`font-size: 2rem;`)}
+                  class={cx(
+                    boldItalicStyle,
+                    css`
+                      font-size: 2rem;
+                    `,
+                  )}
                 >
                   {name}
                 </GradientText>
@@ -95,7 +107,12 @@ export function App() {
             >
               <a href={path}>
                 <GradientText
-                  class={cx(boldItalicStyle, css`font-size: 2rem;`)}
+                  class={cx(
+                    boldItalicStyle,
+                    css`
+                      font-size: 2rem;
+                    `,
+                  )}
                 >
                   {path}
                 </GradientText>
@@ -125,29 +142,29 @@ export function App() {
       >
         <div
           class={css`
-          display: grid;
-          grid-gap: inherit;
-          align-items: start;
-          grid-template-columns: 1fr 1fr;
-          @media (max-width: 600px) {
-            grid-template-columns: 1fr;
-          }
-        `}
+            display: grid;
+            grid-gap: inherit;
+            align-items: start;
+            grid-template-columns: 1fr 1fr;
+            @media (max-width: 600px) {
+              grid-template-columns: 1fr;
+            }
+          `}
         >
           <div
             class={css`
-            display: grid;
-            grid-gap: inherit;
-          `}
+              display: grid;
+              grid-gap: inherit;
+            `}
           >
             <section id="about">
               <h2>About</h2>
               <div
                 class={css`
-                display: grid;
-                grid-row-gap: 0.5rem;
-                font-size: large;
-              `}
+                  display: grid;
+                  grid-row-gap: 0.5rem;
+                  font-size: large;
+                `}
               >
                 <p
                   class={css`
@@ -173,7 +190,12 @@ export function App() {
 
             <section id="careers">
               <h2>Careers</h2>
-              <div class={css`display: grid; grid-row-gap: 1rem;`}>
+              <div
+                class={css`
+                  display: grid;
+                  grid-row-gap: 1rem;
+                `}
+              >
                 {careers.map((c) => <Log key={c.title} {...c} />)}
               </div>
             </section>
@@ -181,9 +203,9 @@ export function App() {
 
           <div
             class={css`
-            display: grid;
-            grid-gap: inherit;
-          `}
+              display: grid;
+              grid-gap: inherit;
+            `}
           >
             <section id="skills">
               <h2>Skills</h2>
@@ -192,41 +214,61 @@ export function App() {
 
             <section id="talks">
               <h2>Talks</h2>
-              <div class={css`display: grid; grid-row-gap: 1rem;`}>
+              <div
+                class={css`
+                  display: grid;
+                  grid-row-gap: 1rem;
+                `}
+              >
                 {talks.map((t) => <Log key={t.title} {...t} />)}
               </div>
             </section>
 
             <section id="contests">
               <h2>Contests</h2>
-              <div class={css`display: grid; grid-row-gap: 1rem;`}>
+              <div
+                class={css`
+                  display: grid;
+                  grid-row-gap: 1rem;
+                `}
+              >
                 {contests.map((c) => <Log key={c.title} {...c} />)}
               </div>
             </section>
           </div>
         </div>
 
-        <section id="works" class={css`grid-gap: inherit;`}>
+        <section
+          id="works"
+          class={css`
+            grid-gap: inherit;
+          `}
+        >
           <h2>Works</h2>
           <div
             class={css`
-            display: grid;
-            grid-gap: inherit;
-            grid-template-columns: 1fr 1fr;
-            @media (max-width: 600px) {
-              grid-template-columns: 1fr;
-            }
+              display: grid;
+              grid-gap: inherit;
+              grid-template-columns: 1fr 1fr;
+              @media (max-width: 600px) {
+                grid-template-columns: 1fr;
+              }
 
-            h2 {
-              font-size: xx-large;
-              margin-bottom: 1rem;
-            }
-          `}
+              h2 {
+                font-size: xx-large;
+                margin-bottom: 1rem;
+              }
+            `}
           >
             {Object.entries(works).map(([section, projects]) => (
               <section key={section}>
                 <h3>{section}</h3>
-                <div class={css`display: grid; grid-row-gap: 1rem;`}>
+                <div
+                  class={css`
+                    display: grid;
+                    grid-row-gap: 1rem;
+                  `}
+                >
                   {projects.map((project, index) => (
                     <Log
                       key={index}

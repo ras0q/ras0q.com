@@ -141,10 +141,10 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
             var(--colors-surface0) var(--bg-size)
           ),
           linear-gradient(
-            90deg,
-            transparent calc(var(--bg-size) - 1px),
-            var(--colors-surface0) var(--bg-size)
-          );
+          90deg,
+          transparent calc(var(--bg-size) - 1px),
+          var(--colors-surface0) var(--bg-size)
+        );
         background-size: var(--bg-size) var(--bg-size);
         background-position: var(--bg-position);
       `}
