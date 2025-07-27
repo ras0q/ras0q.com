@@ -39,7 +39,7 @@
     "@catppuccin/palette": "npm:@catppuccin/palette@1.7.1",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
     "@pandacss/dev": "npm:@pandacss/dev@0.53.3",
-    "@preact/preset-vite": "npm:@preact/preset-vite@2.10.1",
+    "@preact/preset-vite": "npm:@preact/preset-vite@2.10.2",
     "@preact/signals": "npm:@preact/signals@2.0.2",
     "preact": "npm:preact@10.26.4",
     "vite": "npm:vite@6.2.3"
