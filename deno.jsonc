@@ -39,7 +39,7 @@
     "@pandacss/dev": "npm:@pandacss/dev@0.54.0",
     "@preact/preset-vite": "npm:@preact/preset-vite@2.10.2",
     "@preact/signals": "npm:@preact/signals@2.0.2",
-    "preact": "npm:preact@10.26.4",
+    "preact": "npm:preact@10.27.1",
     "vite": "npm:vite@6.3.5"
   }
 }
