@@ -10,7 +10,7 @@
   },
   "compilerOptions": {
     "lib": [
-      "ES2020",
+      "ESNext",
       "DOM",
       "DOM.Iterable"
     ],
@@ -23,7 +23,6 @@
   "lint": {
     "rules": {
       "tags": [
-        "fresh",
         "recommended"
       ]
     }
