@@ -1,16 +1,15 @@
 {
+  "nodeModulesDir": "auto",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check -I --all .",
     "check:fix": "deno fmt && deno lint --fix && deno check -I --all .",
-    "prepare": "deno run -A --node-modules-dir npm:@pandacss/dev",
-    "dev": "deno task prepare && deno run -A --node-modules-dir npm:vite",
-    "build": "deno task prepare && deno run -A --node-modules-dir npm:vite build",
-    "preview": "deno task prepare && deno run -A --node-modules-dir npm:vite preview",
-    "serve": "deno task prepare && deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
+    "dev": "panda -w & vite",
+    "build": "panda && vite build",
+    "preview": "vite preview"
   },
   "compilerOptions": {
     "lib": [
-      "ES2020",
+      "ESNext",
       "DOM",
       "DOM.Iterable"
     ],
@@ -23,7 +22,6 @@
   "lint": {
     "rules": {
       "tags": [
-        "fresh",
         "recommended"
       ]
     }
