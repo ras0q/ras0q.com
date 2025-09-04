@@ -38,7 +38,7 @@
     "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.5",
     "@pandacss/dev": "npm:@pandacss/dev@0.54.0",
     "@preact/preset-vite": "npm:@preact/preset-vite@2.10.2",
-    "@preact/signals": "npm:@preact/signals@2.0.2",
+    "@preact/signals": "npm:@preact/signals@2.3.1",
     "preact": "npm:preact@10.26.4",
     "vite": "npm:vite@6.3.5"
   }
