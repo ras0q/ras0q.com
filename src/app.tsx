@@ -15,14 +15,6 @@ import {
   works,
 } from "./consts.ts";
 import { css } from "./styled-system/css/css.mjs";
-import { cx } from "./styled-system/css/cx.mjs";
-
-const boldItalicStyle = css`
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: 800;
-  padding: 0 0.25rem; /* prevent italic text cut */
-`;
 
 const LinkOrPlain = ({ link, children }: {
   link?: string;
@@ -57,6 +49,20 @@ export function App() {
           }
 
           mask-image: linear-gradient(to bottom, black 80%, transparent);
+
+          span {
+            font-size: 2rem;
+            font-weight: 800;
+
+            &.item-title {
+              font-size: 5rem;
+              color: var(--colors-peach);
+            }
+          }
+
+          a {
+            color: var(--colors-lavender);
+          }
         `}
       >
         <InfiniteCanvas centerID="item-0">
@@ -70,14 +76,9 @@ export function App() {
               <LinkOrPlain link={item.link}>
                 {item.type === "text"
                   ? (
-                    <GradientText
-                      class={cx(
-                        item.extraClass,
-                        boldItalicStyle,
-                      )}
-                    >
+                    <span class={item.extraClass}>
                       {item.text}
-                    </GradientText>
+                    </span>
                   )
                   : item.type === "image"
                   ? (

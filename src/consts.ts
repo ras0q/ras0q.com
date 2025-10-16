@@ -1,5 +1,4 @@
 import type { Log } from "./components/Log.tsx";
-import { css } from "./styled-system/css/css.mjs";
 
 type CanvasItem =
   & {
@@ -26,9 +25,7 @@ export const canvasItems: CanvasItem[] = [
     type: "text",
     left: 340,
     top: 276,
-    extraClass: css`
-      font-size: 5rem !important;
-    `,
+    extraClass: "item-title",
     text: "ras0q.com",
   },
   {
