@@ -18,6 +18,7 @@ import { css } from "./styled-system/css/css.mjs";
 import { cx } from "./styled-system/css/cx.mjs";
 
 const boldItalicStyle = css`
+  font-size: 2rem;
   font-style: italic;
   font-weight: 800;
   padding: 0 0.25rem; /* prevent italic text cut */
@@ -71,14 +72,8 @@ export function App() {
                   ? (
                     <GradientText
                       class={cx(
+                        item.extraClass,
                         boldItalicStyle,
-                        item.size === "main"
-                          ? css`
-                            font-size: 5rem;
-                          `
-                          : css`
-                            font-size: 2rem;
-                          `,
                       )}
                     >
                       {item.text}
@@ -91,6 +86,7 @@ export function App() {
                       alt={item.alt}
                       width={item.width}
                       height={item.height}
+                      class={item.extraClass}
                     />
                   )
                   : null}
