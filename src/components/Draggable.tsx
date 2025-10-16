@@ -42,7 +42,9 @@ export const Draggable = (
         });
       }, { signal: pointerAbortController.signal });
 
-      document.addEventListener("pointerup", () => {
+      document.addEventListener("pointerup", (e: PointerEvent) => {
+        e.preventDefault();
+
         pointerAbortController.abort("pointerup");
 
         if (!canDamping) return;
