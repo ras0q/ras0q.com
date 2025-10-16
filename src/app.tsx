@@ -162,6 +162,11 @@ export function App() {
               </div>
             </section>
 
+            <section id="skills">
+              <h2>Skills</h2>
+              <SkillsTable skills={skills} />
+            </section>
+
             <section id="careers">
               <h2>Careers</h2>
               <div
@@ -181,11 +186,6 @@ export function App() {
               grid-gap: inherit;
             `}
           >
-            <section id="skills">
-              <h2>Skills</h2>
-              <SkillsTable skills={skills} />
-            </section>
-
             <section id="talks">
               <h2>Talks</h2>
               <div
