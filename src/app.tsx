@@ -6,14 +6,12 @@ import { Log } from "./components/Log.tsx";
 import { SkillsTable } from "./components/SkillsTable.tsx";
 import {
   aboutDescription,
+  canvasConnections,
+  canvasItems,
   careers,
   contests,
-  icons,
   skills,
-  subDomains,
-  subRoutes,
   talks,
-  title,
   works,
 } from "./consts.ts";
 import { css } from "./styled-system/css/css.mjs";
@@ -25,11 +23,28 @@ const boldItalicStyle = css`
   padding: 0 0.25rem; /* prevent italic text cut */
 `;
 
-export function App() {
-  const titleID = "title";
-  const subdomainIDs = subDomains.map((_, i) => `subdomain_${i}`);
-  const subRouteIDs = subRoutes.map((_, i) => `subroutes_${i}`);
+const LinkOrPlain = ({ link, children }: {
+  link?: string;
+  children: preact.ComponentChildren;
+}) => {
+  const isExternal = link !== undefined && !["/", "#", "?"].includes(link[0]);
 
+  return (
+    link
+      ? (
+        <a
+          href={link}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+        >
+          {children}
+        </a>
+      )
+      : <>{children}</>
+  );
+};
+
+export function App() {
   return (
     <main>
       <section
@@ -43,81 +58,48 @@ export function App() {
           mask-image: linear-gradient(to bottom, black 80%, transparent);
         `}
       >
-        <InfiniteCanvas centerID={titleID}>
-          <Draggable id={titleID} left={title.left} top={title.top} canDamping>
-            <GradientText
-              class={cx(
-                boldItalicStyle,
-                css`
-                  font-size: 5rem;
-                `,
-              )}
-            >
-              ras0q.com
-            </GradientText>
-          </Draggable>
-
-          {icons.map(({ name, link, path, left, top }) => (
-            <Draggable id={name} left={left} top={top} canDamping>
-              <a href={link}>
-                <img src={path} alt={name} width="32px" height="32px" />
-              </a>
-            </Draggable>
-          ))}
-
-          {subdomainIDs.map((id) => (
-            <Connector
-              leftID={id}
-              rightID={titleID}
-            />
-          ))}
-          {subDomains.map(({ name, left, top }, i) => (
+        <InfiniteCanvas centerID="item-0">
+          {canvasItems.map((item, i) => (
             <Draggable
-              id={subdomainIDs[i]}
-              key={name}
-              left={left}
-              top={top}
+              id={`item-${i}`}
+              left={item.left}
+              top={item.top}
               canDamping
             >
-              <a href={`https://${name}${title.name}`}>
-                <GradientText
-                  class={cx(
-                    boldItalicStyle,
-                    css`
-                      font-size: 2rem;
-                    `,
-                  )}
-                >
-                  {name}
-                </GradientText>
-              </a>
+              <LinkOrPlain link={item.link}>
+                {item.type === "text"
+                  ? (
+                    <GradientText
+                      class={cx(
+                        boldItalicStyle,
+                        item.size === "main"
+                          ? css`
+                            font-size: 5rem;
+                          `
+                          : css`
+                            font-size: 2rem;
+                          `,
+                      )}
+                    >
+                      {item.text}
+                    </GradientText>
+                  )
+                  : item.type === "image"
+                  ? (
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      width={item.width}
+                      height={item.height}
+                    />
+                  )
+                  : null}
+              </LinkOrPlain>
             </Draggable>
           ))}
 
-          {subRouteIDs.map((id) => (
-            <Connector key={id} leftID={titleID} rightID={id} />
-          ))}
-          {subRoutes.map(({ path, left, top }, i) => (
-            <Draggable
-              id={subRouteIDs[i]}
-              key={path}
-              left={left}
-              top={top}
-              canDamping
-            >
-              <a href={path}>
-                <GradientText
-                  class={cx(
-                    boldItalicStyle,
-                    css`
-                      font-size: 2rem;
-                    `,
-                  )}
-                >
-                  {path}
-                </GradientText>
-              </a>
-            </Draggable>
+          {canvasConnections.map(([left, right]) => (
+            <Connector leftID={`item-${left}`} rightID={`item-${right}`} />
           ))}
         </InfiniteCanvas>
       </section>
@@ -178,11 +160,6 @@ export function App() {
                   `}
                 >
                   Ras / <GradientText>@ras0q</GradientText>
-                  {icons.map(({ name, link, path }) => (
-                    <a href={link}>
-                      <img src={path} alt={name} width="16px" height="16px" />
-                    </a>
-                  ))}
                 </p>
                 <p>{aboutDescription}</p>
               </div>

@@ -1,98 +1,158 @@
 import type { Log } from "./components/Log.tsx";
 
-export const title = {
-  name: "ras0q.com",
-  left: 345,
-  top: 276,
-};
+type CanvasItem =
+  & {
+    type: string;
+    left: number;
+    top: number;
+  }
+  & ({
+    type: "text";
+    text: string;
+    link?: string;
+    size?: "main";
+  } | {
+    type: "image";
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    link?: string;
+  });
 
-export const icons = [
+export const canvasItems: CanvasItem[] = [
   {
-    name: "X",
-    link: "https://x.com/ras0q",
-    path: "/img/x.svg",
+    type: "text",
+    left: 345,
+    top: 276,
+    text: "ras0q.com",
+    size: "main",
+  },
+  {
+    type: "image",
     left: 550,
     top: 250,
+    src: "/img/x.svg",
+    alt: "Xのアイコンリンク",
+    width: 32,
+    height: 32,
+    link: "https://x.com/ras0q",
   },
   {
-    name: "GitHub",
-    link: "https://github.com/ras0q",
-    path: "/img/github.svg",
+    type: "image",
     left: 600,
     top: 250,
+    src: "/img/github.svg",
+    alt: "GitHubのアイコンリンク",
+    width: 32,
+    height: 32,
+    link: "https://github.com/ras0q",
   },
   {
-    name: "Bluesky",
-    link: "https://bsky.app/profile/ras0q.com",
-    path: "/img/bluesky.svg",
+    type: "image",
     left: 650,
     top: 250,
+    src: "/img/bluesky.svg",
+    alt: "Blueskyのアイコンリンク",
+    width: 32,
+    height: 32,
+    link: "https://bsky.app/profile/ras0q.com",
   },
   {
-    name: "Nostr",
-    link: "https://njump.me/ras0q.com",
-    path: "/img/nostr.svg",
+    type: "image",
     left: 700,
     top: 250,
+    src: "/img/nostr.svg",
+    alt: "Nostrのアイコンリンク",
+    width: 32,
+    height: 32,
+    link: "https://njump.me/ras0q.com",
   },
   {
-    name: "mixi2",
-    link: "https://mixi.social/@ras0q",
-    path: "/img/mixi2.svg",
+    type: "image",
     left: 750,
     top: 250,
+    src: "/img/mixi2.svg",
+    alt: "mixi2のアイコンリンク",
+    width: 32,
+    height: 32,
+    link: "https://mixi.social/@ras0q",
   },
-];
-
-export const subDomains = [
   {
-    name: "slitscan3d.",
+    type: "text",
     left: 100,
     top: 150,
+    text: "slitscan3d.",
+    link: "https://slitscan3d.ras0q.com",
   },
   {
-    name: "blog.",
+    type: "text",
     left: 100,
     top: 315,
+    text: "blog.",
+    link: "https://blog.ras0q.com",
   },
   {
-    name: "nostraq.",
+    type: "text",
     left: 100,
     top: 450,
+    text: "nostraq.",
+    link: "https://nostraq.ras0q.com",
+  },
+  {
+    type: "text",
+    left: 900,
+    top: 50,
+    text: "#about",
+    link: "#about",
+  },
+  {
+    type: "text",
+    left: 900,
+    top: 150,
+    text: "#careers",
+    link: "#careers",
+  },
+  {
+    type: "text",
+    left: 900,
+    top: 250,
+    text: "#skills",
+    link: "#skills",
+  },
+  {
+    type: "text",
+    left: 900,
+    top: 350,
+    text: "#talks",
+    link: "#talks",
+  },
+  {
+    type: "text",
+    left: 900,
+    top: 450,
+    text: "#contests",
+    link: "#contests",
+  },
+  {
+    type: "text",
+    left: 900,
+    top: 550,
+    text: "#works",
+    link: "#works",
   },
 ];
 
-export const subRoutes = [
-  {
-    path: "#about",
-    left: 900,
-    top: 50,
-  },
-  {
-    path: "#careers",
-    left: 900,
-    top: 150,
-  },
-  {
-    path: "#skills",
-    left: 900,
-    top: 250,
-  },
-  {
-    path: "#talks",
-    left: 900,
-    top: 350,
-  },
-  {
-    path: "#contests",
-    left: 900,
-    top: 450,
-  },
-  {
-    path: "#works",
-    left: 900,
-    top: 550,
-  },
+export const canvasConnections: [number, number][] = [
+  [6, 0],
+  [7, 0],
+  [8, 0],
+  [0, 9],
+  [0, 10],
+  [0, 11],
+  [0, 12],
+  [0, 13],
+  [0, 14],
 ];
 
 export const aboutDescription = `東京科学大学 修士課程1年
