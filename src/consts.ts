@@ -161,7 +161,7 @@ export const canvasItems: CanvasItem[] = [
     top: 375,
     src: "/img/wave1.svg",
     alt: "タイトルの下に引かれた波線1",
-    width: 456,
+    width: 23 * 20,
   },
   {
     type: "image",
@@ -169,7 +169,7 @@ export const canvasItems: CanvasItem[] = [
     top: 400,
     src: "/img/wave2.svg",
     alt: "タイトルの下に引かれた波線2",
-    width: 250.8,
+    width: 23 * 11,
   },
 ];
 
