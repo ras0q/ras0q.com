@@ -80,24 +80,31 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "text",
-    left: 100,
+    left: 121,
     top: 150,
-    text: "slitscan3d.",
-    link: "https://slitscan3d.ras0q.com",
-  },
-  {
-    type: "text",
-    left: 100,
-    top: 315,
     text: "blog.",
     link: "https://blog.ras0q.com",
   },
   {
     type: "text",
-    left: 100,
-    top: 450,
+    left: 113,
+    top: 250,
+    text: "talks.",
+    link: "https://talks.ras0q.com",
+  },
+  {
+    type: "text",
+    left: 70,
+    top: 350,
     text: "nostraq.",
     link: "https://nostraq.ras0q.com",
+  },
+  {
+    type: "text",
+    left: 23,
+    top: 450,
+    text: "slitscan3d.",
+    link: "https://slitscan3d.ras0q.com",
   },
   {
     type: "text",
@@ -163,17 +170,18 @@ export const canvasConnections: [number, number][] = [
   [6, 0],
   [7, 0],
   [8, 0],
-  [0, 9],
+  [9, 0],
   [0, 10],
   [0, 11],
   [0, 12],
   [0, 13],
   [0, 14],
+  [0, 15],
 ];
 
-export const aboutDescription = `東京科学大学 修士課程1年
+export const aboutDescription = `東京科学大学 修士課程2年
 Webバックエンド、iOSアプリの開発が得意です。
-現在は、開発ツールやプラグインなど普段の開発体験を拡張する形で開発者を支援する技術、機械学習のプライバシー保護技術などに興味があります。`;
+現在は、開発ツールやプラグインなど普段の開発体験を拡張する形で開発者を支援する技術、秘密計算などに興味があります。`;
 
 export const skills = [
   {
@@ -291,8 +299,19 @@ export const talks: LogProps[] = [
     related: {
       Proposal:
         "https://fortee.jp/iosdc-japan-2024/proposal/c39177cc-63a3-46f6-a3e4-5be077839662",
-      Slide: "https://ras0q.github.io/iosdc2024/",
+      Slide: "https://talks.ras0q.com/2024-08-24-iosdc2024-pdf-annotation/",
       GitHub: "https://github.com/ras0q/iosdc2024",
+    },
+  },
+  {
+    duration: "2025.09.01",
+    title: "golang.tokyo #40",
+    link: "https://golangtokyo.connpass.com/event/365231/",
+    subtitle: "LT「Never miss defer 'd errors!」",
+    related: {
+      Slide: "https://talks.ras0q.com/2025-09-01-golangtokyo-goalie/",
+      GitHub: "https://github.com/ras0q/goalie",
+      Zenn: "https://zenn.dev/ras96/articles/a5a7a578d5970e",
     },
   },
 ];
@@ -380,11 +399,15 @@ ISUCON12で使用した`,
       },
     },
     {
-      duration: "2022.08",
-      title: "traQ iOS (WIP)",
-      link: "https://github.com/ras0q/traq-ios-clone",
-      subtitle: `部内SNS『traQ』をSwiftで再現したiOSアプリ (非公式)
-Swift Package centered project、The Composable Architectureなどを使用して開発中`,
+      duration: "2025.08",
+      title: "Goalie",
+      link: "https://github.com/ras0q/goalie",
+      subtitle:
+        `Goalie は、defer 文で実行する関数のエラーハンドリングに特化したライブラリです。`,
+      related: {
+        Slide: "https://talks.ras0q.com/2025-09-01-golangtokyo-goalie/",
+        Zenn: "https://zenn.dev/ras96/articles/a5a7a578d5970e",
+      },
     },
   ],
   "Team Projects": [
