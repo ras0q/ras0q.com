@@ -52,7 +52,7 @@ export function App() {
 
           span {
             font-size: 2rem;
-            font-weight: 800;
+            font-weight: 900;
 
             &.item-title {
               font-size: 5rem;

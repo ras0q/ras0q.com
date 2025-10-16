@@ -30,7 +30,7 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 430,
+    left: 415,
     top: 433,
     src: "/img/x.svg",
     alt: "Xのアイコンリンク",
@@ -40,7 +40,7 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 480,
+    left: 465,
     top: 433,
     src: "/img/github.svg",
     alt: "GitHubのアイコンリンク",
@@ -50,7 +50,7 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 530,
+    left: 515,
     top: 433,
     src: "/img/mixi2.svg",
     alt: "mixi2のアイコンリンク",
@@ -60,7 +60,7 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 580,
+    left: 600,
     top: 493,
     src: "/img/bluesky.svg",
     alt: "Blueskyのアイコンリンク",
@@ -70,7 +70,7 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 630,
+    left: 650,
     top: 493,
     src: "/img/nostr.svg",
     alt: "Nostrのアイコンリンク",
@@ -143,19 +143,19 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 340,
+    left: 332,
     top: 375,
     src: "/img/wave1.svg",
     alt: "タイトルの下に引かれた波線1",
-    width: 408,
+    width: 456,
   },
   {
     type: "image",
-    left: 340,
+    left: 332,
     top: 400,
     src: "/img/wave2.svg",
     alt: "タイトルの下に引かれた波線2",
-    width: 240,
+    width: 250.8,
   },
 ];
 

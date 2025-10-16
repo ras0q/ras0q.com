@@ -1,8 +1,5 @@
 @layer reset, base, tokens, recipes, utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap");
+@import "@fontsource-variable/inter";
 
 :root {
   --is-mobile: false;
@@ -13,7 +10,7 @@
 
 @layer base {
   html {
-    font-family: "Inter", "Zen Kaku Gothic New", sans-serif;
+    font-family: "Inter Variable", "Zen Kaku Gothic New", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
   }
@@ -39,7 +36,7 @@
     }
 
     code {
-      font-family: "Source Code Pro";
+      font-family: monospace;
       background-color: var(--colors-mantle);
       border-radius: 0.25rem;
       padding: 0 0.25rem;

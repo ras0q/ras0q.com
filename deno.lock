@@ -3,6 +3,7 @@
   "specifiers": {
     "npm:@catppuccin/palette@1.7.1": "1.7.1",
     "npm:@deno/vite-plugin@1.0.5": "1.0.5_vite@7.1.10__picomatch@4.0.3",
+    "npm:@fontsource-variable/inter@^5.2.8": "5.2.8",
     "npm:@pandacss/dev@1.4.2": "1.4.2",
     "npm:@preact/preset-vite@2.10.2": "2.10.2_@babel+core@7.28.4_vite@7.1.10__picomatch@4.0.3_preact@10.27.2",
     "npm:@preact/signals@2.3.2": "2.3.2_preact@10.27.2",
@@ -331,6 +332,9 @@
       "integrity": "sha512-D7Hpz6A2L4hzsRpPaCYkQnGOotdUpDzSGRIv9I+1ITdHROSFUWW95ZPZWQmGka1Fg7W3zFJowyn9WGwMJ0+KPA==",
       "os": ["win32"],
       "cpu": ["x64"]
+    },
+    "@fontsource-variable/inter@5.2.8": {
+      "integrity": "sha512-kOfP2D+ykbcX/P3IFnokOhVRNoTozo5/JxhAIVYLpea/UBmCQ/YWPBfWIDuBImXX/15KH+eKh4xpEUyS2sQQGQ=="
     },
     "@isaacs/balanced-match@4.0.1": {
       "integrity": "sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ=="
@@ -1623,6 +1627,7 @@
     "dependencies": [
       "npm:@catppuccin/palette@1.7.1",
       "npm:@deno/vite-plugin@1.0.5",
+      "npm:@fontsource-variable/inter@^5.2.8",
       "npm:@pandacss/dev@1.4.2",
       "npm:@preact/preset-vite@2.10.2",
       "npm:@preact/signals@2.3.2",
