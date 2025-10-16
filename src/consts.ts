@@ -81,30 +81,37 @@ export const canvasItems: CanvasItem[] = [
   {
     type: "text",
     left: 121,
-    top: 150,
+    top: 100,
     text: "blog.",
     link: "https://blog.ras0q.com",
   },
   {
     type: "text",
     left: 113,
-    top: 250,
+    top: 200,
     text: "talks.",
     link: "https://talks.ras0q.com",
   },
   {
     type: "text",
     left: 70,
-    top: 350,
+    top: 300,
     text: "nostraq.",
     link: "https://nostraq.ras0q.com",
   },
   {
     type: "text",
     left: 23,
-    top: 450,
+    top: 400,
     text: "slitscan3d.",
     link: "https://slitscan3d.ras0q.com",
+  },
+  {
+    type: "text",
+    left: 80,
+    top: 500,
+    text: "email@",
+    link: "mailto:email@ras0q.com",
   },
   {
     type: "text",
@@ -171,12 +178,13 @@ export const canvasConnections: [number, number][] = [
   [7, 0],
   [8, 0],
   [9, 0],
-  [0, 10],
+  [10, 0],
   [0, 11],
   [0, 12],
   [0, 13],
   [0, 14],
   [0, 15],
+  [0, 16],
 ];
 
 export const aboutDescription = `東京科学大学 修士課程2年
