@@ -16,15 +16,15 @@ type CanvasItem =
     type: "image";
     src: string;
     alt: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
     link?: string;
   });
 
 export const canvasItems: CanvasItem[] = [
   {
     type: "text",
-    left: 345,
+    left: 340,
     top: 276,
     extraClass: css`
       font-size: 5rem !important;
@@ -33,8 +33,8 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 550,
-    top: 250,
+    left: 430,
+    top: 433,
     src: "/img/x.svg",
     alt: "Xのアイコンリンク",
     width: 32,
@@ -43,8 +43,8 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 600,
-    top: 250,
+    left: 480,
+    top: 433,
     src: "/img/github.svg",
     alt: "GitHubのアイコンリンク",
     width: 32,
@@ -53,8 +53,18 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 650,
-    top: 250,
+    left: 530,
+    top: 433,
+    src: "/img/mixi2.svg",
+    alt: "mixi2のアイコンリンク",
+    width: 32,
+    height: 32,
+    link: "https://mixi.social/@ras0q",
+  },
+  {
+    type: "image",
+    left: 580,
+    top: 493,
     src: "/img/bluesky.svg",
     alt: "Blueskyのアイコンリンク",
     width: 32,
@@ -63,23 +73,13 @@ export const canvasItems: CanvasItem[] = [
   },
   {
     type: "image",
-    left: 700,
-    top: 250,
+    left: 630,
+    top: 493,
     src: "/img/nostr.svg",
     alt: "Nostrのアイコンリンク",
     width: 32,
     height: 32,
     link: "https://njump.me/ras0q.com",
-  },
-  {
-    type: "image",
-    left: 750,
-    top: 250,
-    src: "/img/mixi2.svg",
-    alt: "mixi2のアイコンリンク",
-    width: 32,
-    height: 32,
-    link: "https://mixi.social/@ras0q",
   },
   {
     type: "text",
@@ -143,6 +143,22 @@ export const canvasItems: CanvasItem[] = [
     top: 550,
     text: "#works",
     link: "#works",
+  },
+  {
+    type: "image",
+    left: 340,
+    top: 375,
+    src: "/img/wave1.svg",
+    alt: "タイトルの下に引かれた波線1",
+    width: 408,
+  },
+  {
+    type: "image",
+    left: 340,
+    top: 400,
+    src: "/img/wave2.svg",
+    alt: "タイトルの下に引かれた波線2",
+    width: 240,
   },
 ];
 

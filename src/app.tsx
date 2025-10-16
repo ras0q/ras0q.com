@@ -84,8 +84,8 @@ export function App() {
                     <img
                       src={item.src}
                       alt={item.alt}
-                      width={item.width}
-                      height={item.height}
+                      width={item.width ? `${item.width}px` : "100%"}
+                      height={item.height ? `${item.height}px` : "auto"}
                       class={item.extraClass}
                     />
                   )
