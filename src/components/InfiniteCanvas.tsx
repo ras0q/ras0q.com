@@ -42,15 +42,15 @@ export const InfiniteCanvas = ({ children, centerID }: Props) => {
     }, { signal: abortController.signal });
 
     el.addEventListener("wheel", (e: WheelEvent) => {
-      e.preventDefault();
-
       const zoom = -Math.sign(e.deltaY); // 1: zoom in, -1: zoom out
       if (
         (zoom === 1 && scale.value >= 10.0) ||
-        (zoom === -1 && scale.value <= 0.2)
+        (zoom === -1 && scale.value <= 0.5)
       ) {
         return;
       }
+
+      e.preventDefault();
 
       const rect = el.getBoundingClientRect();
       const newScale = Math.round(scale.value * 100 + 5 * zoom) /
