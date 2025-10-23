@@ -41,6 +41,6 @@
     "@preact/preset-vite": "npm:@preact/preset-vite@2.10.2",
     "@preact/signals": "npm:@preact/signals@2.3.2",
     "preact": "npm:preact@10.27.2",
-    "vite": "npm:vite@7.1.11"
+    "vite": "npm:vite@7.1.12"
   }
 }
