@@ -39,7 +39,7 @@
     "@fontsource-variable/inter": "npm:@fontsource-variable/inter@^5.2.8",
     "@pandacss/dev": "npm:@pandacss/dev@1.5.1",
     "@preact/preset-vite": "npm:@preact/preset-vite@2.10.2",
-    "@preact/signals": "npm:@preact/signals@2.5.0",
+    "@preact/signals": "npm:@preact/signals@2.5.1",
     "preact": "npm:preact@10.27.2",
     "vite": "npm:vite@7.2.2"
   }
