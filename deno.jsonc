@@ -37,7 +37,7 @@
     "@catppuccin/palette": "npm:@catppuccin/palette@1.7.1",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.5",
     "@fontsource-variable/inter": "npm:@fontsource-variable/inter@^5.2.8",
-    "@pandacss/dev": "npm:@pandacss/dev@1.7.0",
+    "@pandacss/dev": "npm:@pandacss/dev@1.7.1",
     "@preact/preset-vite": "npm:@preact/preset-vite@2.10.2",
     "@preact/signals": "npm:@preact/signals@2.5.1",
     "preact": "npm:preact@10.28.0",
