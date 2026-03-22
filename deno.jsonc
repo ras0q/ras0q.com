@@ -34,7 +34,7 @@
     "./vite.config.ts"
   ],
   "imports": {
-    "@catppuccin/palette": "npm:@catppuccin/palette@1.7.1",
+    "@catppuccin/palette": "npm:@catppuccin/palette@1.8.0",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.6",
     "@fontsource-variable/inter": "npm:@fontsource-variable/inter@^5.2.8",
     "@pandacss/dev": "npm:@pandacss/dev@1.9.0",
